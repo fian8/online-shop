@@ -13,7 +13,7 @@ public class secondaryPanel {
         allPanel.setBounds(0, 0, 1080, 720);
         allPanel.setLayout(null);
 
-        // list cards panel
+        // main panel
         mainPanel = new JPanel();
         mainPanel.setBounds(150, 100, 780, 500);
         mainPanel.setBackground(Color.blue);

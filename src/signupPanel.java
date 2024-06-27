@@ -15,8 +15,8 @@ public class signupPanel extends secondaryPanel {
         mainPanel.setLayout(null);
 
         // text label (edit)
-        titleLabel.setText("پنل ورود");
-        titleLabel.setBounds(495, 40, 90, 30);
+        titleLabel.setText("پنل ثبت نام");
+        titleLabel.setBounds(480, 40, 120, 30);
 
         // back button
         backButton.goTo(allPanel, null, frame);
