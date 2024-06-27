@@ -1,22 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class cartPanel extends productsListPanel {
+public class cartPanel extends listPanel {
     button finializeButton;
     public cartPanel(JFrame frame) {
 
         super(frame);
+
+        // list cards panel
+        listCardsPanel.setLayout(new GridLayout(5, 1));
 
         // text label (edit)
         titleLabel.setText("سبد خرید");
         titleLabel.setBounds(485, 40, 120, 30);
 
         // back button
-        backButton.goTo(allPanels, null, frame);
+        backButton.goTo(allPanel, null, frame);
 
         // finalize button
-        finializeButton  = new button("نهایی کن", Color.white, allPanels);
-        finializeButton.goTo(allPanels, null, frame);
+        finializeButton  = new button("نهایی کن", Color.white, allPanel);
+        finializeButton.goTo(allPanel, null, frame);
         finializeButton.getButton().setBounds(490, 630, 100, 30);
 
     }

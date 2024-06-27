@@ -15,7 +15,7 @@ public class sellerProductsPanel extends productsPanel {
         profileButton.getButton().setBounds(250, 15, 100, 30);
         profileButton.getButton().setOpaque(true);
 
-        // edit products button
+        // add products button
         addProductButton = new button("افزودن محصول", Color.white, navBar);
         addProductButton.goTo(allPanels, null, frame);
         addProductButton.getButton().setBounds(360, 15, 120, 30);
