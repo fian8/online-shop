@@ -5,7 +5,7 @@ public class productsPanel {
     public JLabel title, sortLabel;
     public JPanel allPanels, navBar, sortBar, productsCardsPanel;
     public JTextField searchField;
-    public button searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
+    public button profileButton, searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
     public  Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public  Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
     public productsPanel(JFrame frame) {
@@ -26,6 +26,10 @@ public class productsPanel {
         title.setBounds(60, 17, 200, 30);
         title.setFont(titleFont);
         navBar.add(title);
+
+        // profile button
+        profileButton = new button("پنل کاربری", primaryColor, navBar);
+        profileButton.goTo(navBar, null, frame);
 
         // search field
         searchField = new JTextField();

@@ -12,13 +12,13 @@ public class button implements ActionListener {
         theButton = new JButton(text);
         panel.add(theButton);
         theButton.setBackground(color);
+        theButton.setFocusable(false);
     }
     public void goTo(JPanel currentPanel, JPanel goalPanel, JFrame frame) {
         this.currentPanel = currentPanel;
         this.goalPanel = goalPanel;
         this.frame = frame;
         theButton.addActionListener(this);
-        theButton.setFocusable(false);
     }
     public JButton getButton() {
         return this.theButton;

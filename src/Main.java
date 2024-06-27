@@ -11,12 +11,12 @@ public class Main {
         frame.setSize(1080, 720);
         frame.setLayout(null);
 
-        productsPanel productsPanel = new userProductsPanel(frame);
+        productsPanel productsPanel = new sellerProductsPanel(frame);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
     // todo:
     //  1. frame: scrollable
-    //  2. frame: fixed size or responsive
+    //  2. frame: fixed size or responsive.
 }

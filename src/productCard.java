@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class productCard {
     private JLabel nameLabel, priceLabel, imageLabel;
