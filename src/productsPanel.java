@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class productsPanel {
-    public JLabel title, sortLabel;
+    public JLabel titleLabel, sortLabel;
     public JPanel allPanels, navBar, sortBar, productsCardsPanel;
     public JTextField searchField;
     public button profileButton, searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
@@ -22,14 +22,14 @@ public class productsPanel {
         navBar.setBackground(Color.decode("#FF841F"));
 
         // title label
-        title = new JLabel("Online Shop");
-        title.setBounds(60, 17, 200, 30);
-        title.setFont(titleFont);
-        navBar.add(title);
+        titleLabel = new JLabel("Online Shop");
+        titleLabel.setBounds(60, 17, 200, 30);
+        titleLabel.setFont(titleFont);
+        navBar.add(titleLabel);
 
         // profile button
         profileButton = new button("پنل کاربری", primaryColor, navBar);
-        profileButton.goTo(navBar, null, frame);
+        profileButton.goTo(allPanels, null, frame);
 
         // search field
         searchField = new JTextField();
@@ -90,5 +90,6 @@ public class productsPanel {
         allPanels.add(productsCardsPanel);
 
         frame.add(allPanels);
+
     }
 }

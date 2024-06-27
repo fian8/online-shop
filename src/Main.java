@@ -11,7 +11,7 @@ public class Main {
         frame.setSize(1080, 720);
         frame.setLayout(null);
 
-        productsPanel productsPanel = new sellerProductsPanel(frame);
+        productsListPanel panel = new cartPanel(frame);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

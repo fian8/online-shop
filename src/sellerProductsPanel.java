@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class sellerProductsPanel extends productsPanel {
 
-    button editProductsButton, stockButton, usersListButton;
+    button addProductButton, stockButton, usersListButton;
     JLabel salesAmountTextLabel, salesAmountNumLabel;
     public sellerProductsPanel(JFrame frame) {
 
@@ -16,18 +16,18 @@ public class sellerProductsPanel extends productsPanel {
         profileButton.getButton().setOpaque(true);
 
         // edit products button
-        editProductsButton = new button("ویرایش محصولات", Color.white, navBar);
-        editProductsButton.goTo(navBar, null, frame);
-        editProductsButton.getButton().setBounds(360, 15, 120, 30);
+        addProductButton = new button("افزودن محصول", Color.white, navBar);
+        addProductButton.goTo(allPanels, null, frame);
+        addProductButton.getButton().setBounds(360, 15, 120, 30);
 
         // stock button
         stockButton = new button("موجودی انبار", Color.white, navBar);
-        stockButton.goTo(navBar, null, frame);
+        stockButton.goTo(allPanels, null, frame);
         stockButton.getButton().setBounds(490, 15, 100, 30);
 
         // users list button
         usersListButton = new button("لیست کاربران", Color.white, navBar);
-        usersListButton.goTo(navBar, null, frame);
+        usersListButton.goTo(allPanels, null, frame);
         usersListButton.getButton().setBounds(600, 15, 100, 30);
 
         // search field (edit)

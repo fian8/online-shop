@@ -16,5 +16,7 @@ public class productCard {
         cardPanel.add(nameLabel);
         cardPanel.add(priceLabel);
 
+        cardPanel.setPreferredSize(new Dimension(300, 220));
+
     }
 }
