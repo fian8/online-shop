@@ -5,7 +5,7 @@ public class productsPanel {
     public JLabel title, sortLabel;
     public JPanel allPanels, navBar, sortBar, productsCardsPanel;
     public JTextField searchField;
-    public Button searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
+    public button searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
     public  Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public  Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
     public productsPanel(JFrame frame) {
@@ -33,7 +33,7 @@ public class productsPanel {
         navBar.add(searchField);
 
         // search button
-        searchButton = new Button("جست‌و‌جو", primaryColor, navBar);
+        searchButton = new button("جست‌و‌جو", primaryColor, navBar);
         // todo:
         //  1. add action listener
         //  2. search class in action listener
@@ -51,21 +51,21 @@ public class productsPanel {
         sortBar.add(sortLabel);
 
         // sort by most expensive
-        sortByMostExpensive = new Button("گران‌ترین", primaryColor, sortBar);
+        sortByMostExpensive = new button("گران‌ترین", primaryColor, sortBar);
         // todo:
         //  1. add action listener
         //  2. sort class in action listener
         sortByMostExpensive.getButton().setBounds(800, 5, 100, 30);
 
         // sort by cheapest
-        sortByCheapest = new Button("ارزان‌ترین", primaryColor, sortBar);
+        sortByCheapest = new button("ارزان‌ترین", primaryColor, sortBar);
         // todo:
         //  1. add action listener
         //  2. sort class in action listener
         sortByCheapest.getButton().setBounds(695, 5, 100, 30);
 
         // sort by most popular
-        sortByMostPopular = new Button("پرطرفدار‌ترین", primaryColor, sortBar);
+        sortByMostPopular = new button("پرطرفدار‌ترین", primaryColor, sortBar);
         // todo:
         //  1. add action listener
         //  2. sort class in action listener

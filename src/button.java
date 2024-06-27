@@ -3,12 +3,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Button implements ActionListener {
+public class button implements ActionListener {
     public JButton theButton;
     public JFrame frame;
     public JPanel currentPanel;
     public JPanel goalPanel;
-    public Button(String text, Color color, JPanel panel) {
+    public button(String text, Color color, JPanel panel) {
         theButton = new JButton(text);
         panel.add(theButton);
         theButton.setBackground(color);
@@ -31,5 +31,5 @@ public class Button implements ActionListener {
         frame.repaint();
     }
     // TODO
-    // 1. set text color
+    //  1. set text color
 }
