@@ -11,7 +11,7 @@ public class Main {
         frame.setSize(1080, 720);
         frame.setLayout(null);
 
-        productDetailsPanel panel = new editProductPanel(frame);
+        secondaryPanel panel = new signupPanel(frame);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

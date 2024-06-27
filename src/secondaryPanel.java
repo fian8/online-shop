@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class listPanel {
+public class secondaryPanel {
     JLabel titleLabel;
-    JPanel allPanel, listCardsPanel;
+    JPanel allPanel, mainPanel;
     button backButton;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
-    public listPanel(JFrame frame) {
+    public secondaryPanel(JFrame frame) {
 
         // all panels
         allPanel = new JPanel();
@@ -14,9 +14,9 @@ public class listPanel {
         allPanel.setLayout(null);
 
         // list cards panel
-        listCardsPanel = new JPanel();
-        listCardsPanel.setBounds(150, 100, 780, 500);
-        listCardsPanel.setBackground(Color.blue);
+        mainPanel = new JPanel();
+        mainPanel.setBounds(150, 100, 780, 500);
+        mainPanel.setBackground(Color.blue);
 
         // title label
         titleLabel = new JLabel();
@@ -27,7 +27,7 @@ public class listPanel {
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
 
-        allPanel.add(listCardsPanel);
+        allPanel.add(mainPanel);
 
         frame.add(allPanel);
 

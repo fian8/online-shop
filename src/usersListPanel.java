@@ -1,13 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class usersListPanel extends listPanel {
+public class usersListPanel extends secondaryPanel {
     public usersListPanel(JFrame frame) {
 
         super(frame);
 
         // list cards panel
-        listCardsPanel.setLayout(new GridLayout(10, 1));
+        mainPanel.setLayout(new GridLayout(10, 1));
 
         // text label (edit)
         titleLabel.setText("لیست کاربران");

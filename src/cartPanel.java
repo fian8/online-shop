@@ -1,14 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class cartPanel extends listPanel {
+public class cartPanel extends secondaryPanel {
     button finializeButton;
     public cartPanel(JFrame frame) {
 
         super(frame);
 
-        // list cards panel
-        listCardsPanel.setLayout(new GridLayout(5, 1));
+        // main panel
+        mainPanel.setLayout(new GridLayout(5, 1));
 
         // text label (edit)
         titleLabel.setText("سبد خرید");
