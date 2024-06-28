@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class User {
     static int sourceID = 1000000;
     private String nameLastName;
-    private String dateOfBirth;
     private String userName;
     private int hashPass;
     private String phoneNumber;
@@ -12,9 +11,8 @@ public class User {
     private int id;
     private int type;
     private static ArrayList<User> users = new ArrayList<>();
-    public User (String nameLastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
+    public User (String nameLastName, String userName, Integer hashPass, String phoneNumber) {
         this.nameLastName = nameLastName;
-        this.dateOfBirth = dateOfBirth;
         this.userName = userName;
         this.hashPass = hashPass;
         this.phoneNumber = phoneNumber;
@@ -29,14 +27,6 @@ public class User {
         this.nameLastName = nameLastName;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -45,11 +35,11 @@ public class User {
         this.userName = userName;
     }
 
-    public int getHashPass() {
+    public Integer getHashPass() {
         return hashPass;
     }
 
-    public void setHashPass(int hashPass) {
+    public void setHashPass(Integer hashPass) {
         this.hashPass = hashPass;
     }
 

@@ -1,4 +1,4 @@
-import Data.User;
+import Data.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -157,9 +157,18 @@ public class Main implements ActionListener {
             String phoneNumber = signupPanel.phoneNumField.getText();
             String userName = signupPanel.userNameField.getText();
             String password = signupPanel.passwordField.getText();
+            int hash = validator.Hash(password);
+            Seller seller;
+            Customer customer;
             if (validator.nameValidation(name) && !validator.exist(userName) && validator.checkUserName(userName) &&
                 validator.validPhoneNumber(phoneNumber) && validator.checkPassword(password)) {
-                //todo: just do:)
+                if (signupPanel.sellerRadioButton.isSelected())
+                    seller = new Seller(name, userName, hash, phoneNumber);
+                else if (signupPanel.costumerRadioButton.isSelected())
+                    customer = new Customer(name, userName, hash, phoneNumber);
+                else {
+                    //todo : error
+                }
             }
             else {
                 //todo: create object
