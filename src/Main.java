@@ -261,15 +261,23 @@ public class Main implements ActionListener {
 
         // ----- edit profile panel -----
         else if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
-            // todo (KIANA):
-            //  1. edit the profile
+            String name = editProfilePanel.nameField.getText();
+            String phoneNumber = editProfilePanel.phoneNumField.getText();
+            String userName = editProfilePanel.userNameField.getText();
+            String password = editProfilePanel.passwordField.getText();
+            if (name.length() != 0 && validator.nameValidation(name))
+                user.setNameLastName(name);
+            if (phoneNumber.length() != 0 && validator.validPhoneNumber(phoneNumber))
+                user.setPhoneNumber(phoneNumber);
+            if (userName.length() != 0 && validator.checkUserName(userName))
+                user.setUserName(userName);
+            if (password.length() != 0 && validator.checkPassword(password))
+                user.setHashPass(validator.Hash(password));
         } else if (e.getSource() == editProfilePanel.backButton.getButton()) {
-            // todo (KIANA):
-            //  2. if costumer:
-            editProfilePanel.backButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
-            // todo (KIANA):
-            //  3. if seller:
-            editProfilePanel.backButton.goTo(editProfilePanel.allPanel, sellerProfilePanel.allPanel, frame);
+            if (user.getType() == 2)
+                 editProfilePanel.backButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
+            else
+                 editProfilePanel.backButton.goTo(editProfilePanel.allPanel, sellerProfilePanel.allPanel, frame);
         }
         
         // ----- products panel -----
