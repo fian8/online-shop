@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Main implements ActionListener {
-    User user;
+    User user = null;
     Validation validator = new Validation();
     public static JFrame frame;
 
@@ -142,7 +142,6 @@ public class Main implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        user = null;
 
         // ----- login & signup buttons process -----
         if (e.getSource() == signupPanel.signupButton.getButton()){
@@ -201,6 +200,7 @@ public class Main implements ActionListener {
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
                     user = validator.getUser(userName);
+
                     if (user.getType() == 2) {
                         costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
                         costumerProfilePanel.nameLabel2.setText(user.getNameLastName());
@@ -240,7 +240,6 @@ public class Main implements ActionListener {
 
         // ----- cash increase panel -----
         else if (e.getSource() == cashIncreasePanel.increaseTheCashButton.getButton()) {
-            System.out.println(user.getUserName());
             String value = cashIncreasePanel.increaseTheCashField.getText();
             int i;
             for (i = 0; i < value.length(); i++) {
@@ -252,7 +251,7 @@ public class Main implements ActionListener {
             if (i == value.length()) {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
-                // todo:
+                // todo:ح
                 //  0. debug user null
                 //  1. success message
                 //  2. goto profile panel

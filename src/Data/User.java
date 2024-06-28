@@ -16,6 +16,7 @@ public class User {
         this.userName = userName;
         this.hashPass = hashPass;
         this.phoneNumber = phoneNumber;
+        this.wallet = 0;
         id = sourceID++;
     }
 
