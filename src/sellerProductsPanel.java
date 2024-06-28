@@ -17,17 +17,14 @@ public class sellerProductsPanel extends productsPanel {
 
         // add products button
         addProductButton = new button("افزودن محصول", Color.white, navBar);
-        addProductButton.goTo(allPanels, null, frame);
         addProductButton.getButton().setBounds(360, 15, 120, 30);
 
         // stock button
         stockButton = new button("موجودی انبار", Color.white, navBar);
-        stockButton.goTo(allPanels, null, frame);
         stockButton.getButton().setBounds(490, 15, 100, 30);
 
         // users list button
         costumersListButton = new button("لیست کاربران", Color.white, navBar);
-        costumersListButton.goTo(allPanels, null, frame);
         costumersListButton.getButton().setBounds(600, 15, 100, 30);
 
         // search field (edit)

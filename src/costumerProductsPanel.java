@@ -16,7 +16,6 @@ public class costumerProductsPanel extends productsPanel{
 
         // cart button
         cartButton = new button("سبد خرید", primaryColor, navBar);
-        cartButton.goTo(allPanels, null, frame);
         cartButton.getButton().setBounds(445, 15, 100, 30);
 
     }

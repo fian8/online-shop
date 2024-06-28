@@ -29,7 +29,6 @@ public class productsPanel {
 
         // profile button
         profileButton = new button("پنل کاربری", primaryColor, navBar);
-        profileButton.goTo(allPanels, null, frame);
 
         // search field
         searchField = new JTextField();

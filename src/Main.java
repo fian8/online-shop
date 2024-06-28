@@ -37,6 +37,7 @@ public class Main implements ActionListener {
         loginPanel = new loginPanel(frame);
         loginPanel.loginButton.getButton().addActionListener(this);
         loginPanel.signupButton.getButton().addActionListener(this);
+        loginPanel.reloadButton.getButton().addActionListener(this);
 
         // ----- signup panel -----
         signupPanel = new signupPanel(frame);
@@ -166,8 +167,11 @@ public class Main implements ActionListener {
             }
         } else if (e.getSource() == signupPanel.loginButton.getButton()) {
             signupPanel.loginButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+        } else if (e.getSource() == loginPanel.reloadButton.getButton()) {
+            frame.revalidate();
+            frame.repaint();
         }
-        
+
         // ----- profile panel -----
         else if (e.getSource() == profilePanel.editProfileButton.getButton()) {
             profilePanel.editProfileButton.goTo(profilePanel.allPanel, editProfilePanel.allPanel, frame);
