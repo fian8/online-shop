@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class editProductPanel extends productDetailsPanel {
     public editProductPanel(JFrame frame) {
@@ -10,7 +11,8 @@ public class editProductPanel extends productDetailsPanel {
         titleLabel.setBounds(450, 40, 180, 30);
 
         // back button
-        backButton.goTo(allPanel, null, frame);
+        backButton = new button("برگشت", Color.white, allPanel);
+        backButton.getButton().setBounds(150, 40, 100, 30);
 
     }
 }

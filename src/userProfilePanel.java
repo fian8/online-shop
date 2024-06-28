@@ -17,9 +17,6 @@ public class userProfilePanel extends profilePanel {
         titleLabel.setText("پنل کاربری");
         titleLabel.setBounds(480, 40, 120, 30);
 
-        // back button
-        backButton.goTo(allPanel, null, frame);
-
         // edit profile button (edit)
         editProfileButton.getButton().setBounds(620, 450, 100, 30);
 

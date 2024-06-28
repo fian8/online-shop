@@ -14,7 +14,8 @@ public class usersListPanel extends secondaryPanel {
         titleLabel.setBounds(465, 40, 150, 30);
 
         // back button
-        backButton.goTo(allPanel, null, frame);
+        backButton = new button("برگشت", Color.white, allPanel);
+        backButton.getButton().setBounds(150, 40, 100, 30);
 
     }
 }

@@ -23,10 +23,6 @@ public class secondaryPanel {
         titleLabel.setFont(titleFont);
         allPanel.add(titleLabel);
 
-        // back button
-        backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(150, 40, 100, 30);
-
         allPanel.add(mainPanel);
 
         frame.add(allPanel);
