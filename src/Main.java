@@ -200,8 +200,7 @@ public class Main implements ActionListener {
         else if (e.getSource() == profilePanel.editProfileButton.getButton()) {
             profilePanel.editProfileButton.goTo(profilePanel.allPanel, editProfilePanel.allPanel, frame);
         } else if (e.getSource() == profilePanel.exitButton.getButton()) {
-            // todo (KIANA):
-            //  1. exit
+            profilePanel.exitButton.goTo(profilePanel.allPanel, loginPanel.allPanel, frame);
         }
 
         // ----- edit profile panel -----
