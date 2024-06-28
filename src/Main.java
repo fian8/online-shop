@@ -206,23 +206,16 @@ public class Main implements ActionListener {
             }
         }
 
-        // ----- edit profile panel -----
-        else if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
-            // todo (KIANA):
-            //  1. edit the profile
-        } else if (e.getSource() == editProfilePanel.backButton.getButton()) {
-            // todo (KIANA):
-            //  2. if costumer:
-            editProfilePanel.backButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
-            // todo (KIANA):
-            //  3. if seller:
-            editProfilePanel.backButton.goTo(editProfilePanel.allPanel, sellerProfilePanel.allPanel, frame);
-        }
-
         // ----- costumer profile panel -----
         else if (e.getSource() == costumerProfilePanel.exitButton.getButton()) {
             costumerProfilePanel.exitButton.goTo(costumerProfilePanel.allPanel, loginPanel.allPanel, frame);
-            user = null;
+            loginPanel.userNameField.setText("");
+            loginPanel.passwordField.setText("");
+            signupPanel.nameField.setText("");
+            signupPanel.passwordField.setText("");
+            signupPanel.phoneNumField.setText("");
+            signupPanel.userNameField.setText("");
+            signupPanel.userTypeButtonGroup.clearSelection();
         } else if (e.getSource() == costumerProfilePanel.editProfileButton.getButton()) {
             costumerProfilePanel.editProfileButton.goTo(costumerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
         } else if (e.getSource() == costumerProfilePanel.productsPanelButton.getButton()) {
@@ -252,11 +245,30 @@ public class Main implements ActionListener {
         // ----- seller profile panel -----
         else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
             sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
-            user = null;
+            loginPanel.userNameField.setText("");
+            loginPanel.passwordField.setText("");
+            signupPanel.nameField.setText("");
+            signupPanel.passwordField.setText("");
+            signupPanel.phoneNumField.setText("");
+            signupPanel.userNameField.setText("");
+            signupPanel.userTypeButtonGroup.clearSelection();
         } else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
             sellerProfilePanel.editProfileButton.goTo(sellerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
         } else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
             sellerProfilePanel.productsPanelButton.goTo(sellerProfilePanel.allPanel, sellerProductsPanel.allPanels, frame);
+        }
+
+        // ----- edit profile panel -----
+        else if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
+            // todo (KIANA):
+            //  1. edit the profile
+        } else if (e.getSource() == editProfilePanel.backButton.getButton()) {
+            // todo (KIANA):
+            //  2. if costumer:
+            editProfilePanel.backButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
+            // todo (KIANA):
+            //  3. if seller:
+            editProfilePanel.backButton.goTo(editProfilePanel.allPanel, sellerProfilePanel.allPanel, frame);
         }
         
         // ----- products panel -----
