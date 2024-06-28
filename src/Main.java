@@ -135,18 +135,22 @@ public class Main implements ActionListener {
             int password = validator.Hash(loginPanel.passwordField.getText());
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
-                    profilePanel.nameLabel2.setText(user.getNameLastName());
-                    profilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
-                    profilePanel.userNameLabel2.setText(user.getUserName());
-                    profilePanel.userTypeLabel2.setText(user.getTypeString());
                     if (loginPanel.costumerRadioButton.isSelected() && validator.getUser(userName).getType() == 2) {
+                        user = validator.getUser(userName);
                         costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
                         loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
-                        user = validator.getUser(userName);
+                        profilePanel.nameLabel2.setText(user.getNameLastName());
+                        profilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                        profilePanel.userNameLabel2.setText(user.getUserName());
+                        profilePanel.userTypeLabel2.setText(user.getTypeString());
                     }
                     else if (loginPanel.sellerRadioButton.isSelected() && validator.getUser(userName).getType() == 1) {
-                        loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
                         user = validator.getUser(userName);
+                        loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                        profilePanel.nameLabel2.setText(user.getNameLastName());
+                        profilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                        profilePanel.userNameLabel2.setText(user.getUserName());
+                        profilePanel.userTypeLabel2.setText(user.getTypeString());
                     }
                     else {
                         JOptionPane.showMessageDialog(null, "نوع کاربر را انتخاب کنید!");
