@@ -13,8 +13,8 @@ public class Product extends Component {
     private int score;
     private int purchaseFrequency;
     private Seller seller;
-<<<<<<< Updated upstream
-    JLabel pictureLabel = new JLabel();
+    public JLabel pictureLabel = new JLabel();
+    public ImageIcon imageIcon;
     String filePath = "\\Users\\kiana\\OneDrive\\Desktop\\Photos";
     File file;
     JFileChooser fileChooser = new JFileChooser(filePath);
@@ -99,7 +99,7 @@ public class Product extends Component {
         }
     }
     public void addPicture() {
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(String.valueOf(file)).getImage().getScaledInstance(800, 600, Image.SCALE_DEFAULT));
+        imageIcon = new ImageIcon(new ImageIcon(String.valueOf(file)).getImage().getScaledInstance(800, 600, Image.SCALE_DEFAULT));
         pictureLabel.setIcon(imageIcon);
         pictureLabel.setLayout(new BorderLayout());
     }

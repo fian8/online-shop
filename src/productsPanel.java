@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
+import static Data.Product.products;
 
 public class productsPanel {
     public JLabel titleLabel, sortLabel;
@@ -37,9 +40,6 @@ public class productsPanel {
 
         // search button
         searchButton = new button("جست‌و‌جو", primaryColor, navBar);
-        // todo:
-        //  1. add action listener
-        //  2. search class in action listener
         searchButton.getButton().setBounds(920, 15, 100, 30);
 
         // ----- sort Bar panel -----
@@ -55,32 +55,28 @@ public class productsPanel {
 
         // sort by most expensive
         sortByMostExpensive = new button("گران‌ترین", primaryColor, sortBar);
-        // todo:
-        //  1. add action listener
-        //  2. sort class in action listener
         sortByMostExpensive.getButton().setBounds(800, 5, 100, 30);
 
         // sort by cheapest
         sortByCheapest = new button("ارزان‌ترین", primaryColor, sortBar);
-        // todo:
-        //  1. add action listener
-        //  2. sort class in action listener
         sortByCheapest.getButton().setBounds(695, 5, 100, 30);
 
         // sort by most popular
         sortByMostPopular = new button("پرطرفدار‌ترین", primaryColor, sortBar);
-        // todo:
-        //  1. add action listener
-        //  2. sort class in action listener
         sortByMostPopular.getButton().setBounds(590, 5, 100, 30);
 
         // ----- products Cards panel -----
         productsCardsPanel = new JPanel();
         productsCardsPanel.setLayout(new GridLayout(2, 3));
         productsCardsPanel.setBounds(0, 100, 1080, 620);
-        productsCardsPanel.setBackground(Color.blue);
+        productsCardsPanel.setBackground(Color.gray);
+
+        for (Data.Product product : products) {
+            productsCardsPanel.add(new productCard(product).cardPanel);
+        }
+
         // todo:
-        //  1. connect to database & create product cards
+        //  1. create product cards
         //  2. add "pages" feature
 
 
