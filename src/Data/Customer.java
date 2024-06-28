@@ -7,6 +7,7 @@ public class Customer extends User{
     Customer(String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
         super(name, lastName, dateOfBirth, userName, hashPass, phoneNumber);
         super.addUser(this);
+        super.setType(2);
         customers.add(this);
     }
     public ArrayList<Customer> getCustomers() {

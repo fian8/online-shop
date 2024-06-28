@@ -7,6 +7,7 @@ public class Seller extends User{
     Seller(String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
         super(name, lastName, dateOfBirth, userName, hashPass, phoneNumber);
         super.addUser(this);
+        super.setType(1);
         sellers.add(this);
     }
     public void addProduct(Product product) {

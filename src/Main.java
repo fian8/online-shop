@@ -54,19 +54,40 @@ public class Main implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == loginPanel.loginButton.getButton()){
-            // todo (KIANA):
-            //  1. validation
-            //  2. if userType == user
-            loginPanel.loginButton.goTo(loginPanel.allPanel, userProfilePanel.allPanel, frame);
-            // todo (KIANA):
-            //  3. if userType == seller
-            loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+            //Validating
+            String userName = loginPanel.userNameField.getText();
+            int password = validator.Hash(loginPanel.passwordField.getText());
+            if (validator.exist(userName)) {
+                if (password == validator.getUser(userName).getHashPass()) {
+                    // todo (Fateme): note: check with validator.getUser(userName).getType 1 = seller, 2 = customer
+                    //  1. if userType == user
+                    loginPanel.loginButton.goTo(loginPanel.allPanel, userProfilePanel.allPanel, frame);
+                    // todo (KIANA):
+                    //  2. if userType == seller
+                    loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                }
+                else {
+                    // todo: error
+                }
+            }
+            else {
+                // todo: error
+            }
         } else if (e.getSource() == loginPanel.signupButton.getButton()) {
             loginPanel.signupButton.goTo(loginPanel.allPanel, signupPanel.allPanel, frame);
         }
         else if (e.getSource() == signupPanel.signupButton.getButton()) {
-            // todo (KIANA):
-            //  1. validation
+            String name = signupPanel.nameField.getText();
+            String phoneNumber = signupPanel.phoneNumField.getText();
+            String userName = signupPanel.userNameField.getText();
+            String password = signupPanel.passwordField.getText();
+            if (validator.nameValidation(name) && !validator.exist(userName) && validator.checkUserName(userName) &&
+                validator.validPhoneNumber(phoneNumber) && validator.checkPassword(password)) {
+                //todo: create object
+            }
+            else {
+                //todo: create object
+            }
         } else if (e.getSource() == signupPanel.loginButton.getButton()) {
             signupPanel.loginButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
         }

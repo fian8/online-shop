@@ -11,6 +11,7 @@ public class User {
     private String phoneNumber;
     private int wallet;
     private int id;
+    private int type;
     private static ArrayList<User> users = new ArrayList<>();
     public User (String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
         this.name = name;
@@ -90,4 +91,11 @@ public class User {
         return id;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 }
