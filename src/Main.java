@@ -251,9 +251,8 @@ public class Main implements ActionListener {
             if (i == value.length()) {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
-                // todo:
-                //  0. debug user null
-                //  1. success message
+                JOptionPane.showMessageDialog(null, "موجودی با موفقیت افزایش یافت!");
+                cashIncreasePanel.increaseTheCashButton.goTo(cashIncreasePanel.allPanel, costumerProfilePanel.allPanel, frame);
                 //  2. goto profile panel
                 clearFields();
             }
@@ -312,12 +311,14 @@ public class Main implements ActionListener {
                 costumerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
                 costumerProfilePanel.userNameLabel2.setText(user.getUserName());
                 costumerProfilePanel.userTypeLabel2.setText(user.getTypeString());
+                JOptionPane.showMessageDialog(null, "تغییرات با موفقیت اعمال شد!");
                 editProfilePanel.editTheProfileButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
             } else {
                 sellerProfilePanel.nameLabel2.setText(user.getNameLastName());
                 sellerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
                 sellerProfilePanel.userNameLabel2.setText(user.getUserName());
                 sellerProfilePanel.userTypeLabel2.setText(user.getTypeString());
+                JOptionPane.showMessageDialog(null, "تغییرات با موفقیت اعمال شد!");
                 loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
             }
             clearFields();
