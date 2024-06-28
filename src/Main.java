@@ -116,7 +116,7 @@ public class Main implements ActionListener {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
+        loginPanel.loginButton.goTo(loginPanel.allPanel, loginPanel.allPanel, frame);
     }
 
     public static void main(String[] args) {
@@ -136,11 +136,10 @@ public class Main implements ActionListener {
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
                     // todo (Fateme): note: check with validator.getUser(userName).getType 1 = seller, 2 = customer
-                    //  1. if userType == costumer
-                    loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
-                    // todo (KIANA):
-                    //  2. if userType == seller
-                    loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                    if (loginPanel.costumerRadioButton.isSelected() && validator.getUser(userName).getType() == 2)
+                         loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
+                    else if (loginPanel.sellerRadioButton.isSelected() && validator.getUser(userName).getType() == 1)
+                         loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
                 }
                 else {
                     // todo: error
@@ -160,7 +159,7 @@ public class Main implements ActionListener {
             String password = signupPanel.passwordField.getText();
             if (validator.nameValidation(name) && !validator.exist(userName) && validator.checkUserName(userName) &&
                 validator.validPhoneNumber(phoneNumber) && validator.checkPassword(password)) {
-                //todo: create object
+                //todo: just do:)
             }
             else {
                 //todo: create object
