@@ -182,32 +182,26 @@ public class Main implements ActionListener {
             int password = validator.Hash(loginPanel.passwordField.getText());
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
-                    if (loginPanel.costumerRadioButton.isSelected() && validator.getUser(userName).getType() == 2) {
-                        user = validator.getUser(userName);
+                    user = validator.getUser(userName);
+                    if (user.getType() == 2) {
                         costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
+                        costumerProfilePanel.nameLabel2.setText(user.getNameLastName());
+                        costumerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                        costumerProfilePanel.userNameLabel2.setText(user.getUserName());
+                        costumerProfilePanel.userTypeLabel2.setText(user.getTypeString());
                         loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
-                        profilePanel.nameLabel2.setText(user.getNameLastName());
-                        profilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
-                        profilePanel.userNameLabel2.setText(user.getUserName());
-                        profilePanel.userTypeLabel2.setText(user.getTypeString());
-                    }
-                    else if (loginPanel.sellerRadioButton.isSelected() && validator.getUser(userName).getType() == 1) {
-                        user = validator.getUser(userName);
-                        loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
-                        profilePanel.nameLabel2.setText(user.getNameLastName());
-                        profilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
-                        profilePanel.userNameLabel2.setText(user.getUserName());
-                        profilePanel.userTypeLabel2.setText(user.getTypeString());
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, "نوع کاربر را انتخاب کنید!");
+                        sellerProfilePanel.nameLabel2.setText(user.getNameLastName());
+                        sellerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                        sellerProfilePanel.userNameLabel2.setText(user.getUserName());
+                        sellerProfilePanel.userTypeLabel2.setText(user.getTypeString());
+                        loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
                     }
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(null, "رمز اشتباه است!");
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(null, "نام کاربری وجود ندارد!");
             }
         }

@@ -4,8 +4,6 @@ import java.awt.*;
 public class loginPanel extends secondaryPanel {
     public JLabel userNameLabel, passwordLabel, userTypeLabel;
     public JTextField userNameField, passwordField;
-    public JRadioButton costumerRadioButton, sellerRadioButton;
-    public ButtonGroup userTypeButtonGroup;
     public button loginButton, signupButton;
     public loginPanel(JFrame frame) {
 
@@ -34,20 +32,6 @@ public class loginPanel extends secondaryPanel {
         passwordField = new JTextField();
         passwordField.setBounds(225, 210, 200, 30);
         mainPanel.add(passwordField);
-
-        // user type
-        userTypeLabel = new JLabel("نوع کاربر");
-        userTypeLabel.setBounds(455, 270, 100, 30);
-        mainPanel.add(userTypeLabel);
-        costumerRadioButton = new JRadioButton("کاربر عادی");
-        costumerRadioButton.setBounds(325, 270, 100, 30);
-        mainPanel.add(costumerRadioButton);
-        sellerRadioButton = new JRadioButton("مدیر فروشگاه");
-        sellerRadioButton.setBounds(225, 270, 100, 30);
-        mainPanel.add(sellerRadioButton);
-        userTypeButtonGroup = new ButtonGroup();
-        userTypeButtonGroup.add(costumerRadioButton);
-        userTypeButtonGroup.add(sellerRadioButton);
 
         // login-signup buttons
         loginButton = new button("ورود کاربر", Color.white, mainPanel);

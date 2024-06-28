@@ -14,7 +14,7 @@ public class costumerProfilePanel extends profilePanel {
         mainPanel.setLayout(null);
 
         // text label (edit)
-        titleLabel.setText("پنل کاربری");
+        titleLabel.setText("پنل کاربری کاربر عادی");
         titleLabel.setBounds(480, 40, 120, 30);
 
         // edit profile button (edit)
