@@ -239,7 +239,8 @@ public class Main implements ActionListener {
             int i;
             for (i = 0; i < value.length(); i++) {
                 if (value.charAt(i) < '0' || value.charAt(i) > '9') {
-                    JOptionPane.showMessageDialog(null, "مبلغ وارد شده معتبر نیست!");                    break;
+                    JOptionPane.showMessageDialog(null, "مبلغ وارد شده معتبر نیست!");
+                    break;
                 }
             }
             if (i == value.length())
@@ -267,6 +268,8 @@ public class Main implements ActionListener {
             // todo (KIANA):
             //  1. sort by most popular
         }
+        // todo (KIANA):
+        //  1. show products
 
         // ----- costumer products panel -----
         else if (e.getSource() == costumerProductsPanel.profileButton.getButton()) {
@@ -278,8 +281,9 @@ public class Main implements ActionListener {
         // ----- cart panel -----
         else if (e.getSource() == cartPanel.finializeButton.getButton()) {
             // todo (KIANA):
-            //  1. finalize
-            //  2. success message JOptionPane.showMessageDialog(null, "سفارش با موفقیت نهایی شد!");
+            //  1. show products in costumer's cart
+            //  2. finalize
+            //  3. success message JOptionPane.showMessageDialog(null, "سفارش با موفقیت نهایی شد!");
         } else if (e.getSource() == cartPanel.backButton.getButton()) {
             cartPanel.backButton.goTo(cartPanel.allPanel, costumerProductsPanel.allPanels, frame);
         }
@@ -298,6 +302,8 @@ public class Main implements ActionListener {
         // ----- costumers list panel -----
         else if (e.getSource() == costumersListPanel.backButton.getButton()) {
             costumersListPanel.backButton.goTo(costumersListPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            // todo (KIANA):
+            //  1. add costumers
         }
 
         // ----- add product panel -----
@@ -311,6 +317,8 @@ public class Main implements ActionListener {
         // ----- stock panel -----
         else if (e.getSource() == stockPanel.backButton) {
             stockPanel.backButton.goTo(stockPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            // todo (KIANA):
+            //  1. add products
         }
 
         // ----- edit product panel -----
