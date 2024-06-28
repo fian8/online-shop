@@ -1,11 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class profilePanel {
-    JLabel titleLabel, nameLabel1, nameLabel2, phoneNumLabel1, phoneNumLabel2,
+public abstract class profilePanel {
+    public JLabel titleLabel, nameLabel1, nameLabel2, phoneNumLabel1, phoneNumLabel2,
             userNameLabel1, userNameLabel2, userTypeLabel1, userTypeLabel2;
-    JPanel allPanel, mainPanel;
-    button backButton, editProfileButton, productsPanelButton, exitButton;
+    public JPanel allPanel, mainPanel;
+    public button backButton, editProfileButton, productsPanelButton, exitButton;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public profilePanel(JFrame frame){
 
@@ -75,7 +75,5 @@ public class profilePanel {
 
 
         allPanel.add(mainPanel);
-
-        frame.add(allPanel);
     }
 }

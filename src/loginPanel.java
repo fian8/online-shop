@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class loginPanel extends secondaryPanel {
-    JLabel userNameLabel, passwordLabel, userTypeLabel;
-    JTextField userNameField, passwordField;
-    JRadioButton userRadioButton, sellerRadioButton;
-    button loginButton, signupButton;
+    public JLabel userNameLabel, passwordLabel, userTypeLabel;
+    public JTextField userNameField, passwordField;
+    public JRadioButton userRadioButton, sellerRadioButton;
+    public button loginButton, signupButton;
     public loginPanel(JFrame frame) {
 
         super(frame);
@@ -17,8 +18,6 @@ public class loginPanel extends secondaryPanel {
         titleLabel.setText("پنل ورود");
         titleLabel.setBounds(495, 40, 90, 30);
 
-        // back button
-        backButton.goTo(allPanel, null, frame);
 
         // user name
         userNameLabel = new JLabel("نام کاربری");
@@ -49,10 +48,8 @@ public class loginPanel extends secondaryPanel {
 
         // login-signup buttons
         loginButton = new button("ورود کاربر", Color.white, mainPanel);
-        loginButton.goTo(allPanel, null, frame);
         loginButton.getButton().setBounds(225, 330, 100, 30);
-        signupButton = new button("ثبت‌نام کاربر جدید", Color.white, mainPanel);
-        signupButton.goTo(allPanel, null, frame);
+        signupButton = new button("ثبت نام کاربر جدید", Color.white, mainPanel);
         signupButton.getButton().setBounds(355, 330, 150, 30);
 
     }
