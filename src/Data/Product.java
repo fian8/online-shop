@@ -1,4 +1,7 @@
 package Data;
+
+import java.util.ArrayList;
+
 public class Product {
     private String name;
     private int code;
