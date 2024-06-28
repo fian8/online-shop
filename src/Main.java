@@ -279,10 +279,9 @@ public class Main implements ActionListener {
             if (i == value.length()) {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
-                // todo:
-                //  0. debug user null
-                //  1. success message
-                //  2. goto profile panel
+                JOptionPane.showMessageDialog(null, "موجودی با موفقیت افزایش یافت!");
+                cashIncreasePanel.increaseTheCashButton.goTo(cashIncreasePanel.allPanel, costumerProfilePanel.allPanel, frame);
+                //  todo: goto profile panel
                 clearFields();
             }
         } else if (e.getSource() == cashIncreasePanel.backButton.getButton()) {
@@ -306,14 +305,51 @@ public class Main implements ActionListener {
             String phoneNumber = editProfilePanel.phoneNumField.getText();
             String userName = editProfilePanel.userNameField.getText();
             String password = editProfilePanel.passwordField.getText();
-            if (name.length() != 0 && validator.nameValidation(name))
-                user.setNameLastName(name);
-            if (phoneNumber.length() != 0 && validator.validPhoneNumber(phoneNumber))
-                user.setPhoneNumber(phoneNumber);
-            if (userName.length() != 0 && validator.checkUserName(userName))
-                user.setUserName(userName);
-            if (password.length() != 0 && validator.checkPassword(password))
-                user.setHashPass(validator.Hash(password));
+            if (!name.isEmpty()) {
+                if (validator.nameValidation(name)) {
+                    user.setNameLastName(name);
+                } else {
+                    JOptionPane.showMessageDialog(null, "نام و نام خانوادگی معتبر نیست!");
+                }
+            }
+            if (!phoneNumber.isEmpty()) {
+                if (validator.validPhoneNumber(phoneNumber)) {
+                    user.setPhoneNumber(phoneNumber);
+                } else {
+                    JOptionPane.showMessageDialog(null, "شماره تلفن معتبر نیست!");
+                }
+            }
+            if (!userName.isEmpty()) {
+                if (validator.checkUserName(userName)) {
+                    user.setUserName(userName);
+                } else {
+                    JOptionPane.showMessageDialog(null, "نام کاربری معتبر نیست!");
+                }
+            }
+            if (!password.isEmpty()) {
+                if (validator.checkPassword(password)) {
+                    user.setHashPass(validator.Hash(password));
+                } else {
+                    JOptionPane.showMessageDialog(null, "رمز معتبر نیست!");
+                }
+            }
+            if (user.getType() == 2) {
+                costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
+                costumerProfilePanel.nameLabel2.setText(user.getNameLastName());
+                costumerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                costumerProfilePanel.userNameLabel2.setText(user.getUserName());
+                costumerProfilePanel.userTypeLabel2.setText(user.getTypeString());
+                JOptionPane.showMessageDialog(null, "تغییرات با موفقیت اعمال شد!");
+                editProfilePanel.editTheProfileButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
+            } else {
+                sellerProfilePanel.nameLabel2.setText(user.getNameLastName());
+                sellerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                sellerProfilePanel.userNameLabel2.setText(user.getUserName());
+                sellerProfilePanel.userTypeLabel2.setText(user.getTypeString());
+                JOptionPane.showMessageDialog(null, "تغییرات با موفقیت اعمال شد!");
+                loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+            }
+            clearFields();
         } else if (e.getSource() == editProfilePanel.backButton.getButton()) {
             if (user.getType() == 2)
                  editProfilePanel.backButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
