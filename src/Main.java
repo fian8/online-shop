@@ -385,19 +385,19 @@ public class Main implements ActionListener {
             //  1. add object from customers to main panel
         }
 
+        // ----- stock panel -----
+        else if (e.getSource() == stockPanel.backButton) {
+            stockPanel.backButton.goTo(stockPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            // todo (KIANA):
+            //  1. add products
+        }
+
         // ----- add product panel -----
         else if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
             // todo (KIANA):
             //  1. add the product
         } else if (e.getSource() == addProductPanel.backButton.getButton()) {
             addProductPanel.backButton.goTo(addProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
-        }
-
-        // ----- stock panel -----
-        else if (e.getSource() == stockPanel.backButton) {
-            stockPanel.backButton.goTo(stockPanel.allPanel, sellerProductsPanel.allPanels, frame);
-            // todo (KIANA):
-            //  1. add products
         }
 
         // ----- edit product panel -----

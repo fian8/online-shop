@@ -18,11 +18,8 @@ public class Product extends Component {
     String filePath = "\\Users\\kiana\\OneDrive\\Desktop\\Photos";
     File file;
     JFileChooser fileChooser = new JFileChooser(filePath);
-
-    static ArrayList<Product> products = new ArrayList<>();
-=======
     public static ArrayList<Product> products = new ArrayList<>();
->>>>>>> Stashed changes
+
     Product(String name, int code, int price, int stock, Seller seller) {
         this.name = name;
         this.code = code;
