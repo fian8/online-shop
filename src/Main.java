@@ -253,6 +253,7 @@ public class Main implements ActionListener {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
                 // todo:
+                //  0. debug user null
                 //  1. success message
                 //  2. goto profile panel
                 clearFields();
