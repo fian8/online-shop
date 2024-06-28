@@ -221,6 +221,7 @@ public class Main implements ActionListener {
             profilePanel.editProfileButton.goTo(profilePanel.allPanel, editProfilePanel.allPanel, frame);
         } else if (e.getSource() == profilePanel.exitButton.getButton()) {
             profilePanel.exitButton.goTo(profilePanel.allPanel, loginPanel.allPanel, frame);
+            user = null;
         }
 
         // ----- edit profile panel -----
@@ -268,8 +269,13 @@ public class Main implements ActionListener {
         
         // ----- products panel -----
         else if (e.getSource() == productsPanel.searchButton.getButton()) {
-            // todo (KIANA):
-            //  1. search
+            String key = productsPanel.searchField.getText();
+            ArrayList<Product> source = Product.getProducts();
+            ArrayList<Product> result = new ArrayList<>();
+            for (int i = 0; i < source.size(); i++)
+                if (source.get(i).getName().contains(key))
+                    result.add(source.get(i));
+            // todo: add results products to main page
         } else if (e.getSource() == productsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
