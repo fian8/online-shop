@@ -9,6 +9,10 @@ public class editProfilePanel extends secondaryPanel{
 
         super(frame);
 
+        // main panel
+        mainPanel.setLayout(null);
+
+        // text label (edit)
         titleLabel.setText("ویرایش پروفایل");
         titleLabel.setBounds(450, 40, 180, 30);
 
