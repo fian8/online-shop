@@ -1,3 +1,4 @@
+package Data;
 public class Product {
     private String name;
     private int code;
