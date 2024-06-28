@@ -1,16 +1,16 @@
+import Data.Product;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class productCard {
     private JLabel nameLabel, priceLabel, imageLabel;
     public JPanel cardPanel;
-    public productCard(String name, int price, JLabel imageLabel) {
+    public productCard(Product product) {
 
-        nameLabel = new JLabel(name);
-        priceLabel = new JLabel(String.valueOf(price));
-        // todo:
-        //  1. add image label
-        //  2. connect to database
+        nameLabel = new JLabel(product.getName());
+        priceLabel = new JLabel(String.valueOf(product.getPrice()));
+        imageLabel = new JLabel();
 
         cardPanel.add(imageLabel);
         cardPanel.add(nameLabel);
