@@ -10,6 +10,7 @@ public class Product {
     private int score;
     private int purchaseFrequency;
     private Seller seller;
+    static ArrayList<Product> products = new ArrayList<>();
     Product(String name, int code, int price, int stock, Seller seller) {
         this.name = name;
         this.code = code;
@@ -74,6 +75,12 @@ public class Product {
 
     public void setSeller(Seller seller) {
         this.seller = seller;
+    }
+    public static ArrayList<Product> getProducts() {
+        return products;
+    }
+    public static void addProduct(Product product) {
+        products.add(product);
     }
     //todo
     //1. Add image field(graphic)

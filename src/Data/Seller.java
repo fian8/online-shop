@@ -2,7 +2,6 @@ package Data;
 import java.util.ArrayList;
 
 public class Seller extends User{
-    private static ArrayList<Product> products = new ArrayList<>();
     private static ArrayList<Seller> sellers = new ArrayList<>();
     public Seller(String nameLastName, String userName, Integer hashPass, String phoneNumber) {
         super(nameLastName, userName, hashPass, phoneNumber);
@@ -11,10 +10,7 @@ public class Seller extends User{
         sellers.add(this);
     }
     public void addProduct(Product product) {
-        products.add(product);
-    }
-    public ArrayList<Product> getProducts() {
-        return products;
+        Product.addProduct(product);
     }
     public ArrayList<Seller> getSellers() {
         return sellers;
