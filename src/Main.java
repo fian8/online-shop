@@ -213,8 +213,10 @@ public class Main implements ActionListener {
         // ----- profile panel -----
         else if (e.getSource() == profilePanel.editProfileButton.getButton()) {
             profilePanel.editProfileButton.goTo(profilePanel.allPanel, editProfilePanel.allPanel, frame);
-        } else if (e.getSource() == profilePanel.exitButton.getButton()) {
-            profilePanel.exitButton.goTo(profilePanel.allPanel, loginPanel.allPanel, frame);
+        } else if (e.getSource() == costumerProfilePanel.exitButton.getButton()) {
+            costumerProfilePanel.exitButton.goTo(costumerProfilePanel.allPanel, loginPanel.allPanel, frame);
+        } else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
+            sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
         }
 
         // ----- edit profile panel -----
