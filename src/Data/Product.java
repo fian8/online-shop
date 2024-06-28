@@ -13,7 +13,6 @@ public class Product extends Component {
     private int score;
     private int purchaseFrequency;
     private Seller seller;
-<<<<<<< Updated upstream
     JLabel pictureLabel = new JLabel();
     String filePath = "\\Users\\kiana\\OneDrive\\Desktop\\Photos";
     File file;
@@ -103,6 +102,4 @@ public class Product extends Component {
         pictureLabel.setIcon(imageIcon);
         pictureLabel.setLayout(new BorderLayout());
     }
-    //todo
-    //1. Add image field(graphic)
 }

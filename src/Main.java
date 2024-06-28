@@ -260,9 +260,11 @@ public class Main implements ActionListener {
         else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
             sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
             clearFields();
-        } else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
+        }
+        else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
             sellerProfilePanel.editProfileButton.goTo(sellerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
-        } else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
+        }
+        else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
             sellerProfilePanel.productsPanelButton.goTo(sellerProfilePanel.allPanel, sellerProductsPanel.allPanels, frame);
         }
 
