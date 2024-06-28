@@ -125,6 +125,7 @@ public class Main implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        User user = null;
 
         // ----- login & signup buttons process -----
         if (e.getSource() == loginPanel.loginButton.getButton()){
@@ -135,10 +136,14 @@ public class Main implements ActionListener {
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
                     // todo (Fateme): note: check with validator.getUser(userName).getType 1 = seller, 2 = customer
-                    if (loginPanel.costumerRadioButton.isSelected() && validator.getUser(userName).getType() == 2)
-                         loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
-                    else if (loginPanel.sellerRadioButton.isSelected() && validator.getUser(userName).getType() == 1)
-                         loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                    if (loginPanel.costumerRadioButton.isSelected() && validator.getUser(userName).getType() == 2) {
+                        loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
+                        user = validator.getUser(userName);
+                    }
+                    else if (loginPanel.sellerRadioButton.isSelected() && validator.getUser(userName).getType() == 1) {
+                        loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                        user = validator.getUser(userName);
+                    }
                 }
                 else {
                     // todo: error
@@ -180,8 +185,8 @@ public class Main implements ActionListener {
         else if (e.getSource() == profilePanel.editProfileButton.getButton()) {
             profilePanel.editProfileButton.goTo(profilePanel.allPanel, editProfilePanel.allPanel, frame);
         } else if (e.getSource() == profilePanel.exitButton.getButton()) {
-            // todo (KIANA):
-            //  1. exit
+
+
         }
 
         // ----- edit profile panel -----
@@ -206,8 +211,16 @@ public class Main implements ActionListener {
 
         // ----- cash increase panel -----
         else if (e.getSource() == cashIncreasePanel.increaseTheCashButton.getButton()) {
-            // todo (KIANA):
-            //  1. increase the cash
+            String value = cashIncreasePanel.increaseTheCashField.getText();
+            int i;
+            for (i = 0; i < value.length(); i++) {
+                if (value.charAt(i) < '0' || value.charAt(i) > '9') {
+                    //todo: error
+                    break;
+                }
+            }
+            if (i == value.length())
+                user.setWallet(user.getWallet() + Integer.parseInt(value));
         } else if (e.getSource() == cashIncreasePanel.backButton.getButton()) {
             cashIncreasePanel.backButton.goTo(cashIncreasePanel.allPanel, costumerProfilePanel.allPanel, frame);
         }
