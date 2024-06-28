@@ -2,10 +2,15 @@ package Data;
 import java.util.ArrayList;
 
 public class Customer extends User{
+    private static ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<Product> card = new ArrayList<>();
     Customer(String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
         super(name, lastName, dateOfBirth, userName, hashPass, phoneNumber);
         super.addUser(this);
+        customers.add(this);
+    }
+    public ArrayList<Customer> getCustomers() {
+        return customers;
     }
     public void addToCard(Product product) {
         if (product.getStock() > 0) {

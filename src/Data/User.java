@@ -12,7 +12,7 @@ public class User {
     private int wallet;
     private int id;
     private static ArrayList<User> users = new ArrayList<>();
-    User (String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
+    public User (String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
         this.name = name;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -21,6 +21,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         id = sourceID++;
     }
+
     public String getName() {
         return name;
     }
@@ -80,6 +81,9 @@ public class User {
 
     public void addUser(User user) {
         users.add(user);
+    }
+    public static ArrayList<User> getUsers(){
+        return users;
     }
 
     public int getId() {

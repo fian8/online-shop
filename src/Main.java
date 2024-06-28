@@ -1,10 +1,11 @@
+import Data.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 public class Main implements ActionListener {
-
+    Validation validator = new Validation();
     public static JFrame frame;
 
     // OBJECTS:
