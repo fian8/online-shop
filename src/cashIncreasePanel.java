@@ -11,11 +11,11 @@ public class cashIncreasePanel extends secondaryPanel{
         super(frame);
 
         // main panel
-        mainPanel.setLayout(new GridLayout(5, 1));
+        mainPanel.setLayout(null);
 
         // text label (edit)
         titleLabel.setText("افزایش موجودی");
-        titleLabel.setBounds(485, 40, 120, 30);
+        titleLabel.setBounds(485, 40, 200, 30);
 
         // back button
         backButton = new button("برگشت", Color.white, allPanel);
@@ -23,15 +23,17 @@ public class cashIncreasePanel extends secondaryPanel{
 
         // increase the cash label
         increaseTheCashLabel = new JLabel("مبلغ افزایش موجودی");
-//        increaseTheCashLabel.setBounds();
+        increaseTheCashLabel.setBounds(425, 150, 200, 30);
+        mainPanel.add(increaseTheCashLabel);
 
         // increase the cash field
         increaseTheCashField = new JTextField();
-//        increaseTheCashField.setBounds();
+        increaseTheCashField.setBounds(255, 150, 200, 30);
+        mainPanel.add(increaseTheCashField);
 
         // increase the cash button
         increaseTheCashButton = new button("افزودن موجودی", Color.white, mainPanel);
-//        increaseTheCashButton.getButton().setBounds();
+        increaseTheCashButton.getButton().setBounds(300, 200, 150, 30);
 
     }
 }
