@@ -3,8 +3,8 @@ import java.awt.*;
 
 public class secondaryPanel {
     JLabel titleLabel;
-    JPanel allPanel, mainPanel;
-    button backButton;
+    public JPanel allPanel, mainPanel;
+    public button backButton;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public secondaryPanel(JFrame frame) {
 

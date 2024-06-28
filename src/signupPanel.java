@@ -3,10 +3,10 @@ import java.awt.*;
 
 public class signupPanel extends secondaryPanel {
 
-    JLabel nameLabel, phoneNumLabel, userNameLabel, passwordLabel, userTypeLabel;
-    JTextField nameField, phoneNumField, userNameField, passwordField;
-    JRadioButton userRadioButton, sellerRadioButton;
-    button loginButton, signupButton;
+    public JLabel nameLabel, phoneNumLabel, userNameLabel, passwordLabel, userTypeLabel;
+    public JTextField nameField, phoneNumField, userNameField, passwordField;
+    public JRadioButton userRadioButton, sellerRadioButton;
+    public button loginButton, signupButton;
     public signupPanel(JFrame frame) {
 
         super(frame);
@@ -17,9 +17,6 @@ public class signupPanel extends secondaryPanel {
         // text label (edit)
         titleLabel.setText("پنل ثبت نام");
         titleLabel.setBounds(480, 40, 120, 30);
-
-        // back button
-        backButton.goTo(allPanel, null, frame);
 
         // name
         nameLabel = new JLabel("نام و نام خانوادگی");
@@ -66,10 +63,8 @@ public class signupPanel extends secondaryPanel {
 
         // login-signup buttons
         loginButton = new button("ورود کاربر", Color.white, mainPanel);
-        loginButton.goTo(allPanel, null, frame);
         loginButton.getButton().setBounds(225, 390, 100, 30);
         signupButton = new button("ثبت نام کاربر جدید", Color.white, mainPanel);
-        signupButton.goTo(allPanel, null, frame);
         signupButton.getButton().setBounds(355, 390, 150, 30);
 
     }
