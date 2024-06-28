@@ -135,7 +135,12 @@ public class Main implements ActionListener {
             int password = validator.Hash(loginPanel.passwordField.getText());
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
+                    profilePanel.nameLabel2.setText(user.getNameLastName());
+                    profilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                    profilePanel.userNameLabel2.setText(user.getUserName());
+                    profilePanel.userTypeLabel2.setText(user.getTypeString());
                     if (loginPanel.costumerRadioButton.isSelected() && validator.getUser(userName).getType() == 2) {
+                        costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
                         loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
                         user = validator.getUser(userName);
                     }
@@ -207,6 +212,7 @@ public class Main implements ActionListener {
         } else if (e.getSource() == profilePanel.exitButton.getButton()) {
             profilePanel.exitButton.goTo(profilePanel.allPanel, loginPanel.allPanel, frame);
         }
+
         // ----- edit profile panel -----
         else if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
             // todo (KIANA):
@@ -233,8 +239,7 @@ public class Main implements ActionListener {
             int i;
             for (i = 0; i < value.length(); i++) {
                 if (value.charAt(i) < '0' || value.charAt(i) > '9') {
-                    //todo: error
-                    break;
+                    JOptionPane.showMessageDialog(null, "مبلغ وارد شده معتبر نیست!");                    break;
                 }
             }
             if (i == value.length())
@@ -274,6 +279,7 @@ public class Main implements ActionListener {
         else if (e.getSource() == cartPanel.finializeButton.getButton()) {
             // todo (KIANA):
             //  1. finalize
+            //  2. success message JOptionPane.showMessageDialog(null, "سفارش با موفقیت نهایی شد!");
         } else if (e.getSource() == cartPanel.backButton.getButton()) {
             cartPanel.backButton.goTo(cartPanel.allPanel, costumerProductsPanel.allPanels, frame);
         }

@@ -20,10 +20,10 @@ public class User {
     }
 
 
-    public String getLastName() {
+    public String getNameLastName() {
         return nameLastName;
     }
-    public void setLastName(String nameLastName) {
+    public void setNameLastName(String nameLastName) {
         this.nameLastName = nameLastName;
     }
 
@@ -74,6 +74,15 @@ public class User {
 
     public int getType() {
         return type;
+    }
+    public String getTypeString() {
+        String ans;
+        if (this.getType() == 1) {
+            ans = "فروشنده";
+        } else {
+            ans = "کاربر عادی";
+        }
+        return ans;
     }
 
     public void setType(int type) {
