@@ -121,6 +121,19 @@ public class Main implements ActionListener {
         frame.setVisible(true);
         loginPanel.loginButton.goTo(loginPanel.allPanel, loginPanel.allPanel, frame);
     }
+    public void clearFields(){
+        loginPanel.userNameField.setText("");
+        loginPanel.passwordField.setText("");
+        signupPanel.nameField.setText("");
+        signupPanel.passwordField.setText("");
+        signupPanel.phoneNumField.setText("");
+        signupPanel.userNameField.setText("");
+        signupPanel.userTypeButtonGroup.clearSelection();
+        editProfilePanel.nameField.setText("");
+        editProfilePanel.passwordField.setText("");
+        editProfilePanel.phoneNumField.setText("");
+        editProfilePanel.userNameField.setText("");
+    }
 
     public static void main(String[] args) {
 
@@ -149,10 +162,12 @@ public class Main implements ActionListener {
                                     seller = new Seller(nameLastName, userName, hash, phoneNumber);
                                     JOptionPane.showMessageDialog(null, "فروشنده با موفقیت ثبت نام شد! \n وارد شوید.");
                                     signupPanel.signupButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+                                    clearFields();
                                 } else if (signupPanel.costumerRadioButton.isSelected()) {
                                     customer = new Customer(nameLastName, userName, hash, phoneNumber);
                                     JOptionPane.showMessageDialog(null, "کاربر عادی با موفقیت ثبت نام شد! \n وارد شوید.");
                                     signupPanel.signupButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+                                    clearFields();
                                 } else {
                                     JOptionPane.showMessageDialog(null, "نوع کاربر را انتخاب کنید!");
                                 }
@@ -174,9 +189,11 @@ public class Main implements ActionListener {
         }
         else if (e.getSource() == signupPanel.loginButton.getButton()) {
             signupPanel.loginButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+            clearFields();
         }
         else if (e.getSource() == loginPanel.signupButton.getButton()) {
             loginPanel.signupButton.goTo(loginPanel.allPanel, signupPanel.allPanel, frame);
+            clearFields();
         }
         else if (e.getSource() == loginPanel.loginButton.getButton()) {
             String userName = loginPanel.userNameField.getText();
@@ -191,6 +208,7 @@ public class Main implements ActionListener {
                         costumerProfilePanel.userNameLabel2.setText(user.getUserName());
                         costumerProfilePanel.userTypeLabel2.setText(user.getTypeString());
                         loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
+                        clearFields();
                     }
                     else {
                         sellerProfilePanel.nameLabel2.setText(user.getNameLastName());
@@ -198,6 +216,7 @@ public class Main implements ActionListener {
                         sellerProfilePanel.userNameLabel2.setText(user.getUserName());
                         sellerProfilePanel.userTypeLabel2.setText(user.getTypeString());
                         loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                        clearFields();
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "رمز اشتباه است!");
@@ -209,14 +228,8 @@ public class Main implements ActionListener {
 
         // ----- costumer profile panel -----
         else if (e.getSource() == costumerProfilePanel.exitButton.getButton()) {
+            clearFields();
             costumerProfilePanel.exitButton.goTo(costumerProfilePanel.allPanel, loginPanel.allPanel, frame);
-            loginPanel.userNameField.setText("");
-            loginPanel.passwordField.setText("");
-            signupPanel.nameField.setText("");
-            signupPanel.passwordField.setText("");
-            signupPanel.phoneNumField.setText("");
-            signupPanel.userNameField.setText("");
-            signupPanel.userTypeButtonGroup.clearSelection();
         } else if (e.getSource() == costumerProfilePanel.editProfileButton.getButton()) {
             costumerProfilePanel.editProfileButton.goTo(costumerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
         } else if (e.getSource() == costumerProfilePanel.productsPanelButton.getButton()) {
@@ -227,6 +240,7 @@ public class Main implements ActionListener {
 
         // ----- cash increase panel -----
         else if (e.getSource() == cashIncreasePanel.increaseTheCashButton.getButton()) {
+            System.out.println(user.getUserName());
             String value = cashIncreasePanel.increaseTheCashField.getText();
             int i;
             for (i = 0; i < value.length(); i++) {
@@ -238,21 +252,21 @@ public class Main implements ActionListener {
             if (i == value.length()) {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
+                // todo:
+                //  0. debug user null
+                //  1. success message
+                //  2. goto profile panel
+                clearFields();
             }
         } else if (e.getSource() == cashIncreasePanel.backButton.getButton()) {
             cashIncreasePanel.backButton.goTo(cashIncreasePanel.allPanel, costumerProfilePanel.allPanel, frame);
+            clearFields();
         }
 
         // ----- seller profile panel -----
         else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
             sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
-            loginPanel.userNameField.setText("");
-            loginPanel.passwordField.setText("");
-            signupPanel.nameField.setText("");
-            signupPanel.passwordField.setText("");
-            signupPanel.phoneNumField.setText("");
-            signupPanel.userNameField.setText("");
-            signupPanel.userTypeButtonGroup.clearSelection();
+            clearFields();
         } else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
             sellerProfilePanel.editProfileButton.goTo(sellerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
         } else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
