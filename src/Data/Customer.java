@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Customer extends User{
     private static ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<Product> card = new ArrayList<>();
-    Customer(String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
-        super(name, lastName, dateOfBirth, userName, hashPass, phoneNumber);
+    public Customer(String nameLastName, String userName, Integer hashPass, String phoneNumber) {
+        super(nameLastName, userName, hashPass, phoneNumber);
         super.addUser(this);
         super.setType(2);
         customers.add(this);

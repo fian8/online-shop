@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Seller extends User{
     private static ArrayList<Product> products = new ArrayList<>();
     private static ArrayList<Seller> sellers = new ArrayList<>();
-    Seller(String name, String lastName, String dateOfBirth, String userName, int hashPass, String phoneNumber) {
-        super(name, lastName, dateOfBirth, userName, hashPass, phoneNumber);
+    public Seller(String nameLastName, String userName, Integer hashPass, String phoneNumber) {
+        super(nameLastName, userName, hashPass, phoneNumber);
         super.addUser(this);
         super.setType(1);
         sellers.add(this);
