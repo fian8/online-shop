@@ -16,7 +16,7 @@ public class secondaryPanel {
         // main panel
         mainPanel = new JPanel();
         mainPanel.setBounds(150, 100, 780, 500);
-        mainPanel.setBackground(Color.blue);
+        mainPanel.setBackground(Color.gray);
 
         // title label
         titleLabel = new JLabel();

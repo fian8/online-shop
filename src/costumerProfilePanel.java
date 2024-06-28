@@ -30,7 +30,7 @@ public class costumerProfilePanel extends profilePanel {
         cashPanel = new JPanel();
         cashPanel.setLayout(null);
         cashPanel.setBounds(375, 390, 340, 40);
-        cashPanel.setBackground(Color.cyan);
+        cashPanel.setBackground(Color.gray);
 
         // cash label
         cashLabel1 = new JLabel("موجودی", SwingConstants.CENTER);

@@ -18,7 +18,7 @@ public class profilePanel {
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
         mainPanel.setBounds(290, 100, 500, 280);
-        mainPanel.setBackground(Color.cyan);
+        mainPanel.setBackground(Color.gray);
 
         // title label
         titleLabel = new JLabel();
