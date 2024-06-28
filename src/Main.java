@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Main implements ActionListener {
+    User user;
     Validation validator = new Validation();
     public static JFrame frame;
 
@@ -128,7 +129,7 @@ public class Main implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        User user = null;
+        user = null;
 
         // ----- login & signup buttons process -----
         if (e.getSource() == signupPanel.signupButton.getButton()){
