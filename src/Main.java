@@ -243,8 +243,10 @@ public class Main implements ActionListener {
                     break;
                 }
             }
-            if (i == value.length())
+            if (i == value.length()) {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
+                costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
+            }
         } else if (e.getSource() == cashIncreasePanel.backButton.getButton()) {
             cashIncreasePanel.backButton.goTo(cashIncreasePanel.allPanel, costumerProfilePanel.allPanel, frame);
         }
