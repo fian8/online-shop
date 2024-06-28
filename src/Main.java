@@ -251,7 +251,7 @@ public class Main implements ActionListener {
             if (i == value.length()) {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
-                // todo:ح
+                // todo:
                 //  0. debug user null
                 //  1. success message
                 //  2. goto profile panel
@@ -306,6 +306,21 @@ public class Main implements ActionListener {
                     JOptionPane.showMessageDialog(null, "رمز معتبر نیست!");
                 }
             }
+            if (user.getType() == 2) {
+                costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
+                costumerProfilePanel.nameLabel2.setText(user.getNameLastName());
+                costumerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                costumerProfilePanel.userNameLabel2.setText(user.getUserName());
+                costumerProfilePanel.userTypeLabel2.setText(user.getTypeString());
+                editProfilePanel.editTheProfileButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
+            } else {
+                sellerProfilePanel.nameLabel2.setText(user.getNameLastName());
+                sellerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
+                sellerProfilePanel.userNameLabel2.setText(user.getUserName());
+                sellerProfilePanel.userTypeLabel2.setText(user.getTypeString());
+                loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+            }
+            clearFields();
         } else if (e.getSource() == editProfilePanel.backButton.getButton()) {
             if (user.getType() == 2)
                  editProfilePanel.backButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
