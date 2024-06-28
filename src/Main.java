@@ -170,9 +170,11 @@ public class Main implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "نام و نام خانوادگی معتبر نیست!");
             }
-        } else if (e.getSource() == signupPanel.loginButton.getButton()) {
+        }
+        else if (e.getSource() == signupPanel.loginButton.getButton()) {
             signupPanel.loginButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
-        } else if (e.getSource() == loginPanel.signupButton.getButton()) {
+        }
+        else if (e.getSource() == loginPanel.signupButton.getButton()) {
             loginPanel.signupButton.goTo(loginPanel.allPanel, signupPanel.allPanel, frame);
         }
         else if (e.getSource() == loginPanel.loginButton.getButton()) {
@@ -202,7 +204,7 @@ public class Main implements ActionListener {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "نام کاربری اشتباه است!");
+                JOptionPane.showMessageDialog(null, "نام کاربری وجود ندارد!");
             }
         }
 
