@@ -134,18 +134,20 @@ public class Main implements ActionListener {
             int password = validator.Hash(loginPanel.passwordField.getText());
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
-                    // todo (Fateme): note: check with validator.getUser(userName).getType 1 = seller, 2 = customer
                     if (loginPanel.costumerRadioButton.isSelected() && validator.getUser(userName).getType() == 2)
                          loginPanel.loginButton.goTo(loginPanel.allPanel, costumerProfilePanel.allPanel, frame);
                     else if (loginPanel.sellerRadioButton.isSelected() && validator.getUser(userName).getType() == 1)
                          loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                    else {
+                        JOptionPane.showMessageDialog(null, "نوع کاربر را انتخاب کنید!");
+                    }
                 }
                 else {
-                    // todo: error
+                    JOptionPane.showMessageDialog(null, "رمز اشتباه است!");
                 }
             }
             else {
-                // todo: error
+                JOptionPane.showMessageDialog(null, "نام کاربری اشتباه است!");
             }
 
         } else if (e.getSource() == loginPanel.signupButton.getButton()) {
@@ -159,18 +161,36 @@ public class Main implements ActionListener {
             int hash = validator.Hash(password);
             Seller seller;
             Customer customer;
-            if (validator.nameValidation(name) && !validator.exist(userName) && validator.checkUserName(userName) &&
-                validator.validPhoneNumber(phoneNumber) && validator.checkPassword(password)) {
-                if (signupPanel.sellerRadioButton.isSelected())
-                    seller = new Seller(name, userName, hash, phoneNumber);
-                else if (signupPanel.costumerRadioButton.isSelected())
-                    customer = new Customer(name, userName, hash, phoneNumber);
-                else {
-                    //todo : error
+            if (validator.nameValidation(name)) {
+                if (!validator.exist(userName)) {
+                    if (validator.checkUserName(userName)) {
+                        if (validator.validPhoneNumber(phoneNumber)) {
+                            if (validator.checkPassword(password)) {
+                                if (signupPanel.sellerRadioButton.isSelected()) {
+                                    seller = new Seller(name, userName, hash, phoneNumber);
+                                    JOptionPane.showMessageDialog(null, "فروشنده با موفقیت ثبت نام شد! \n وارد شوید.");
+                                    signupPanel.signupButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+                                } else if (signupPanel.costumerRadioButton.isSelected()) {
+                                    customer = new Customer(name, userName, hash, phoneNumber);
+                                    JOptionPane.showMessageDialog(null, "کاربر عادی با موفقیت ثبت نام شد! \n وارد شوید.");
+                                    signupPanel.signupButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "نوع کاربر را انتخاب کنید!");
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "رمز معتبر نیست!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "شماره تلفن معتبر نیست معتبر نیست!");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "نام کاربری معتبر نیست!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "نام کاربری تکراری است!");
                 }
-            }
-            else {
-                //todo: create object
+            } else {
+                JOptionPane.showMessageDialog(null, "نام و نام خانوادگی معتبر نیست!");
             }
         } else if (e.getSource() == signupPanel.loginButton.getButton()) {
             signupPanel.loginButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
