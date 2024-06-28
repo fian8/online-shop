@@ -205,7 +205,16 @@ public class Main implements ActionListener {
                 JOptionPane.showMessageDialog(null, "نام کاربری وجود ندارد!");
             }
         }
-
+        // ----- profile panel -----
+        else if (e.getSource() == profilePanel.editProfileButton.getButton()) {
+            profilePanel.editProfileButton.goTo(profilePanel.allPanel, editProfilePanel.allPanel, frame);
+        } else if (e.getSource() == costumerProfilePanel.exitButton.getButton()) {
+            costumerProfilePanel.exitButton.goTo(costumerProfilePanel.allPanel, loginPanel.allPanel, frame);
+            user = null;
+        } else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
+            sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
+            user = null;
+        }
         // ----- edit profile panel -----
         else if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
             // todo (KIANA):
