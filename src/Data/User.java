@@ -21,14 +21,14 @@ public class User {
 
 
     public String getNameLastName() {
-        return nameLastName;
+        return this.nameLastName;
     }
     public void setNameLastName(String nameLastName) {
         this.nameLastName = nameLastName;
     }
 
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
     public void setUserName(String userName) {
@@ -36,7 +36,7 @@ public class User {
     }
 
     public Integer getHashPass() {
-        return hashPass;
+        return this.hashPass;
     }
 
     public void setHashPass(Integer hashPass) {
@@ -44,7 +44,7 @@ public class User {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -54,7 +54,7 @@ public class User {
     // customer should Only buy product to decrease wallet
     // seller can Only decrease wallet
     public int getWallet() {
-        return wallet;
+        return this.wallet;
     }
 
     public void setWallet(int wallet) {
@@ -73,7 +73,7 @@ public class User {
     }
 
     public int getType() {
-        return type;
+        return this.type;
     }
     public String getTypeString() {
         String ans;
