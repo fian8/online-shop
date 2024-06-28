@@ -1,9 +1,13 @@
+import Comparator.*;
 import Data.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Main implements ActionListener {
     Validation validator = new Validation();
     public static JFrame frame;
@@ -267,14 +271,17 @@ public class Main implements ActionListener {
             // todo (KIANA):
             //  1. search
         } else if (e.getSource() == productsPanel.sortByMostExpensive) {
-            // todo (KIANA):
-            //  1. sort by most expensive
+            ArrayList<Product> expensive = Product.getProducts();
+            Collections.sort(expensive, new MostExpensiveComparator());
+            // todo(Fatemeh): add array list to main page
         } else if (e.getSource() == productsPanel.sortByCheapest) {
-            // todo (KIANA):
-            //  1. sort by cheapest
+            ArrayList<Product> cheap = Product.getProducts();
+            Collections.sort(cheap, new CheapestComparator());
+            // todo(Fatemeh): add array list to main page
         } else if (e.getSource() == productsPanel.sortByMostPopular) {
-            // todo (KIANA):
-            //  1. sort by most popular
+            ArrayList<Product> popular = Product.getProducts();
+            Collections.sort(popular, new MostPopularComparator());
+            // todo(Fatemeh): add array list to main page
         }
         // todo (KIANA):
         //  1. show products
