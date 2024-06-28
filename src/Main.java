@@ -46,25 +46,24 @@ public class Main implements ActionListener {
         signupPanel = new signupPanel(frame);
         signupPanel.loginButton.getButton().addActionListener(this);
         signupPanel.signupButton.getButton().addActionListener(this);
-        
-        // ----- profile panel -----
-        profilePanel = new profilePanel(frame);
-        profilePanel.editProfileButton.getButton().addActionListener(this);
-        profilePanel.exitButton.getButton().addActionListener(this);
-
-        // ----- edit profile panel -----
-        editProfilePanel = new editProfilePanel(frame);
-        editProfilePanel.editTheProfileButton.getButton().addActionListener(this);
-        editProfilePanel.backButton.getButton().addActionListener(this);
 
         // ----- costumer profile panel -----
         costumerProfilePanel = new costumerProfilePanel(frame);
+        costumerProfilePanel.editProfileButton.getButton().addActionListener(this);
+        costumerProfilePanel.exitButton.getButton().addActionListener(this);
         costumerProfilePanel.productsPanelButton.getButton().addActionListener(this);
         costumerProfilePanel.cashIncreaseButton.getButton().addActionListener(this);
 
         // ----- seller profile panel -----
         sellerProfilePanel = new sellerProfilePanel(frame);
+        sellerProfilePanel.editProfileButton.getButton().addActionListener(this);
+        sellerProfilePanel.exitButton.getButton().addActionListener(this);
         sellerProfilePanel.productsPanelButton.getButton().addActionListener(this);
+
+        // ----- edit profile panel -----
+        editProfilePanel = new editProfilePanel(frame);
+        editProfilePanel.editTheProfileButton.getButton().addActionListener(this);
+        editProfilePanel.backButton.getButton().addActionListener(this);
 
         // ----- cash increase panel -----
         cashIncreasePanel = new cashIncreasePanel(frame);
@@ -133,9 +132,6 @@ public class Main implements ActionListener {
 
         // ----- login & signup buttons process -----
         if (e.getSource() == signupPanel.signupButton.getButton()){
-
-            //Validating
-
             String nameLastName = signupPanel.nameField.getText();
             String phoneNumber = signupPanel.phoneNumField.getText();
             String userName = signupPanel.userNameField.getText();
@@ -210,17 +206,6 @@ public class Main implements ActionListener {
             }
         }
 
-        // ----- profile panel -----
-        else if (e.getSource() == profilePanel.editProfileButton.getButton()) {
-            profilePanel.editProfileButton.goTo(profilePanel.allPanel, editProfilePanel.allPanel, frame);
-        } else if (e.getSource() == costumerProfilePanel.exitButton.getButton()) {
-            costumerProfilePanel.exitButton.goTo(costumerProfilePanel.allPanel, loginPanel.allPanel, frame);
-            user = null;
-        } else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
-            sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
-            user = null;
-        }
-
         // ----- edit profile panel -----
         else if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
             // todo (KIANA):
@@ -235,7 +220,12 @@ public class Main implements ActionListener {
         }
 
         // ----- costumer profile panel -----
-        else if (e.getSource() == costumerProfilePanel.productsPanelButton.getButton()) {
+        else if (e.getSource() == costumerProfilePanel.exitButton.getButton()) {
+            costumerProfilePanel.exitButton.goTo(costumerProfilePanel.allPanel, loginPanel.allPanel, frame);
+            user = null;
+        } else if (e.getSource() == costumerProfilePanel.editProfileButton.getButton()) {
+            costumerProfilePanel.editProfileButton.goTo(costumerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
+        } else if (e.getSource() == costumerProfilePanel.productsPanelButton.getButton()) {
             costumerProfilePanel.productsPanelButton.goTo(costumerProfilePanel.allPanel, costumerProductsPanel.allPanels, frame);
         } else if (e.getSource() == costumerProfilePanel.cashIncreaseButton.getButton()) {
             costumerProfilePanel.cashIncreaseButton.goTo(costumerProfilePanel.allPanel, cashIncreasePanel.allPanel, frame);
@@ -260,7 +250,12 @@ public class Main implements ActionListener {
         }
 
         // ----- seller profile panel -----
-        else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
+        else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
+            sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
+            user = null;
+        } else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
+            sellerProfilePanel.editProfileButton.goTo(sellerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
+        } else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
             sellerProfilePanel.productsPanelButton.goTo(sellerProfilePanel.allPanel, sellerProductsPanel.allPanels, frame);
         }
         
