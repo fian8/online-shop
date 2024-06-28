@@ -10,7 +10,7 @@ public class Customer extends User{
         super.setType(2);
         customers.add(this);
     }
-    public ArrayList<Customer> getCustomers() {
+    public static ArrayList<Customer> getCustomers() {
         return customers;
     }
     public void addToCard(Product product) {

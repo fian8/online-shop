@@ -251,7 +251,7 @@ public class Main implements ActionListener {
             if (i == value.length()) {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 costumerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
-                // todo:ح
+                // todo:
                 //  0. debug user null
                 //  1. success message
                 //  2. goto profile panel
@@ -349,8 +349,9 @@ public class Main implements ActionListener {
         // ----- costumers list panel -----
         else if (e.getSource() == costumersListPanel.backButton.getButton()) {
             costumersListPanel.backButton.goTo(costumersListPanel.allPanel, sellerProductsPanel.allPanels, frame);
-            // todo (KIANA):
-            //  1. add costumers
+            ArrayList<Customer> customers = Customer.getCustomers();
+            // todo (Fatemeh):
+            //  1. add object from customers to main panel
         }
 
         // ----- add product panel -----
