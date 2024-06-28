@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class usersListPanel extends secondaryPanel {
-    public usersListPanel(JFrame frame) {
+public class costumersListPanel extends secondaryPanel {
+    public costumersListPanel(JFrame frame) {
 
         super(frame);
 

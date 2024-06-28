@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class editProductPanel extends productDetailsPanel {
+    public button editTheProductButton;
     public editProductPanel(JFrame frame) {
 
         super(frame);
@@ -13,6 +14,10 @@ public class editProductPanel extends productDetailsPanel {
         // back button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
+
+        // edit product button
+        editTheProductButton = new button("ویرایش محصول", Color.white, mainPanel);
+//        editTheProductButton.getButton().setBounds();
 
     }
 }

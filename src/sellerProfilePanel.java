@@ -11,7 +11,6 @@ public class sellerProfilePanel extends profilePanel {
         // text label (edit)
         titleLabel.setText("پنل کاربری");
         titleLabel.setBounds(480, 40, 120, 30);
-
         
     }
 }

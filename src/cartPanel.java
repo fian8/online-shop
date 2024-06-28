@@ -20,7 +20,6 @@ public class cartPanel extends secondaryPanel {
 
         // finalize button
         finializeButton  = new button("نهایی کن", Color.white, allPanel);
-        finializeButton.goTo(allPanel, null, frame);
         finializeButton.getButton().setBounds(490, 630, 100, 30);
 
     }

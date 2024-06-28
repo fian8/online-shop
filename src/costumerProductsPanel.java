@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class userProductsPanel extends productsPanel{
-    button cartButton;
-    public  Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
-    public userProductsPanel(JFrame frame) {
+public class costumerProductsPanel extends productsPanel{
+    public button cartButton;
+    public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
+    public costumerProductsPanel(JFrame frame) {
 
         super(frame);
 

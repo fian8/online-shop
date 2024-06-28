@@ -1,11 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class profilePanel {
+public class profilePanel {
     public JLabel titleLabel, nameLabel1, nameLabel2, phoneNumLabel1, phoneNumLabel2,
             userNameLabel1, userNameLabel2, userTypeLabel1, userTypeLabel2;
     public JPanel allPanel, mainPanel;
-    public button backButton, editProfileButton, productsPanelButton, exitButton;
+    public button editProfileButton, productsPanelButton, exitButton;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public profilePanel(JFrame frame){
 
@@ -24,10 +24,6 @@ public abstract class profilePanel {
         titleLabel = new JLabel();
         titleLabel.setFont(titleFont);
         allPanel.add(titleLabel);
-
-        // back button
-        backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(290, 40, 100, 30);
 
         // name
         nameLabel1 = new JLabel("نام و نام خانوادگی");

@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class userProfilePanel extends profilePanel {
+public class costumerProfilePanel extends profilePanel {
     JPanel cashPanel;
     JLabel cashLabel1, cashLabel2;
     button cashIncreaseButton;
 
-    public userProfilePanel(JFrame frame) {
+    public costumerProfilePanel(JFrame frame) {
 
         super(frame);
 

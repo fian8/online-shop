@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class sellerProductsPanel extends productsPanel {
 
-    button addProductButton, stockButton, usersListButton;
+    button addProductButton, stockButton, costumersListButton;
     JLabel salesAmountTextLabel, salesAmountNumLabel;
     public sellerProductsPanel(JFrame frame) {
 
@@ -26,9 +26,9 @@ public class sellerProductsPanel extends productsPanel {
         stockButton.getButton().setBounds(490, 15, 100, 30);
 
         // users list button
-        usersListButton = new button("لیست کاربران", Color.white, navBar);
-        usersListButton.goTo(allPanels, null, frame);
-        usersListButton.getButton().setBounds(600, 15, 100, 30);
+        costumersListButton = new button("لیست کاربران", Color.white, navBar);
+        costumersListButton.goTo(allPanels, null, frame);
+        costumersListButton.getButton().setBounds(600, 15, 100, 30);
 
         // search field (edit)
         searchField.setBounds(715, 15, 200, 30);
