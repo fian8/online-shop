@@ -6,7 +6,7 @@ public class loginPanel extends secondaryPanel {
     public JTextField userNameField, passwordField;
     public JRadioButton costumerRadioButton, sellerRadioButton;
     public ButtonGroup userTypeButtonGroup;
-    public button loginButton, signupButton, reloadButton;
+    public button loginButton, signupButton;
     public loginPanel(JFrame frame) {
 
         super(frame);
@@ -54,10 +54,6 @@ public class loginPanel extends secondaryPanel {
         loginButton.getButton().setBounds(225, 330, 100, 30);
         signupButton = new button("ثبت نام کاربر جدید", Color.white, mainPanel);
         signupButton.getButton().setBounds(355, 330, 150, 30);
-
-        // reload button
-        reloadButton = new button("reload", Color.green, mainPanel);
-        reloadButton.getButton().setBounds(0,0,100,30);
 
     }
 }
