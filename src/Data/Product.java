@@ -1,8 +1,11 @@
 package Data;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
-public class Product {
+public class Product extends Component {
     private String name;
     private int code;
     private int price;
@@ -10,6 +13,11 @@ public class Product {
     private int score;
     private int purchaseFrequency;
     private Seller seller;
+    JLabel pictureLabel = new JLabel();
+    String filePath = "\\Users\\kiana\\OneDrive\\Desktop\\Photos";
+    File file;
+    JFileChooser fileChooser = new JFileChooser(filePath);
+
     static ArrayList<Product> products = new ArrayList<>();
     Product(String name, int code, int price, int stock, Seller seller) {
         this.name = name;
@@ -81,6 +89,18 @@ public class Product {
     }
     public static void addProduct(Product product) {
         products.add(product);
+    }
+    public void chooseFileImage(){
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        int option = fileChooser.showOpenDialog(Product.this);
+        if (option == JFileChooser.APPROVE_OPTION) {
+            file = fileChooser.getSelectedFile();
+        }
+    }
+    public void addPicture() {
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(String.valueOf(file)).getImage().getScaledInstance(800, 600, Image.SCALE_DEFAULT));
+        pictureLabel.setIcon(imageIcon);
+        pictureLabel.setLayout(new BorderLayout());
     }
     //todo
     //1. Add image field(graphic)
