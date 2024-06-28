@@ -279,14 +279,34 @@ public class Main implements ActionListener {
             String phoneNumber = editProfilePanel.phoneNumField.getText();
             String userName = editProfilePanel.userNameField.getText();
             String password = editProfilePanel.passwordField.getText();
-            if (name.length() != 0 && validator.nameValidation(name))
-                user.setNameLastName(name);
-            if (phoneNumber.length() != 0 && validator.validPhoneNumber(phoneNumber))
-                user.setPhoneNumber(phoneNumber);
-            if (userName.length() != 0 && validator.checkUserName(userName))
-                user.setUserName(userName);
-            if (password.length() != 0 && validator.checkPassword(password))
-                user.setHashPass(validator.Hash(password));
+            if (!name.isEmpty()) {
+                if (validator.nameValidation(name)) {
+                    user.setNameLastName(name);
+                } else {
+                    JOptionPane.showMessageDialog(null, "نام و نام خانوادگی معتبر نیست!");
+                }
+            }
+            if (!phoneNumber.isEmpty()) {
+                if (validator.validPhoneNumber(phoneNumber)) {
+                    user.setPhoneNumber(phoneNumber);
+                } else {
+                    JOptionPane.showMessageDialog(null, "شماره تلفن معتبر نیست!");
+                }
+            }
+            if (!userName.isEmpty()) {
+                if (validator.checkUserName(userName)) {
+                    user.setUserName(userName);
+                } else {
+                    JOptionPane.showMessageDialog(null, "نام کاربری معتبر نیست!");
+                }
+            }
+            if (!password.isEmpty()) {
+                if (validator.checkPassword(password)) {
+                    user.setHashPass(validator.Hash(password));
+                } else {
+                    JOptionPane.showMessageDialog(null, "رمز معتبر نیست!");
+                }
+            }
         } else if (e.getSource() == editProfilePanel.backButton.getButton()) {
             if (user.getType() == 2)
                  editProfilePanel.backButton.goTo(editProfilePanel.allPanel, costumerProfilePanel.allPanel, frame);
