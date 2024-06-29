@@ -14,7 +14,7 @@ public class productsPanel {
     public JPanel allPanels, navBar, sortBar, productsCardsPanel;
     public JTextField searchField;
     public button profileButton, searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
-    public JButton  previousPage, nextPage;
+    public JButton previousPage, nextPage;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
     public ArrayList<Product> last = products;

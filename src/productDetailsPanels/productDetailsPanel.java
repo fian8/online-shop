@@ -1,5 +1,6 @@
 package productDetailsPanels;
 
+import Data.Product;
 import base.button;
 import base.themeTwoPanel;
 
@@ -7,9 +8,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class productDetailsPanel extends themeTwoPanel {
-    JLabel nameLabel, priceLabel, imageLabel;
-    JTextField nameField, priceField;
-    button chooseImage;
+    public Product product;
+    public JLabel nameLabel, priceLabel, stockLabel, imageLabel;
+    public JTextField nameField, priceField, stockField;
+    public button chooseImage;
     public productDetailsPanel(JFrame frame) {
 
         super(frame);
@@ -37,12 +39,20 @@ public class productDetailsPanel extends themeTwoPanel {
         priceField.setBounds(225, 210, 200, 30);
         mainPanel.add(priceField);
 
+        // stock
+        stockLabel = new JLabel("موجودی محصول");
+        stockLabel.setBounds(455, 270, 100, 30);
+        mainPanel.add(stockLabel);
+        stockField = new JTextField();
+        stockField.setBounds(225, 270, 200, 30);
+        mainPanel.add(stockField);
+
         // image
         imageLabel = new JLabel("تصویر محصول");
-        imageLabel.setBounds(455, 270, 100, 30);
+        imageLabel.setBounds(455, 330, 100, 30);
         mainPanel.add(imageLabel);
         chooseImage = new button("انتخاب تصویر", Color.white, mainPanel);
-        chooseImage.getButton().setBounds(225, 270, 200, 30);
+        chooseImage.getButton().setBounds(225, 330, 200, 30);
 
     }
 }

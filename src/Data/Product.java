@@ -7,90 +7,52 @@ import java.util.ArrayList;
 
 public class Product extends Component {
     private String name;
-    private int code;
-    private int price;
-    private int stock;
-    private int score;
-    private int purchaseFrequency;
-    private Seller seller;
-    public JLabel pictureLabel = new JLabel();
+    private int price, stock, rate;
+    public JLabel imageLabel = new JLabel();
     public ImageIcon imageIcon;
-    String filePath = "\\Users\\kiana\\OneDrive\\Desktop\\Photos";
-    File file;
-    JFileChooser fileChooser = new JFileChooser(filePath);
+    public String filePath = "/home/...";
+    public File file;
+    public JFileChooser fileChooser = new JFileChooser(filePath);
     public static ArrayList<Product> products = new ArrayList<>();
 
-    Product(String name, int code, int price, int stock, Seller seller) {
+    public Product(String name, int price, int stock) {
         this.name = name;
-        this.code = code;
         this.price = price;
         this.stock = stock;
-        this.seller = seller;
-        score = 0;
-        purchaseFrequency = 0;
+        rate = 0;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public int getPrice() {
         return price;
     }
-
     public void setPrice(int price) {
         this.price = price;
     }
-
     public int getStock() {
         return stock;
     }
-
     public void setStock(int stock) {
         this.stock = stock;
     }
-
-    public int getScore() {
-        return score;
+    public int getRate() {
+        return rate;
+    }
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getPurchaseFrequency() {
-        return purchaseFrequency;
-    }
-
-    public void setPurchaseFrequency(int purchaseFrequency) {
-        this.purchaseFrequency = purchaseFrequency;
-    }
-
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
     public static ArrayList<Product> getProducts() {
         return products;
     }
     public static void addProduct(Product product) {
         products.add(product);
     }
+
     public void chooseFileImage(){
         fileChooser.setAcceptAllFileFilterUsed(false);
         int option = fileChooser.showOpenDialog(Product.this);
@@ -98,9 +60,9 @@ public class Product extends Component {
             file = fileChooser.getSelectedFile();
         }
     }
-    public void addPicture() {
+    public void addImage() {
         imageIcon = new ImageIcon(new ImageIcon(String.valueOf(file)).getImage().getScaledInstance(800, 600, Image.SCALE_DEFAULT));
-        pictureLabel.setIcon(imageIcon);
-        pictureLabel.setLayout(new BorderLayout());
+        imageLabel.setIcon(imageIcon);
+        imageLabel.setLayout(new BorderLayout());
     }
 }

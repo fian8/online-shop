@@ -116,6 +116,7 @@ public class Main implements ActionListener {
         // ----- add product panel -----
         addProductPanel = new addProductPanel(frame);
         addProductPanel.addTheProductButton.getButton().addActionListener(this);
+        addProductPanel.chooseImage.getButton().addActionListener(this);
         addProductPanel.backButton.getButton().addActionListener(this);
 
         // ----- stock panel -----
@@ -406,11 +407,11 @@ public class Main implements ActionListener {
         // ----- seller products panel -----
         else if (e.getSource() == sellerProductsPanel.profileButton.getButton()) {
             sellerProductsPanel.profileButton.goTo(sellerProductsPanel.allPanels, sellerProfilePanel.allPanel, frame);
-        } else if (e.getSource() == sellerProductsPanel.addProductButton) {
+        } else if (e.getSource() == sellerProductsPanel.addProductButton.getButton()) {
             sellerProductsPanel.addProductButton.goTo(sellerProductsPanel.allPanels, addProductPanel.allPanel, frame);
-        } else if (e.getSource() == sellerProductsPanel.stockButton) {
+        } else if (e.getSource() == sellerProductsPanel.stockButton.getButton()) {
             sellerProductsPanel.stockButton.goTo(sellerProductsPanel.allPanels, stockPanel.allPanel, frame);
-        } else if (e.getSource() == sellerProductsPanel.costumersListButton) {
+        } else if (e.getSource() == sellerProductsPanel.costumersListButton.getButton()) {
             sellerProductsPanel.costumersListButton.goTo(sellerProductsPanel.allPanels, customersListPanel.allPanel, frame);
         }
         
@@ -423,18 +424,25 @@ public class Main implements ActionListener {
         }
 
         // ----- stock panel -----
-        else if (e.getSource() == stockPanel.backButton) {
+        else if (e.getSource() == stockPanel.backButton.getButton()) {
             stockPanel.backButton.goTo(stockPanel.allPanel, sellerProductsPanel.allPanels, frame);
             // todo (KIANA):
             //  1. add products
         }
 
         // ----- add product panel -----
+        else if (e.getSource() == addProductPanel.chooseImage.getButton()) {
+            addProductPanel.product.chooseFileImage();
+            addProductPanel.product.addImage();
+        }
         else if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
-            // todo (KIANA):
-            //  1. add the product
+            Product.addProduct(addProductPanel.product);
+            JOptionPane.showMessageDialog(null, "محصول با موفقیت افزوده شد!");
+            addProductPanel.addTheProductButton.goTo(addProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            clearFields();
         } else if (e.getSource() == addProductPanel.backButton.getButton()) {
             addProductPanel.backButton.goTo(addProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            clearFields();
         }
 
         // ----- edit product panel -----
