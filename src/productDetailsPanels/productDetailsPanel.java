@@ -16,43 +16,46 @@ public class productDetailsPanel extends themeTwoPanel {
 
         super(frame);
 
-        // list cards panel
+        // main panel
         mainPanel.setLayout(null);
 
-        // back base.button
+        // back button
         backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(150, 40, 100, 30);
+        backButton.getButton().setBounds(200, 80, 100, 30);
 
         // name
         nameLabel = new JLabel("نام محصول");
-        nameLabel.setBounds(455, 150, 100, 30);
+        nameLabel.setBounds(455, 120, 100, 30);
         mainPanel.add(nameLabel);
         nameField = new JTextField();
-        nameField.setBounds(225, 150, 200, 30);
+        nameField.setCaretColor(Color.WHITE);
+        nameField.setBounds(225, 120, 200, 30);
         mainPanel.add(nameField);
 
         // price
         priceLabel = new JLabel("قیمت محصول");
-        priceLabel.setBounds(455, 210, 100, 30);
+        priceLabel.setBounds(455, 180, 100, 30);
         mainPanel.add(priceLabel);
         priceField = new JTextField();
-        priceField.setBounds(225, 210, 200, 30);
+        priceField.setCaretColor(Color.WHITE);
+        priceField.setBounds(225, 180, 200, 30);
         mainPanel.add(priceField);
 
         // stock
         stockLabel = new JLabel("موجودی محصول");
-        stockLabel.setBounds(455, 270, 100, 30);
+        stockLabel.setBounds(455, 240, 100, 30);
         mainPanel.add(stockLabel);
         stockField = new JTextField();
-        stockField.setBounds(225, 270, 200, 30);
+        stockField.setCaretColor(Color.WHITE);
+        stockField.setBounds(225, 240, 200, 30);
         mainPanel.add(stockField);
 
         // image
         imageLabel = new JLabel("تصویر محصول");
-        imageLabel.setBounds(455, 330, 100, 30);
+        imageLabel.setBounds(455, 300, 100, 30);
         mainPanel.add(imageLabel);
         chooseImage = new button("انتخاب تصویر", Color.white, mainPanel);
-        chooseImage.getButton().setBounds(225, 330, 200, 30);
+        chooseImage.getButton().setBounds(225, 300, 200, 30);
 
     }
 }
