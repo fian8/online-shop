@@ -20,6 +20,7 @@ public class Product extends Component {
         this.price = price;
         this.stock = stock;
         rate = 0;
+        products.add(this);
     }
     public String getName() {
         return name;

@@ -43,6 +43,8 @@ public class Main extends JFrame implements ActionListener {
     public listPanels.stockPanel stockPanel;
     public listPanels.customersListPanel customersListPanel;
     public productDetailsPanels.editProductPanel editProductPanel;
+    public Product[] p = new Product[10];
+
 
     // ----
 
@@ -58,8 +60,11 @@ public class Main extends JFrame implements ActionListener {
         frame.setSize(1080, 720);
         frame.setLayout(null);
         frame.setResizable(false);
+        //todo: remove this and product arraylist
+        for (int i = 0; i < 10; i++) {
+            p[i] = new Product("BED" + i, i * 10000, i);
 
-
+        }
 
         // --INITIALIZING--:
 
@@ -383,16 +388,19 @@ public class Main extends JFrame implements ActionListener {
             customerProductsPanel.addProductsCardPanel(result);
             clearFields();
         } else if (e.getSource() == customerProductsPanel.sortByMostExpensive) {
+            System.out.println("exp");
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(expensive);
         } else if (e.getSource() == customerProductsPanel.sortByCheapest) {
+            System.out.println("chp");
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(cheap);
         } else if (e.getSource() == customerProductsPanel.sortByMostPopular) {
+            System.out.println("pop");
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             customerProductsPanel.addProductsCardPanel(popular);
