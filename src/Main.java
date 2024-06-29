@@ -393,7 +393,7 @@ public class Main extends JFrame implements ActionListener {
             customerProductsPanel.page -= 1;
             customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
         } else if (e.getSource() == customerProductsPanel.nextPage) {
-            if (customerProductsPanel.page + 1 > products.size()/6 + (products.size()%6>0?1: 0)) {
+            if (customerProductsPanel.page + 1 > Product.products.size()/6 + (Product.products.size()%6>0?1: 0)) {
                  //todo(Fatemeh): error
                  return;
             }
