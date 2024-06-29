@@ -1,22 +1,33 @@
+import Data.Product;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class productListCard {
-    private JLabel nameLabel, numLabel, imageLabel;
+    public Product product;
+    public JLabel nameLabel, priceLabel, imageLabel, numLabel;
     public JPanel cardPanel;
-    public productListCard(String name, int price, JLabel imageLabel) {
+    public productListCard(Product product) {
 
-        nameLabel = new JLabel(name);
-        numLabel = new JLabel(String.valueOf(price));
-        // todo:
-        //  1. add image label
-        //  2. connect to database
+        this.product = product;
+        this.nameLabel = new JLabel(product.getName());
+//        nameLabel.setBounds();
+        this.priceLabel = new JLabel(String.valueOf(product.getPrice()));
+//        priceLabel.setBounds();
+        this.imageLabel = new JLabel(product.imageIcon);
+//        imageLabel.setBounds();
+        this.numLabel = new JLabel(String.valueOf(product.getStock()));
+//        numLabel.setBounds();
 
         cardPanel.add(imageLabel);
         cardPanel.add(nameLabel);
+        cardPanel.add(priceLabel);
         cardPanel.add(numLabel);
 
         cardPanel.setPreferredSize(new Dimension(780, 100));
 
+    }
+    public Product getProduct() {
+        return this.product;
     }
 }

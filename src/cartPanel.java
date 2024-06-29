@@ -1,13 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
+import static Data.Product.products;
 
 public class cartPanel extends secondaryPanel {
-    button finializeButton;
+    public button finializeButton;
+    public int total;
+    public ArrayList<productListCard> productListCards = new ArrayList<>();
     public cartPanel(JFrame frame) {
 
         super(frame);
 
-        // main panel
+        // main panel (edit)
         mainPanel.setLayout(new GridLayout(5, 1));
 
         // text label (edit)
@@ -17,6 +22,18 @@ public class cartPanel extends secondaryPanel {
         // back button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
+
+        // ----- products list cards panel (main panel) -----
+        mainPanel.setLayout(new GridLayout(10, 1));
+        mainPanel.setBounds(0, 100, 1080, 620);
+        mainPanel.setBackground(Color.gray);
+
+        for (Data.Product product : products) {
+            productListCards.add(new productListCard(product));
+        }
+        for (productListCard productListCard : productListCards) {
+            mainPanel.add(productListCard.cardPanel);
+        }
 
         // finalize button
         finializeButton  = new button("نهایی کن", Color.white, allPanel);
