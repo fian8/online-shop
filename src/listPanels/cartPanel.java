@@ -13,7 +13,7 @@ import static Data.Product.products;
 
 public class cartPanel extends themeTwoPanel {
     public button finializeButton;
-    public int total;
+    private int total;
     public cartPanel(JFrame frame) {
 
         super(frame);
@@ -36,9 +36,19 @@ public class cartPanel extends themeTwoPanel {
 
     }
     public void showCard(User user) {
+        total = 0;
         for (Product product: user.getCart()) {
+            total += product.getPrice();
             productListCard productList = new productListCard(product);
             mainPanel.add(productList.cardPanel);
         }
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 }
