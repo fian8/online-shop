@@ -27,7 +27,7 @@ public class Main extends JFrame implements ActionListener {
     // --OBJECTS--:
     public static JFrame frame;
     private User user = null;
-    private Product product;
+    private Product product = null;
     public Validation validator = new Validation();
     public loginSignup.loginPanel loginPanel;
     public loginSignup.signupPanel signupPanel;
@@ -503,7 +503,6 @@ public class Main extends JFrame implements ActionListener {
             int i;
             for (i = 0; i < price.length(); i++) {
                 if (price.charAt(i) < '0' || price.charAt(i) > '9') {
-                    JOptionPane.showMessageDialog(null, "قیمت وارد شده معتبر نیست!");
                     break;
                 } else {
                     priceInt += price.charAt(i);
@@ -512,32 +511,46 @@ public class Main extends JFrame implements ActionListener {
             int j;
             for (j = 0; j < stock.length(); j++) {
                 if (stock.charAt(j) < '0' || stock.charAt(j) > '9') {
-                    JOptionPane.showMessageDialog(null, "تعداد وارد شده معتبر نیست!");
                     break;
                 } else {
                     stockInt += stock.charAt(j);
                 }
             }
-            if (!(i == 0 || j ==  0 || product == null)) {
-                if (i == price.length()) {
-                    if (j == stock.length()) {
-                        if(validator.nameValidation(name)) {
-                            product = new Product(name, priceInt, stockInt);
-                            product.chooseFileImage();
-                            product.addImage();
+            if (product == null) {
+                if (!(price.isEmpty() || stock.isEmpty() || name.isEmpty())) {
+                    if (i == price.length()) {
+                        if (j == stock.length()) {
+                            if (validator.nameValidation(name)) {
+                                product = new Product(name, priceInt, stockInt);
+                                product.chooseFileImage();
+                                product.addImage();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "نام محصول معتبر نیست!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "تعداد وارد شده معتبر نیست!");
                         }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "قیمت وارد شده معتبر نیست!");
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "همه ی فیلد ها را پر کنید!");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "همه ی فیلد ها را پر کنید!");
+                product.chooseFileImage();
+                product.addImage();
             }
-        }
-        else if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
+        } else if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
+        if (product != null && product.imageLabel.getIcon() != null) {
             Product.addProduct(product);
             if (Product.products.contains(product)) {
                 JOptionPane.showMessageDialog(null, "محصول با موفقیت افزوده شد!");
             }
-            clearFields();
+        } else {
+            JOptionPane.showMessageDialog(null, "همه ی فیلد ها را پر کنید!\n تصویر انتخاب کنید!");
+        }
+        System.out.println(Product.getProducts());
+        clearFields();
         } else if (e.getSource() == addProductPanel.backButton.getButton()) {
             addProductPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);
             clearFields();
