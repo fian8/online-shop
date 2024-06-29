@@ -21,7 +21,7 @@ public class cartPanel extends themeTwoPanel {
 
         // text label (edit)
         titleLabel.setText("سبد خرید");
-        titleLabel.setBounds(395, 70, 250, 60);
+        titleLabel.setBounds(435, 70, 210, 60);
 
         // back button
         backButton = new button("برگشت", Color.white, allPanel);
