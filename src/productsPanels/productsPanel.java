@@ -104,20 +104,20 @@ public class productsPanel {
         frame.add(allPanels);
 
     }
-    public void addProductsCardPanel(ArrayList<Product> AL, JFrame frame) {
+    public void addProductsCardPanel(ArrayList<Product> AL) {
         last = AL;
-        frame.remove(allPanels);
         allPanels.remove(productsCardsPanel);
         allPanels.remove(currentPage);
-        currentPage.setText(Integer.toString(page));
+        allPanels.repaint();
+        allPanels.revalidate();
         productsCardsPanel.removeAll();
+        currentPage.setText(String.valueOf(page));
+        currentPage.setBounds(520, 630, 40, 40);
         for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++)
             productsCardsPanel.add(new productCard(AL.get(i)).cardPanel);
-        allPanels.add(productsCardsPanel);
         allPanels.add(currentPage);
-        frame.add(allPanels);
-        frame.revalidate();
-        frame.repaint();
-
+        allPanels.add(productsCardsPanel);
+        allPanels.revalidate();
+        allPanels.repaint();
     }
 }
