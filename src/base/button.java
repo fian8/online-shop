@@ -2,11 +2,10 @@ package base;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class button {
-    public JButton theButton;
+    private JButton theButton;
     public JFrame frame;
     public button(String text, Color color, JPanel panel) {
         theButton = new JButton(text);
@@ -14,7 +13,7 @@ public class button {
         theButton.setBackground(color);
         theButton.setFocusable(false);
     }
-    public void goTo(JPanel currentPanel, JPanel goalPanel, JFrame frame) {
+    public void goTo(JPanel goalPanel, JFrame frame) {
         frame.getContentPane(). removeAll();
         frame.add(goalPanel);
         frame.revalidate();
@@ -23,6 +22,11 @@ public class button {
     public JButton getButton() {
         return this.theButton;
     }
+    public void setButton(JButton theButton) {
+        this.theButton = theButton;
+    }
+
     // TODO
     //  1. set text color
+
 }

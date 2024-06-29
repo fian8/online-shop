@@ -19,47 +19,51 @@ public class editProfilePanel extends themeTwoPanel {
 
         // text label (edit)
         titleLabel.setText("ویرایش پروفایل");
-        titleLabel.setBounds(450, 40, 180, 30);
+        titleLabel.setBounds(375, 70, 332, 60);
 
-        // back base.button
+        // back button
         backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(150, 40, 100, 30);
+        backButton.getButton().setBounds(200, 80, 100, 30);
 
         // name
         nameLabel = new JLabel("نام و نام خانوادگی");
-        nameLabel.setBounds(455, 90, 100, 30);
+        nameLabel.setBounds(455, 120, 100, 30);
         mainPanel.add(nameLabel);
         nameField = new JTextField();
-        nameField.setBounds(225, 90, 200, 30);
+        nameField.setCaretColor(Color.WHITE);
+        nameField.setBounds(235, 120, 200, 30);
         mainPanel.add(nameField);
 
         // phone number
         phoneNumLabel = new JLabel("شماره تلفن");
-        phoneNumLabel.setBounds(455, 150, 100, 30);
+        phoneNumLabel.setBounds(455, 180, 100, 30);
         mainPanel.add(phoneNumLabel);
         phoneNumField = new JTextField();
-        phoneNumField.setBounds(225, 150, 200, 30);
+        phoneNumField.setCaretColor(Color.WHITE);
+        phoneNumField.setBounds(235, 180, 200, 30);
         mainPanel.add(phoneNumField);
 
         // user name
         userNameLabel = new JLabel("نام کاربری");
-        userNameLabel.setBounds(455, 210, 100, 30);
+        userNameLabel.setBounds(455, 240, 100, 30);
         mainPanel.add(userNameLabel);
         userNameField = new JTextField();
-        userNameField.setBounds(225, 210, 200, 30);
+        userNameField.setCaretColor(Color.WHITE);
+        userNameField.setBounds(235, 240, 200, 30);
         mainPanel.add(userNameField);
 
         // password
         passwordLabel = new JLabel("رمز");
-        passwordLabel.setBounds(455, 270, 100, 30);
+        passwordLabel.setBounds(455, 300, 100, 30);
         mainPanel.add(passwordLabel);
         passwordField = new JTextField();
-        passwordField.setBounds(225, 270, 200, 30);
+        passwordField.setCaretColor(Color.WHITE);
+        passwordField.setBounds(235, 300, 200, 30);
         mainPanel.add(passwordField);
 
-        // edit product base.button
+        // "edit product" button
         editTheProfileButton = new button("ویرایش پروفایل", Color.white, mainPanel);
-        editTheProfileButton.getButton().setBounds(355, 390, 150, 30);
+        editTheProfileButton.getButton().setBounds(330, 360, 120, 30);
 
     }
 }

@@ -20,49 +20,55 @@ public class signupPanel extends themeTwoPanel {
 
         // text label (edit)
         titleLabel.setText("پنل ثبت نام");
-        titleLabel.setBounds(480, 40, 120, 30);
+        titleLabel.setBounds(420, 70, 240, 60);
 
         // name
         nameLabel = new JLabel("نام و نام خانوادگی");
-        nameLabel.setBounds(455, 90, 100, 30);
+        nameLabel.setBounds(480, 90, 100, 30);
         mainPanel.add(nameLabel);
         nameField = new JTextField();
-        nameField.setBounds(225, 90, 200, 30);
+        nameField.setCaretColor(Color.WHITE);
+        nameField.setBounds(260, 90, 200, 30);
         mainPanel.add(nameField);
 
         // phone number
         phoneNumLabel = new JLabel("شماره تلفن");
-        phoneNumLabel.setBounds(455, 150, 100, 30);
+        phoneNumLabel.setBounds(480, 150, 100, 30);
         mainPanel.add(phoneNumLabel);
         phoneNumField = new JTextField();
-        phoneNumField.setBounds(225, 150, 200, 30);
+        phoneNumField.setCaretColor(Color.WHITE);
+        phoneNumField.setBounds(260, 150, 200, 30);
         mainPanel.add(phoneNumField);
 
         // user name
         userNameLabel = new JLabel("نام کاربری");
-        userNameLabel.setBounds(455, 210, 100, 30);
+        userNameLabel.setBounds(480, 210, 100, 30);
         mainPanel.add(userNameLabel);
         userNameField = new JTextField();
-        userNameField.setBounds(225, 210, 200, 30);
+        userNameField.setCaretColor(Color.WHITE);
+        userNameField.setBounds(260, 210, 200, 30);
         mainPanel.add(userNameField);
 
         // password
         passwordLabel = new JLabel("رمز");
-        passwordLabel.setBounds(455, 270, 100, 30);
+        passwordLabel.setBounds(480, 270, 100, 30);
         mainPanel.add(passwordLabel);
         passwordField = new JTextField();
-        passwordField.setBounds(225, 270, 200, 30);
+        passwordField.setCaretColor(Color.WHITE);
+        passwordField.setBounds(260, 270, 200, 30);
         mainPanel.add(passwordField);
 
         // user type
         userTypeLabel = new JLabel("نوع کاربر");
-        userTypeLabel.setBounds(455, 330, 100, 30);
+        userTypeLabel.setBounds(480, 330, 100, 30);
         mainPanel.add(userTypeLabel);
         costumerRadioButton = new JRadioButton("کاربر عادی");
-        costumerRadioButton.setBounds(325, 330, 100, 30);
+        costumerRadioButton.setFocusable(false);
+        costumerRadioButton.setBounds(360, 330, 100, 30);
         mainPanel.add(costumerRadioButton);
         sellerRadioButton = new JRadioButton("مدیر فروشگاه");
-        sellerRadioButton.setBounds(225, 330, 100, 30);
+        sellerRadioButton.setFocusable(false);
+        sellerRadioButton.setBounds(260, 330, 100, 30);
         mainPanel.add(sellerRadioButton);
         userTypeButtonGroup = new ButtonGroup();
         userTypeButtonGroup.add(costumerRadioButton);
@@ -70,9 +76,9 @@ public class signupPanel extends themeTwoPanel {
 
         // login-signup buttons
         loginButton = new button("ورود کاربر", Color.white, mainPanel);
-        loginButton.getButton().setBounds(225, 390, 100, 30);
+        loginButton.getButton().setBounds(250, 390, 100, 30);
         signupButton = new button("ثبت نام کاربر جدید", Color.white, mainPanel);
-        signupButton.getButton().setBounds(355, 390, 150, 30);
+        signupButton.getButton().setBounds(380, 390, 150, 30);
 
     }
 }

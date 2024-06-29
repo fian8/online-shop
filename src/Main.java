@@ -1,4 +1,6 @@
-import Comparator.*;
+import Comparator.CheapestComparator;
+import Comparator.MostExpensiveComparator;
+import Comparator.MostPopularComparator;
 import Data.*;
 import listPanels.*;
 import loginSignup.loginPanel;
@@ -8,7 +10,10 @@ import productDetailsPanels.editProductPanel;
 import productsPanels.customerProductsPanel;
 import productsPanels.productsPanel;
 import productsPanels.sellerProductsPanel;
-import profilePanels.*;
+import profilePanels.cashIncreasePanel;
+import profilePanels.customerProfilePanel;
+import profilePanels.editProfilePanel;
+import profilePanels.sellerProfilePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,8 +21,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import static Data.Product.products;
 
 public class Main extends JFrame implements ActionListener {
 
@@ -149,7 +152,7 @@ public class Main extends JFrame implements ActionListener {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        loginPanel.loginButton.goTo(loginPanel.allPanel, loginPanel.allPanel, frame);
+        loginPanel.loginButton.goTo(loginPanel.allPanel, frame);
     }
     public static void main(String[] args) {
         Main main = new Main();
@@ -185,12 +188,12 @@ public class Main extends JFrame implements ActionListener {
                                 if (signupPanel.sellerRadioButton.isSelected()) {
                                     user = new Seller(nameLastName, userName, hash, phoneNumber);
                                     JOptionPane.showMessageDialog(null, "فروشنده با موفقیت ثبت نام شد! \n وارد شوید.");
-                                    signupPanel.signupButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+                                    signupPanel.signupButton.goTo(loginPanel.allPanel, frame);
                                     clearFields();
                                 } else if (signupPanel.costumerRadioButton.isSelected()) {
                                     user = new Customer(nameLastName, userName, hash, phoneNumber);
                                     JOptionPane.showMessageDialog(null, "کاربر عادی با موفقیت ثبت نام شد! \n وارد شوید.");
-                                    signupPanel.signupButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+                                    signupPanel.signupButton.goTo(loginPanel.allPanel, frame);
                                     clearFields();
                                 } else {
                                     JOptionPane.showMessageDialog(null, "نوع کاربر را انتخاب کنید!");
@@ -211,10 +214,10 @@ public class Main extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "نام و نام خانوادگی معتبر نیست!");
             }
         } else if (e.getSource() == signupPanel.loginButton.getButton()) {
-            signupPanel.loginButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
+            signupPanel.loginButton.goTo(loginPanel.allPanel, frame);
             clearFields();
         } else if (e.getSource() == loginPanel.signupButton.getButton()) {
-            loginPanel.signupButton.goTo(loginPanel.allPanel, signupPanel.allPanel, frame);
+            loginPanel.signupButton.goTo(signupPanel.allPanel, frame);
             clearFields();
         } else if (e.getSource() == loginPanel.loginButton.getButton()) {
             String userName = loginPanel.userNameField.getText();
@@ -228,7 +231,7 @@ public class Main extends JFrame implements ActionListener {
                         customerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
                         customerProfilePanel.userNameLabel2.setText(user.getUserName());
                         customerProfilePanel.userTypeLabel2.setText(user.getTypeString());
-                        loginPanel.loginButton.goTo(loginPanel.allPanel, customerProfilePanel.allPanel, frame);
+                        loginPanel.loginButton.goTo(customerProfilePanel.allPanel, frame);
                         clearFields();
                     }
                     else {
@@ -236,7 +239,7 @@ public class Main extends JFrame implements ActionListener {
                         sellerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
                         sellerProfilePanel.userNameLabel2.setText(user.getUserName());
                         sellerProfilePanel.userTypeLabel2.setText(user.getTypeString());
-                        loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                        loginPanel.loginButton.goTo(sellerProfilePanel.allPanel, frame);
                         clearFields();
                     }
                 } else {
@@ -249,12 +252,14 @@ public class Main extends JFrame implements ActionListener {
 
         // ----- costumer profile panel -----
         else if (e.getSource() == customerProfilePanel.exitButton.getButton()) {
-            customerProfilePanel.exitButton.goTo(customerProfilePanel.allPanel, loginPanel.allPanel, frame);
+            customerProfilePanel.exitButton.goTo(loginPanel.allPanel, frame);
             clearFields();
         } else if (e.getSource() == customerProfilePanel.editProfileButton.getButton()) {
-            customerProfilePanel.editProfileButton.goTo(customerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
+            customerProfilePanel.editProfileButton.goTo(editProfilePanel.allPanel, frame);
         } else if (e.getSource() == customerProfilePanel.productsPanelButton.getButton()) {
-            customerProfilePanel.productsPanelButton.goTo(customerProfilePanel.allPanel, customerProductsPanel.allPanels, frame);
+            customerProfilePanel.productsPanelButton.goTo(customerProductsPanel.allPanels, frame);
+        } else if (e.getSource() == customerProfilePanel.cashIncreaseButton.getButton()) {
+            customerProfilePanel.cashIncreaseButton.goTo(cashIncreasePanel.allPanel, frame);
         }
 
         // ----- cash increase panel -----
@@ -271,23 +276,23 @@ public class Main extends JFrame implements ActionListener {
                 user.setWallet(user.getWallet() + Integer.parseInt(value));
                 customerProfilePanel.cashLabel2.setText(String.valueOf(user.getWallet()));
                 JOptionPane.showMessageDialog(null, "موجودی با موفقیت افزایش یافت!");
-                cashIncreasePanel.increaseTheCashButton.goTo(cashIncreasePanel.allPanel, customerProfilePanel.allPanel, frame);
+                cashIncreasePanel.increaseTheCashButton.goTo(customerProfilePanel.allPanel, frame);
                 clearFields();
             }
         }
         else if (e.getSource() == cashIncreasePanel.backButton.getButton()) {
-            cashIncreasePanel.backButton.goTo(cashIncreasePanel.allPanel, customerProfilePanel.allPanel, frame);
+            cashIncreasePanel.backButton.goTo(customerProfilePanel.allPanel, frame);
             clearFields();
         }
 
         // ----- seller profile panel -----
         else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
-            sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
+            sellerProfilePanel.exitButton.goTo(loginPanel.allPanel, frame);
             clearFields();
         } else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
-            sellerProfilePanel.editProfileButton.goTo(sellerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
+            sellerProfilePanel.editProfileButton.goTo(editProfilePanel.allPanel, frame);
         } else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
-            sellerProfilePanel.productsPanelButton.goTo(sellerProfilePanel.allPanel, sellerProductsPanel.allPanels, frame);
+            sellerProfilePanel.productsPanelButton.goTo(sellerProductsPanel.allPanels, frame);
         }
 
         // ----- edit profile panel -----
@@ -331,29 +336,29 @@ public class Main extends JFrame implements ActionListener {
                 customerProfilePanel.userNameLabel2.setText(user.getUserName());
                 customerProfilePanel.userTypeLabel2.setText(user.getTypeString());
                 JOptionPane.showMessageDialog(null, "تغییرات با موفقیت اعمال شد!");
-                editProfilePanel.editTheProfileButton.goTo(editProfilePanel.allPanel, customerProfilePanel.allPanel, frame);
+                editProfilePanel.editTheProfileButton.goTo(customerProfilePanel.allPanel, frame);
             } else {
                 sellerProfilePanel.nameLabel2.setText(user.getNameLastName());
                 sellerProfilePanel.phoneNumLabel2.setText(user.getPhoneNumber());
                 sellerProfilePanel.userNameLabel2.setText(user.getUserName());
                 sellerProfilePanel.userTypeLabel2.setText(user.getTypeString());
                 JOptionPane.showMessageDialog(null, "تغییرات با موفقیت اعمال شد!");
-                loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
+                loginPanel.loginButton.goTo(sellerProfilePanel.allPanel, frame);
             }
             clearFields();
         }
         if (e.getSource() == editProfilePanel.backButton.getButton()) {
             if (user.getType() == 2)
-                 editProfilePanel.backButton.goTo(editProfilePanel.allPanel, customerProfilePanel.allPanel, frame);
+                 editProfilePanel.backButton.goTo(customerProfilePanel.allPanel, frame);
             else
-                 editProfilePanel.backButton.goTo(editProfilePanel.allPanel, sellerProfilePanel.allPanel, frame);
+                 editProfilePanel.backButton.goTo(sellerProfilePanel.allPanel, frame);
         }
 
         // ----- costumer products panel -----
          else if (e.getSource() == customerProductsPanel.profileButton.getButton()) {
-            customerProductsPanel.profileButton.goTo(customerProductsPanel.allPanels, customerProfilePanel.allPanel, frame);
+            customerProductsPanel.profileButton.goTo(customerProfilePanel.allPanel, frame);
         } else if (e.getSource() == customerProductsPanel.cartButton.getButton()) {
-            customerProductsPanel.cartButton.goTo(customerProductsPanel.allPanels, cartPanel.allPanel, frame);
+            customerProductsPanel.cartButton.goTo(cartPanel.allPanel, frame);
         } else if (e.getSource() == customerProductsPanel.searchButton.getButton()) {
             String key = customerProductsPanel.searchField.getText();
             ArrayList<Product> source = Product.getProducts();
@@ -410,18 +415,18 @@ public class Main extends JFrame implements ActionListener {
             }
         }
          else if (e.getSource() == cartPanel.backButton.getButton()) {
-            cartPanel.backButton.goTo(cartPanel.allPanel, customerProductsPanel.allPanels, frame);
+            cartPanel.backButton.goTo(customerProductsPanel.allPanels, frame);
         }
 
         // ----- seller products panel -----
          else if (e.getSource() == sellerProductsPanel.profileButton.getButton()) {
-            sellerProductsPanel.profileButton.goTo(sellerProductsPanel.allPanels, sellerProfilePanel.allPanel, frame);
+            sellerProductsPanel.profileButton.goTo(sellerProfilePanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.addProductButton.getButton()) {
-            sellerProductsPanel.addProductButton.goTo(sellerProductsPanel.allPanels, addProductPanel.allPanel, frame);
+            sellerProductsPanel.addProductButton.goTo(addProductPanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.stockButton.getButton()) {
-            sellerProductsPanel.stockButton.goTo(sellerProductsPanel.allPanels, stockPanel.allPanel, frame);
+            sellerProductsPanel.stockButton.goTo(stockPanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.costumersListButton.getButton()) {
-            sellerProductsPanel.costumersListButton.goTo(sellerProductsPanel.allPanels, customersListPanel.allPanel, frame);
+            sellerProductsPanel.costumersListButton.goTo(customersListPanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.searchButton.getButton()) {
             String key = sellerProductsPanel.searchField.getText();
             ArrayList<Product> source = Product.getProducts();
@@ -457,7 +462,7 @@ public class Main extends JFrame implements ActionListener {
         
         // ----- costumers list panel -----
          else if (e.getSource() == customersListPanel.backButton.getButton()) {
-            customersListPanel.backButton.goTo(customersListPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            customersListPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);
             ArrayList<Customer> customers = Customer.getCustomers();
             // todo (Fatemeh):
             //  1. add object from customers to main panel
@@ -465,7 +470,7 @@ public class Main extends JFrame implements ActionListener {
 
         // ----- stock panel -----
         else if (e.getSource() == stockPanel.backButton.getButton()) {
-            stockPanel.backButton.goTo(stockPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            stockPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);
             // todo (KIANA):
             //  1. add products
         }
@@ -512,10 +517,10 @@ public class Main extends JFrame implements ActionListener {
             Product.addProduct(product);
             JOptionPane.showMessageDialog(null, "محصول با موفقیت افزوده شد!");
             System.out.println(Product.getProducts());
-            addProductPanel.addTheProductButton.goTo(addProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            addProductPanel.addTheProductButton.goTo(sellerProductsPanel.allPanels, frame);
             clearFields();
         } else if (e.getSource() == addProductPanel.backButton.getButton()) {
-            addProductPanel.backButton.goTo(addProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            addProductPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);
             clearFields();
         }
 
@@ -525,7 +530,7 @@ public class Main extends JFrame implements ActionListener {
             //  1. edit the product
         }
          else if (e.getSource() == editProductPanel.backButton.getButton()) {
-            editProductPanel.backButton.goTo(editProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
+            editProductPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);
         }
 
     }

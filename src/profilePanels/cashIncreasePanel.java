@@ -20,25 +20,25 @@ public class cashIncreasePanel extends themeTwoPanel {
 
         // text label (edit)
         titleLabel.setText("افزایش موجودی");
-        titleLabel.setBounds(485, 40, 200, 30);
+        titleLabel.setBounds(365, 70, 350, 60);
 
-        // back base.button
+        // back button
         backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(150, 40, 100, 30);
+        backButton.getButton().setBounds(200, 80, 100, 30);
 
-        // increase the cash label
-        increaseTheCashLabel = new JLabel("مبلغ افزایش موجودی");
-        increaseTheCashLabel.setBounds(425, 150, 200, 30);
+        // "increase the cash" label
+        increaseTheCashLabel = new JLabel("مبلغ");
+        increaseTheCashLabel.setBounds(490, 180, 200, 30);
         mainPanel.add(increaseTheCashLabel);
 
-        // increase the cash field
+        // "increase the cash" field
         increaseTheCashField = new JTextField();
-        increaseTheCashField.setBounds(255, 150, 200, 30);
+        increaseTheCashField.setBounds(270, 180, 200, 30);
         mainPanel.add(increaseTheCashField);
 
-        // increase the cash base.button
+        // "increase the cash" button
         increaseTheCashButton = new button("افزودن موجودی", Color.white, mainPanel);
-        increaseTheCashButton.getButton().setBounds(300, 200, 150, 30);
+        increaseTheCashButton.getButton().setBounds(330, 230, 120, 30);
 
     }
 }

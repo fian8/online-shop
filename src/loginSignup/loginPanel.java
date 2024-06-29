@@ -5,7 +5,7 @@ import java.awt.*;
 import base.*;
 
 public class loginPanel extends themeTwoPanel {
-    public JLabel userNameLabel, passwordLabel, userTypeLabel;
+    public JLabel userNameLabel, passwordLabel;
     public JTextField userNameField, passwordField;
     public button loginButton, signupButton;
     public loginPanel(JFrame frame) {
@@ -17,30 +17,32 @@ public class loginPanel extends themeTwoPanel {
 
         // text label (edit)
         titleLabel.setText("پنل ورود");
-        titleLabel.setBounds(495, 40, 90, 30);
+        titleLabel.setBounds(450, 70, 180, 60);
 
 
         // user name
         userNameLabel = new JLabel("نام کاربری");
-        userNameLabel.setBounds(455, 150, 100, 30);
+        userNameLabel.setBounds(480, 150, 100, 30);
         mainPanel.add(userNameLabel);
         userNameField = new JTextField();
-        userNameField.setBounds(225, 150, 200, 30);
+        userNameField.setCaretColor(Color.WHITE);
+        userNameField.setBounds(260, 150, 200, 30);
         mainPanel.add(userNameField);
 
         // password
         passwordLabel = new JLabel("رمز");
-        passwordLabel.setBounds(455, 210, 100, 30);
+        passwordLabel.setBounds(480, 210, 100, 30);
         mainPanel.add(passwordLabel);
         passwordField = new JTextField();
-        passwordField.setBounds(225, 210, 200, 30);
+        passwordField.setCaretColor(Color.WHITE);
+        passwordField.setBounds(260, 210, 200, 30);
         mainPanel.add(passwordField);
 
         // login-signup buttons
         loginButton = new button("ورود کاربر", Color.white, mainPanel);
-        loginButton.getButton().setBounds(225, 330, 100, 30);
+        loginButton.getButton().setBounds(250, 300, 100, 30);
         signupButton = new button("ثبت نام کاربر جدید", Color.white, mainPanel);
-        signupButton.getButton().setBounds(355, 330, 150, 30);
+        signupButton.getButton().setBounds(380, 300, 150, 30);
 
     }
 }
