@@ -544,6 +544,8 @@ public class Main extends JFrame implements ActionListener {
         if (product != null && product.imageLabel.getIcon() != null) {
             Product.addProduct(product);
             if (Product.products.contains(product)) {
+                sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
+                customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
                 JOptionPane.showMessageDialog(null, "محصول با موفقیت افزوده شد!");
             }
         } else {
