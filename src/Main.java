@@ -172,6 +172,15 @@ public class Main extends JFrame implements ActionListener {
         editProfilePanel.passwordField.setText("");
         editProfilePanel.phoneNumField.setText("");
         editProfilePanel.userNameField.setText("");
+        cashIncreasePanel.increaseTheCashField.setText("");
+        customerProductsPanel.searchField.setText("");
+        sellerProductsPanel.searchField.setText("");
+        addProductPanel.nameField.setText("");
+        addProductPanel.priceField.setText("");
+        addProductPanel.stockField.setText("");
+        editProductPanel.nameField.setText("");
+        editProductPanel.priceField.setText("");
+        editProductPanel.stockField.setText("");
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -256,7 +265,6 @@ public class Main extends JFrame implements ActionListener {
         // ----- costumer profile panel -----
         else if (e.getSource() == customerProfilePanel.exitButton.getButton()) {
             customerProfilePanel.exitButton.goTo(loginPanel.allPanel, frame);
-            clearFields();
         } else if (e.getSource() == customerProfilePanel.editProfileButton.getButton()) {
             customerProfilePanel.editProfileButton.goTo(editProfilePanel.allPanel, frame);
         } else if (e.getSource() == customerProfilePanel.productsPanelButton.getButton()) {
@@ -291,7 +299,6 @@ public class Main extends JFrame implements ActionListener {
         // ----- seller profile panel -----
         else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
             sellerProfilePanel.exitButton.goTo(loginPanel.allPanel, frame);
-            clearFields();
         } else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
             sellerProfilePanel.editProfileButton.goTo(editProfilePanel.allPanel, frame);
         } else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
@@ -371,6 +378,7 @@ public class Main extends JFrame implements ActionListener {
                     result.add(product);
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(result);
+            clearFields();
         } else if (e.getSource() == customerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
@@ -442,6 +450,7 @@ public class Main extends JFrame implements ActionListener {
                     result.add(product);
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(result);
+            clearFields();
         } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());

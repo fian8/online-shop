@@ -15,7 +15,7 @@ public class addProductPanel extends productDetailsPanel {
 
         // text label (edit)
         titleLabel.setText("افزودن محصول");
-        titleLabel.setBounds(455, 40, 170, 30);
+        titleLabel.setBounds(450, 70, 180, 60);
 
         // back button
         backButton = new button("برگشت", Color.white, allPanel);
