@@ -25,15 +25,15 @@ public class sellerProductsPanel extends productsPanel {
         profileButton.getButton().setBounds(640, 45, 100, 30);
 
         // "add product" button
-        addProductButton = new button("افزودن محصول", Color.white, navBar);
+        addProductButton = new button("افزودن محصول", primaryColor, navBar);
         addProductButton.getButton().setBounds(510, 45, 120, 30);
 
         // stock button
-        stockButton = new button("موجودی انبار", Color.white, navBar);
+        stockButton = new button("موجودی انبار", primaryColor, navBar);
         stockButton.getButton().setBounds(400, 45, 100, 30);
 
         // "users list" button
-        costumersListButton = new button("لیست کاربران", Color.white, navBar);
+        costumersListButton = new button("لیست کاربران", primaryColor, navBar);
         costumersListButton.getButton().setBounds(290, 45, 100, 30);
 
         // search field (edit)
