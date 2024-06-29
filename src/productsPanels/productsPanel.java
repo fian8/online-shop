@@ -1,8 +1,6 @@
 package productsPanels;
 
 import base.button;
-import products
-
 
 import Data.*;
 import java.util.*;
