@@ -10,13 +10,14 @@ import java.awt.*;
 import static Data.Product.products;
 
 public class productsPanel {
+
     public JLabel titleLabel, sortLabel, currentPage;
-    public JPanel allPanels, navBar, sortBar, productsCardsPanel;
+    public JPanel allPanels, navBar, sortBar, productsCardsPanel, pageNumBox;
     public JTextField searchField;
     public button profileButton, searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
     public JButton previousPage, nextPage;
-    public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
-    public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
+    public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 80);
+    public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.decode("#C0E0E4");
     public ArrayList<Product> last = products;
     public int page = 1;
     public productsPanel(JFrame frame) {
@@ -26,78 +27,87 @@ public class productsPanel {
         allPanels.setBounds(0, 0, 1080, 720);
         allPanels.setLayout(null);
 
-        // ----- navigation bar panel -----
+        // ----- "navigation bar" panel -----
         navBar = new JPanel();
         navBar.setLayout(null);
-        navBar.setBounds(0, 0, 1080, 60);
-        navBar.setBackground(Color.decode("#FF841F"));
+        navBar.setBounds(0, 0, 1080, 120);
+        navBar.setBackground(primaryColor);
 
         // title label
-        titleLabel = new JLabel("Online Shop");
-        titleLabel.setBounds(60, 17, 200, 30);
+        titleLabel = new JLabel("فروشگاه");
+        titleLabel.setBounds(750, 57, 240, 100);
         titleLabel.setFont(titleFont);
-        navBar.add(titleLabel);
+        allPanels.add(titleLabel);
 
-        // profile base.button
+        // profile button
         profileButton = new button("پنل کاربری", primaryColor, navBar);
 
         // search field
         searchField = new JTextField();
-        searchField.setBounds(615, 15, 300, 30);
+        searchField.setCaretColor(Color.WHITE);
+        searchField.setBounds(165, 45, 250, 30);
         navBar.add(searchField);
 
-        // search base.button
+        // search button
         searchButton = new button("جست‌و‌جو", primaryColor, navBar);
-        searchButton.getButton().setBounds(920, 15, 100, 30);
+        searchButton.getButton().setBounds(60, 45, 100, 30);
 
-        // ----- sort Bar panel -----
+        // ----- "sort Bar" panel -----
         sortBar = new JPanel();
         sortBar.setLayout(null);
-        sortBar.setBounds(0, 60, 1080, 40);
-        sortBar.setBackground(Color.pink);
+        sortBar.setBounds(0, 120, 1080, 50);
+        sortBar.setBackground(secondaryColor);
 
         // sort label
         sortLabel = new JLabel("مرتب سازی بر اساس");
-        sortLabel.setBounds(915, 5, 105, 30);
+        sortLabel.setBounds(405, 10, 105, 30);
         sortBar.add(sortLabel);
 
         // sort by most expensive
         sortByMostExpensive = new button("گران‌ترین", primaryColor, sortBar);
-        sortByMostExpensive.getButton().setBounds(800, 5, 100, 30);
+        sortByMostExpensive.getButton().setBounds(290, 10, 100, 30);
 
         // sort by cheapest
         sortByCheapest = new button("ارزان‌ترین", primaryColor, sortBar);
-        sortByCheapest.getButton().setBounds(695, 5, 100, 30);
+        sortByCheapest.getButton().setBounds(175, 10, 100, 30);
 
         // sort by most popular
         sortByMostPopular = new button("پرطرفدار‌ترین", primaryColor, sortBar);
-        sortByMostPopular.getButton().setBounds(590, 5, 100, 30);
+        sortByMostPopular.getButton().setBounds(60, 10, 100, 30);
 
-        // ----- products Cards panel -----
+
+        // ----- "products Cards" panel -----
 
         productsCardsPanel = new JPanel();
         productsCardsPanel.setLayout(new GridLayout(2, 3, 10, 10));
-        productsCardsPanel.setBounds(0, 100, 1080, 620);
-
-        productsCardsPanel.setBackground(Color.gray);
+        productsCardsPanel.setBounds(0, 170, 1080, 550);
 
          // page label
-        previousPage = new JButton("⇨");
-        currentPage = new JLabel("1");
-        nextPage = new JButton("⇦");
-        nextPage.setFocusable(false);
+        pageNumBox = new JPanel();
+        pageNumBox.setLayout(null);
+        pageNumBox.setBounds(460, 590, 160, 40);
+        previousPage = new JButton("⇦");
+        previousPage.setBounds(0, 0, 40, 40);
+        previousPage.setBackground(primaryColor);
+        pageNumBox.add(previousPage);
+        currentPage = new JLabel("1", SwingConstants.CENTER);
         currentPage.setFocusable(false);
-        previousPage.setBounds(580, 630, 40, 40);
-        currentPage.setBounds(520, 630, 40, 40);
-        nextPage.setBounds(460, 630, 40, 40);
-        previousPage.setBackground(Color.decode("#FF841F"));
-        currentPage.setBackground(Color.decode("#FF841F"));
-        nextPage.setBackground(Color.decode("#FF841F"));
-        allPanels.add(previousPage);
-        allPanels.add(currentPage);
-        allPanels.add(nextPage);
-        for (int i = 0; i < Math.min(6, last.size()); i++)
+        currentPage.setBounds(60, 0, 40, 40);
+        currentPage.setBackground(primaryColor);
+        pageNumBox.add(currentPage);
+        nextPage = new JButton("⇨");
+        nextPage.setFocusable(false);
+        nextPage.setBounds(120, 0, 40, 40);
+        nextPage.setBackground(primaryColor);
+        pageNumBox.add(nextPage);
+        allPanels.add(pageNumBox);
+
+        // add productCards to productsCardsPanel
+        for (int i = 0; i < Math.min(6, last.size()); i++) {
             productsCardsPanel.add(new productCard(last.get(i)).cardPanel);
+        }
+
+
         allPanels.add(navBar);
         allPanels.add(sortBar);
         allPanels.add(productsCardsPanel);

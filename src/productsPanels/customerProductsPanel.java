@@ -14,13 +14,12 @@ public class customerProductsPanel extends productsPanel{
 
         // ----- extras on navigation bar -----
 
-        // profile base.button
-        profileButton.getButton().setBounds(315, 15, 100, 30);
-        profileButton.getButton().setOpaque(true);
+        // profile button
+        profileButton.getButton().setBounds(560, 45, 100, 30);
 
-        // cart base.button
+        // cart button
         cartButton = new button("سبد خرید", primaryColor, navBar);
-        cartButton.getButton().setBounds(445, 15, 100, 30);
+        cartButton.getButton().setBounds(440, 45, 100, 30);
 
     }
 }

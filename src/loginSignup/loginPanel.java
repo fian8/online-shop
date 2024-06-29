@@ -19,7 +19,6 @@ public class loginPanel extends themeTwoPanel {
         titleLabel.setText("پنل ورود");
         titleLabel.setBounds(450, 70, 180, 60);
 
-
         // user name
         userNameLabel = new JLabel("نام کاربری");
         userNameLabel.setBounds(480, 150, 100, 30);
