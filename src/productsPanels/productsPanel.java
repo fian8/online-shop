@@ -85,9 +85,9 @@ public class productsPanel {
         previousPage = new JButton("⇨");
         currentPage = new JLabel("1");
         nextPage = new JButton("⇦");
-        previousPage.setBounds(580, 630, 30, 30);
+        previousPage.setBounds(580, 630, 40, 40);
         currentPage.setBounds(520, 630, 40, 40);
-        nextPage.setBounds(470, 630, 30, 30);
+        nextPage.setBounds(460, 630, 40, 40);
         previousPage.setBackground(Color.decode("#FF841F"));
         currentPage.setBackground(Color.decode("#FF841F"));
         nextPage.setBackground(Color.decode("#FF841F"));
@@ -114,6 +114,8 @@ public class productsPanel {
         allPanels.add(productsCardsPanel);
         allPanels.add(currentPage);
         frame.add(allPanels);
+        frame.revalidate();
+        frame.repaint();
 
     }
 }
