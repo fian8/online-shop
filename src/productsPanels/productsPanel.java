@@ -99,8 +99,6 @@ public class productsPanel {
         allPanels.add(nextPage);
         for (int i = 0; i < Math.min(6, last.size()); i++)
             productsCardsPanel.add(new productCard(last.get(i)).cardPanel);
-
-
         allPanels.add(navBar);
         allPanels.add(sortBar);
         allPanels.add(productsCardsPanel);

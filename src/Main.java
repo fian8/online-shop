@@ -407,6 +407,20 @@ public class Main extends JFrame implements ActionListener {
             }
             customerProductsPanel.page += 1;
             customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
+        } else if (e.getSource() == sellerProductsPanel.previousPage) {
+            if (sellerProductsPanel.page - 1 <= 0) {
+                //todo(Fatemeh): error
+                return;
+            }
+            sellerProductsPanel.page -= 1;
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
+        } else if (e.getSource() == sellerProductsPanel.nextPage) {
+            if (sellerProductsPanel.page + 1 > Product.products.size()/6 + (Product.products.size()%6>0?1: 0)) {
+                //todo(Fatemeh): error
+                return;
+            }
+            sellerProductsPanel.page += 1;
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
         }
         // ----- cart panel -----
          else if (e.getSource() == cartPanel.finializeButton.getButton()) {
