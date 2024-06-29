@@ -26,6 +26,7 @@ public class productsPanel {
         allPanels = new JPanel();
         allPanels.setBounds(0, 0, 1080, 720);
         allPanels.setLayout(null);
+        allPanels.setBackground(Color.gray);
 
         // ----- "navigation bar" panel -----
         navBar = new JPanel();
@@ -80,7 +81,7 @@ public class productsPanel {
 
         productsCardsPanel = new JPanel();
         productsCardsPanel.setLayout(new GridLayout(2, 3, 20, 20));
-        productsCardsPanel.setBounds(0, 170, 1080, 550);
+        productsCardsPanel.setBounds(20, 190, 1040, 510);
 
          // page label
         previousPage = new JButton("⇨");
