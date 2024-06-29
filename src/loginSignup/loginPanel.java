@@ -24,7 +24,7 @@ public class loginPanel extends themeTwoPanel {
         userNameLabel.setBounds(480, 150, 100, 30);
         mainPanel.add(userNameLabel);
         userNameField = new JTextField();
-        userNameField.setCaretColor(Color.WHITE);
+        userNameField.getCaret().setBlinkRate(0);
         userNameField.setBounds(260, 150, 200, 30);
         mainPanel.add(userNameField);
 
@@ -33,7 +33,7 @@ public class loginPanel extends themeTwoPanel {
         passwordLabel.setBounds(480, 210, 100, 30);
         mainPanel.add(passwordLabel);
         passwordField = new JTextField();
-        passwordField.setCaretColor(Color.WHITE);
+        passwordField.getCaret().setBlinkRate(0);
         passwordField.setBounds(260, 210, 200, 30);
         mainPanel.add(passwordField);
 

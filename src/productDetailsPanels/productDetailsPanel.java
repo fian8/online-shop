@@ -28,7 +28,7 @@ public class productDetailsPanel extends themeTwoPanel {
         nameLabel.setBounds(455, 120, 100, 30);
         mainPanel.add(nameLabel);
         nameField = new JTextField();
-        nameField.setCaretColor(Color.WHITE);
+        nameField.getCaret().setBlinkRate(0);
         nameField.setBounds(225, 120, 200, 30);
         mainPanel.add(nameField);
 
@@ -37,7 +37,7 @@ public class productDetailsPanel extends themeTwoPanel {
         priceLabel.setBounds(455, 180, 100, 30);
         mainPanel.add(priceLabel);
         priceField = new JTextField();
-        priceField.setCaretColor(Color.WHITE);
+        priceField.getCaret().setBlinkRate(0);
         priceField.setBounds(225, 180, 200, 30);
         mainPanel.add(priceField);
 
@@ -46,7 +46,7 @@ public class productDetailsPanel extends themeTwoPanel {
         stockLabel.setBounds(455, 240, 100, 30);
         mainPanel.add(stockLabel);
         stockField = new JTextField();
-        stockField.setCaretColor(Color.WHITE);
+        stockField.getCaret().setBlinkRate(0);
         stockField.setBounds(225, 240, 200, 30);
         mainPanel.add(stockField);
 

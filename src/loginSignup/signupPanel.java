@@ -27,7 +27,7 @@ public class signupPanel extends themeTwoPanel {
         nameLabel.setBounds(480, 90, 100, 30);
         mainPanel.add(nameLabel);
         nameField = new JTextField();
-        nameField.setCaretColor(Color.WHITE);
+        nameField.getCaret().setBlinkRate(0);
         nameField.setBounds(260, 90, 200, 30);
         mainPanel.add(nameField);
 
@@ -36,7 +36,7 @@ public class signupPanel extends themeTwoPanel {
         phoneNumLabel.setBounds(480, 150, 100, 30);
         mainPanel.add(phoneNumLabel);
         phoneNumField = new JTextField();
-        phoneNumField.setCaretColor(Color.WHITE);
+        phoneNumField.getCaret().setBlinkRate(0);
         phoneNumField.setBounds(260, 150, 200, 30);
         mainPanel.add(phoneNumField);
 
@@ -45,7 +45,7 @@ public class signupPanel extends themeTwoPanel {
         userNameLabel.setBounds(480, 210, 100, 30);
         mainPanel.add(userNameLabel);
         userNameField = new JTextField();
-        userNameField.setCaretColor(Color.WHITE);
+        userNameField.getCaret().setBlinkRate(0);
         userNameField.setBounds(260, 210, 200, 30);
         mainPanel.add(userNameField);
 
@@ -54,7 +54,7 @@ public class signupPanel extends themeTwoPanel {
         passwordLabel.setBounds(480, 270, 100, 30);
         mainPanel.add(passwordLabel);
         passwordField = new JTextField();
-        passwordField.setCaretColor(Color.WHITE);
+        passwordField.getCaret().setBlinkRate(0);
         passwordField.setBounds(260, 270, 200, 30);
         mainPanel.add(passwordField);
 

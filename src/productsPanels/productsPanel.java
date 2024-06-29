@@ -44,7 +44,7 @@ public class productsPanel {
 
         // search field
         searchField = new JTextField();
-        searchField.setCaretColor(Color.WHITE);
+        searchField.getCaret().setBlinkRate(0);
         searchField.setBounds(165, 45, 250, 30);
         navBar.add(searchField);
 

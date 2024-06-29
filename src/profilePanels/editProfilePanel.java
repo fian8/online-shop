@@ -31,6 +31,7 @@ public class editProfilePanel extends themeTwoPanel {
         nameLabel.setBounds(455, 120, 100, 30);
         mainPanel.add(nameLabel);
         nameField = new JTextField();
+        nameField.getCaret().setBlinkRate(0);
         nameField.setBounds(235, 120, 200, 30);
         mainPanel.add(nameField);
 
@@ -39,6 +40,7 @@ public class editProfilePanel extends themeTwoPanel {
         phoneNumLabel.setBounds(455, 180, 100, 30);
         mainPanel.add(phoneNumLabel);
         phoneNumField = new JTextField();
+        phoneNumField.getCaret().setBlinkRate(0);
         phoneNumField.setBounds(235, 180, 200, 30);
         mainPanel.add(phoneNumField);
 
@@ -47,6 +49,7 @@ public class editProfilePanel extends themeTwoPanel {
         userNameLabel.setBounds(455, 240, 100, 30);
         mainPanel.add(userNameLabel);
         userNameField = new JTextField();
+        userNameField.getCaret().setBlinkRate(0);
         userNameField.setBounds(235, 240, 200, 30);
         mainPanel.add(userNameField);
 
@@ -55,6 +58,7 @@ public class editProfilePanel extends themeTwoPanel {
         passwordLabel.setBounds(455, 300, 100, 30);
         mainPanel.add(passwordLabel);
         passwordField = new JTextField();
+        passwordField.getCaret().setBlinkRate(0);
         passwordField.setBounds(235, 300, 200, 30);
         mainPanel.add(passwordField);
 
