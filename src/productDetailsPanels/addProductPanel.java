@@ -15,15 +15,11 @@ public class addProductPanel extends productDetailsPanel {
 
         // text label (edit)
         titleLabel.setText("افزودن محصول");
-        titleLabel.setBounds(450, 70, 180, 60);
-
-        // back button
-        backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(150, 40, 100, 30);
+        titleLabel.setBounds(370, 70, 340, 60);
 
         // add product button
         addTheProductButton = new button("افزودن محصول", Color.white, mainPanel);
-        addTheProductButton.getButton().setBounds(300, 390, 150, 30);
+        addTheProductButton.getButton().setBounds(315, 360, 150, 30);
 
     }
 }
