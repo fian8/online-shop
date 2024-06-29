@@ -83,29 +83,22 @@ public class productsPanel {
         productsCardsPanel.setBounds(0, 170, 1080, 550);
 
          // page label
-        pageNumBox = new JPanel();
-        pageNumBox.setLayout(null);
-        pageNumBox.setBounds(460, 590, 160, 40);
-        previousPage = new JButton("⇦");
-        previousPage.setBounds(0, 0, 40, 40);
-        previousPage.setBackground(primaryColor);
-        pageNumBox.add(previousPage);
-        currentPage = new JLabel("1", SwingConstants.CENTER);
-        currentPage.setFocusable(false);
-        currentPage.setBounds(60, 0, 40, 40);
-        currentPage.setBackground(primaryColor);
-        pageNumBox.add(currentPage);
-        nextPage = new JButton("⇨");
+        previousPage = new JButton("⇨");
+        currentPage = new JLabel("1");
+        nextPage = new JButton("⇦");
         nextPage.setFocusable(false);
-        nextPage.setBounds(120, 0, 40, 40);
-        nextPage.setBackground(primaryColor);
-        pageNumBox.add(nextPage);
-        allPanels.add(pageNumBox);
-
-        // add productCards to productsCardsPanel
-        for (int i = 0; i < Math.min(6, last.size()); i++) {
+        currentPage.setFocusable(false);
+        previousPage.setBounds(580, 630, 40, 40);
+        currentPage.setBounds(520, 630, 40, 40);
+        nextPage.setBounds(460, 630, 40, 40);
+        previousPage.setBackground(Color.decode("#FF841F"));
+        currentPage.setBackground(Color.decode("#FF841F"));
+        nextPage.setBackground(Color.decode("#FF841F"));
+        allPanels.add(previousPage);
+        allPanels.add(currentPage);
+        allPanels.add(nextPage);
+        for (int i = 0; i < Math.min(6, last.size()); i++)
             productsCardsPanel.add(new productCard(last.get(i)).cardPanel);
-        }
 
 
         allPanels.add(navBar);
