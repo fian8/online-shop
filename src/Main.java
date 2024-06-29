@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Main implements ActionListener {
+public class Main extends JFrame implements ActionListener {
 
     // --OBJECTS--:
     public static JFrame frame;
@@ -37,12 +37,12 @@ public class Main implements ActionListener {
     public listPanels.stockPanel stockPanel;
     public listPanels.customersListPanel customersListPanel;
     public productDetailsPanels.editProductPanel editProductPanel;
+
     // ----
 
     // --DESIGN--:
     public  Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
     public  Font font = new Font("Geeza Pro",  Font.PLAIN, 15);
-    // ----
 
     public Main(){
         frame = new JFrame("online-shop");
@@ -200,15 +200,15 @@ public class Main implements ActionListener {
                 JOptionPane.showMessageDialog(null, "نام و نام خانوادگی معتبر نیست!");
             }
         }
-        else if (e.getSource() == signupPanel.loginButton.getButton()) {
+        if (e.getSource() == signupPanel.loginButton.getButton()) {
             signupPanel.loginButton.goTo(signupPanel.allPanel, loginPanel.allPanel, frame);
             clearFields();
         }
-        else if (e.getSource() == loginPanel.signupButton.getButton()) {
+        if (e.getSource() == loginPanel.signupButton.getButton()) {
             loginPanel.signupButton.goTo(loginPanel.allPanel, signupPanel.allPanel, frame);
             clearFields();
         }
-        else if (e.getSource() == loginPanel.loginButton.getButton()) {
+         if (e.getSource() == loginPanel.loginButton.getButton()) {
             String userName = loginPanel.userNameField.getText();
             int password = validator.Hash(loginPanel.passwordField.getText());
             if (validator.exist(userName)) {
@@ -240,15 +240,16 @@ public class Main implements ActionListener {
         }
 
         // ----- costumer profile panel -----
-        else if (e.getSource() == customerProfilePanel.exitButton.getButton()) {
+        if (e.getSource() == customerProfilePanel.exitButton.getButton()) {
             customerProfilePanel.exitButton.goTo(customerProfilePanel.allPanel, loginPanel.allPanel, frame);
             clearFields();
-        } else if (e.getSource() == customerProfilePanel.editProfileButton.getButton()) {
+        }
+        if (e.getSource() == customerProfilePanel.editProfileButton.getButton()) {
             customerProfilePanel.editProfileButton.goTo(customerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
         }
 
         // ----- cash increase panel -----
-        else if (e.getSource() == cashIncreasePanel.increaseTheCashButton.getButton()) {
+        if (e.getSource() == cashIncreasePanel.increaseTheCashButton.getButton()) {
             String value = cashIncreasePanel.increaseTheCashField.getText();
             int i;
             for (i = 0; i < value.length(); i++) {
@@ -264,25 +265,26 @@ public class Main implements ActionListener {
                 cashIncreasePanel.increaseTheCashButton.goTo(cashIncreasePanel.allPanel, customerProfilePanel.allPanel, frame);
                 clearFields();
             }
-        } else if (e.getSource() == cashIncreasePanel.backButton.getButton()) {
+        }
+        if (e.getSource() == cashIncreasePanel.backButton.getButton()) {
             cashIncreasePanel.backButton.goTo(cashIncreasePanel.allPanel, customerProfilePanel.allPanel, frame);
             clearFields();
         }
 
         // ----- seller profile panel -----
-        else if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
+        if (e.getSource() == sellerProfilePanel.exitButton.getButton()) {
             sellerProfilePanel.exitButton.goTo(sellerProfilePanel.allPanel, loginPanel.allPanel, frame);
             clearFields();
         }
-        else if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
+        if (e.getSource() == sellerProfilePanel.editProfileButton.getButton()) {
             sellerProfilePanel.editProfileButton.goTo(sellerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
         }
-        else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
+        if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
             sellerProfilePanel.productsPanelButton.goTo(sellerProfilePanel.allPanel, sellerProductsPanel.allPanels, frame);
         }
 
         // ----- edit profile panel -----
-        else if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
+         if (e.getSource() == editProfilePanel.editTheProfileButton.getButton()) {
             String name = editProfilePanel.nameField.getText();
             String phoneNumber = editProfilePanel.phoneNumField.getText();
             String userName = editProfilePanel.userNameField.getText();
@@ -332,7 +334,8 @@ public class Main implements ActionListener {
                 loginPanel.loginButton.goTo(loginPanel.allPanel, sellerProfilePanel.allPanel, frame);
             }
             clearFields();
-        } else if (e.getSource() == editProfilePanel.backButton.getButton()) {
+        }
+        if (e.getSource() == editProfilePanel.backButton.getButton()) {
             if (user.getType() == 2)
                  editProfilePanel.backButton.goTo(editProfilePanel.allPanel, customerProfilePanel.allPanel, frame);
             else
@@ -340,7 +343,7 @@ public class Main implements ActionListener {
         }
         
         // ----- products panel -----
-        else if (e.getSource() == productsPanel.searchButton.getButton()) {
+        if (e.getSource() == productsPanel.searchButton.getButton()) {
             String key = productsPanel.searchField.getText();
             ArrayList<Product> source = Product.getProducts();
             ArrayList<Product> result = new ArrayList<>();
@@ -349,39 +352,47 @@ public class Main implements ActionListener {
                     result.add(product);
             productsPanel.page = 1;
             productsPanel.addProductsCardPanel(result, frame);
-        } else if (e.getSource() == productsPanel.sortByMostExpensive) {
+        }
+        if (e.getSource() == productsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             productsPanel.page = 1;
             productsPanel.addProductsCardPanel(expensive, frame);
-        } else if (e.getSource() == productsPanel.sortByCheapest) {
+        }
+        if (e.getSource() == productsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             productsPanel.page = 1;
             productsPanel.addProductsCardPanel(cheap, frame);
-        } else if (e.getSource() == productsPanel.sortByMostPopular) {
+        }
+        if (e.getSource() == productsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             productsPanel.addProductsCardPanel(popular, frame);
-        } else if (e.getSource() == productsPanel.previousPage) {
-            productsPanel.page--;
+        }
+        if (e.getSource() == productsPanel.previousPage) {
+            System.out.printf("here -");
+            productsPanel.page = productsPanel.page - 1;
             productsPanel.addProductsCardPanel(productsPanel.last, frame);
-        } else if (e.getSource() == productsPanel.nextPage) {
-            productsPanel.page++;
+        }
+        if (e.getSource() == productsPanel.nextPage) {
+            System.out.print("here +");
+            productsPanel.page = productsPanel.page + 1;
             productsPanel.addProductsCardPanel(productsPanel.last, frame);
         }
         // todo (KIANA):
         //  1. handle errors when page > product
 
         // ----- costumer products panel -----
-        else if (e.getSource() == customerProductsPanel.profileButton.getButton()) {
+         if (e.getSource() == customerProductsPanel.profileButton.getButton()) {
             customerProductsPanel.profileButton.goTo(customerProductsPanel.allPanels, customerProfilePanel.allPanel, frame);
-        } else if (e.getSource() == customerProductsPanel.cartButton) {
+        }
+         if (e.getSource() == customerProductsPanel.cartButton) {
             customerProductsPanel.cartButton.goTo(customerProductsPanel.allPanels, cartPanel.allPanel, frame);
         }
 
         // ----- cart panel -----
-        else if (e.getSource() == cartPanel.finializeButton.getButton()) {
+         if (e.getSource() == cartPanel.finializeButton.getButton()) {
             boolean inStock = true;
             for (listPanels.productListCard productListCard : cartPanel.productListCards) {
                 if (productListCard.getProduct().getStock() < Integer.parseInt(String.valueOf(productListCard.numLabel))) {
@@ -399,23 +410,27 @@ public class Main implements ActionListener {
                 JOptionPane.showMessageDialog(null, "خرید با موفقیت نهایی شد!");
                 cartPanel.mainPanel.removeAll();
             }
-        } else if (e.getSource() == cartPanel.backButton.getButton()) {
+        }
+         if (e.getSource() == cartPanel.backButton.getButton()) {
             cartPanel.backButton.goTo(cartPanel.allPanel, customerProductsPanel.allPanels, frame);
         }
 
         // ----- seller products panel -----
-        else if (e.getSource() == sellerProductsPanel.profileButton.getButton()) {
+         if (e.getSource() == sellerProductsPanel.profileButton.getButton()) {
             sellerProductsPanel.profileButton.goTo(sellerProductsPanel.allPanels, sellerProfilePanel.allPanel, frame);
-        } else if (e.getSource() == sellerProductsPanel.addProductButton) {
+        }
+         if (e.getSource() == sellerProductsPanel.addProductButton) {
             sellerProductsPanel.addProductButton.goTo(sellerProductsPanel.allPanels, addProductPanel.allPanel, frame);
-        } else if (e.getSource() == sellerProductsPanel.stockButton) {
+        }
+         if (e.getSource() == sellerProductsPanel.stockButton) {
             sellerProductsPanel.stockButton.goTo(sellerProductsPanel.allPanels, stockPanel.allPanel, frame);
-        } else if (e.getSource() == sellerProductsPanel.costumersListButton) {
+        }
+         if (e.getSource() == sellerProductsPanel.costumersListButton) {
             sellerProductsPanel.costumersListButton.goTo(sellerProductsPanel.allPanels, customersListPanel.allPanel, frame);
         }
         
         // ----- costumers list panel -----
-        else if (e.getSource() == customersListPanel.backButton.getButton()) {
+         if (e.getSource() == customersListPanel.backButton.getButton()) {
             customersListPanel.backButton.goTo(customersListPanel.allPanel, sellerProductsPanel.allPanels, frame);
             ArrayList<Customer> customers = Customer.getCustomers();
             // todo (Fatemeh):
@@ -423,25 +438,27 @@ public class Main implements ActionListener {
         }
 
         // ----- stock panel -----
-        else if (e.getSource() == stockPanel.backButton) {
+         if (e.getSource() == stockPanel.backButton) {
             stockPanel.backButton.goTo(stockPanel.allPanel, sellerProductsPanel.allPanels, frame);
             // todo (KIANA):
             //  1. add products
         }
 
         // ----- add product panel -----
-        else if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
+         if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
             // todo (KIANA):
             //  1. add the product
-        } else if (e.getSource() == addProductPanel.backButton.getButton()) {
+        }
+         if (e.getSource() == addProductPanel.backButton.getButton()) {
             addProductPanel.backButton.goTo(addProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
         }
 
         // ----- edit product panel -----
-        else if (e.getSource() == editProductPanel.editTheProductButton.getButton()) {
+         if (e.getSource() == editProductPanel.editTheProductButton.getButton()) {
             // todo (KIANA):
             //  1. edit the product
-        } else if (e.getSource() == editProductPanel.backButton.getButton()) {
+        }
+         if (e.getSource() == editProductPanel.backButton.getButton()) {
             editProductPanel.backButton.goTo(editProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
         }
 
