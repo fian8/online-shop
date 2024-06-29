@@ -49,6 +49,9 @@ public class Main extends JFrame implements ActionListener {
     // --DESIGN--:
     public  Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
     public  Font font = new Font("Geeza Pro",  Font.PLAIN, 15);
+    Customer admin1 = new Customer("admin", "admin1", validator.Hash("1234"), "09152391705");
+    Seller admin2 = new Seller("admin", "admin2", validator.Hash("1234"), "09152391705");
+
 
     public Main(){
         frame = new JFrame("online-shop");
@@ -367,33 +370,36 @@ public class Main extends JFrame implements ActionListener {
                 if (product.getName().contains(key))
                     result.add(product);
             customerProductsPanel.page = 1;
-            customerProductsPanel.addProductsCardPanel(result, frame);
+            customerProductsPanel.addProductsCardPanel(result);
         } else if (e.getSource() == customerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             customerProductsPanel.page = 1;
-            customerProductsPanel.addProductsCardPanel(expensive, frame);
+            customerProductsPanel.addProductsCardPanel(expensive);
         } else if (e.getSource() == customerProductsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             customerProductsPanel.page = 1;
-            customerProductsPanel.addProductsCardPanel(cheap, frame);
+            customerProductsPanel.addProductsCardPanel(cheap);
         } else if (e.getSource() == customerProductsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
-            customerProductsPanel.addProductsCardPanel(popular, frame);
+            customerProductsPanel.addProductsCardPanel(popular);
         } else if (e.getSource() == customerProductsPanel.previousPage) {
+            if (customerProductsPanel.page - 1 <= 0) {
+                //todo(Fatemeh): error
+                return;
+            }
             customerProductsPanel.page -= 1;
-            customerProductsPanel.currentPage.setText(String.valueOf(customerProductsPanel.page));
-            customerProductsPanel.addProductsCardPanel(customerProductsPanel.last, frame);
+            customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
         } else if (e.getSource() == customerProductsPanel.nextPage) {
+            if (customerProductsPanel.page + 1 > products.size()/6 + (products.size()%6>0?1: 0)) {
+                 //todo(Fatemeh): error
+                 return;
+            }
             customerProductsPanel.page += 1;
-            customerProductsPanel.currentPage.setText(String.valueOf(customerProductsPanel.page));
-            customerProductsPanel.addProductsCardPanel(customerProductsPanel.last, frame);
+            customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
         }
-        // todo (KIANA):
-        //  1. handle errors when page > product
-
         // ----- cart panel -----
          else if (e.getSource() == cartPanel.finializeButton.getButton()) {
             boolean inStock = true;
@@ -435,29 +441,29 @@ public class Main extends JFrame implements ActionListener {
                 if (product.getName().contains(key))
                     result.add(product);
             sellerProductsPanel.page = 1;
-            sellerProductsPanel.addProductsCardPanel(result, frame);
+            sellerProductsPanel.addProductsCardPanel(result);
         } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             sellerProductsPanel.page = 1;
-            sellerProductsPanel.addProductsCardPanel(expensive, frame);
+            sellerProductsPanel.addProductsCardPanel(expensive);
         } else if (e.getSource() == sellerProductsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             sellerProductsPanel.page = 1;
-            sellerProductsPanel.addProductsCardPanel(cheap, frame);
+            sellerProductsPanel.addProductsCardPanel(cheap);
         } else if (e.getSource() == sellerProductsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
-            sellerProductsPanel.addProductsCardPanel(popular, frame);
+            sellerProductsPanel.addProductsCardPanel(popular);
         } else if (e.getSource() == sellerProductsPanel.previousPage) {
             sellerProductsPanel.page -= 1;
             sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
-            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last, frame);
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
         } else if (e.getSource() == sellerProductsPanel.nextPage) {
             sellerProductsPanel.page += 1;
             sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
-            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last, frame);
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
         }
         
         // ----- costumers list panel -----
