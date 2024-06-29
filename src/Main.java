@@ -508,7 +508,6 @@ public class Main extends JFrame implements ActionListener {
         }
 
         // ----- add product panel -----
-
         else if (e.getSource() == addProductPanel.chooseImage.getButton()) {
             // create product
             Validation validator = new Validation();

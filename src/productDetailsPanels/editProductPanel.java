@@ -16,40 +16,12 @@ public class editProductPanel extends productDetailsPanel {
 
         // text label (edit)
         titleLabel.setText("ویرایش محصول");
-        titleLabel.setBounds(455, 40, 170, 30);
-
-        // back button
-        backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(150, 40, 100, 30);
+        titleLabel.setBounds(370, 70, 340, 60);
 
         // add product button
         editTheProductButton = new button("ویرایش محصول", Color.white, mainPanel);
-        editTheProductButton.getButton().setBounds(300, 390, 150, 30);
+        editTheProductButton.getButton().setBounds(315, 360, 150, 30);
 
-        // create product
-        String name = nameField.getText();
-        String price = priceField.getText();
-        String stock = stockField.getText();
-        int priceInt = 0, stockInt = 0;
-
-        int i;
-        for (i = 0; i < price.length(); i++) {
-            if (price.charAt(i) < '0' || price.charAt(i) > '9') {
-                JOptionPane.showMessageDialog(null, "مبلغ وارد شده معتبر نیست!");
-                break;
-            } else {
-                priceInt += price.charAt(i);
-            }
-        }
-        int j;
-        for (j = 0; j < stock.length(); j++) {
-            if (stock.charAt(j) < '0' || stock.charAt(j) > '9') {
-                JOptionPane.showMessageDialog(null, "عدد وارد شده معتبر نیست!");
-                break;
-            } else {
-                stockInt += stock.charAt(j);
-            }
-        }
 
     }
 }
