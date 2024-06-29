@@ -344,9 +344,9 @@ public class Main implements ActionListener {
             String key = productsPanel.searchField.getText();
             ArrayList<Product> source = Product.getProducts();
             ArrayList<Product> result = new ArrayList<>();
-            for (int i = 0; i < source.size(); i++)
-                if (source.get(i).getName().contains(key))
-                    result.add(source.get(i));
+            for (Product product : source)
+                if (product.getName().contains(key))
+                    result.add(product);
             productsPanel.page = 1;
             productsPanel.addProductsCardPanel(result, frame);
         } else if (e.getSource() == productsPanel.sortByMostExpensive) {
@@ -390,7 +390,7 @@ public class Main implements ActionListener {
             }
             if (user.getWallet() > cartPanel.total && inStock) {
                 user.setWallet(user.getWallet() - cartPanel.total);
-                sellsAmount += cartPanel.total;
+                int sellsAmount = cartPanel.total;
                 sellerProductsPanel.salesAmountNumLabel.setText(String.valueOf(sellsAmount));
                 for (productListCard productListCard : cartPanel.productListCards) {
                     productListCard.getProduct().setStock(productListCard.getProduct().getStock() - Integer.parseInt(String.valueOf(productListCard.numLabel)));
