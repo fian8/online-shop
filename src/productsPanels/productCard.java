@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class productCard {
-    public JLabel nameLabel, priceLabel, imageLabel;
-    public JPanel cardPanel;
+    public JLabel nameLabel = new JLabel();
+    public JLabel priceLabel = new JLabel();
+    public JLabel imageLabel = new JLabel();
+    public JPanel cardPanel = new JPanel();
     public productCard(Product product) {
 
         cardPanel.setLayout(null);
