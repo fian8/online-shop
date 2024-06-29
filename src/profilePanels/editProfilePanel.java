@@ -2,6 +2,7 @@ package profilePanels;
 
 import base.button;
 import base.themeTwoPanel;
+import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +31,6 @@ public class editProfilePanel extends themeTwoPanel {
         nameLabel.setBounds(455, 120, 100, 30);
         mainPanel.add(nameLabel);
         nameField = new JTextField();
-        nameField.setCaretColor(Color.WHITE);
         nameField.setBounds(235, 120, 200, 30);
         mainPanel.add(nameField);
 
@@ -39,7 +39,6 @@ public class editProfilePanel extends themeTwoPanel {
         phoneNumLabel.setBounds(455, 180, 100, 30);
         mainPanel.add(phoneNumLabel);
         phoneNumField = new JTextField();
-        phoneNumField.setCaretColor(Color.WHITE);
         phoneNumField.setBounds(235, 180, 200, 30);
         mainPanel.add(phoneNumField);
 
@@ -48,7 +47,6 @@ public class editProfilePanel extends themeTwoPanel {
         userNameLabel.setBounds(455, 240, 100, 30);
         mainPanel.add(userNameLabel);
         userNameField = new JTextField();
-        userNameField.setCaretColor(Color.WHITE);
         userNameField.setBounds(235, 240, 200, 30);
         mainPanel.add(userNameField);
 
@@ -57,7 +55,6 @@ public class editProfilePanel extends themeTwoPanel {
         passwordLabel.setBounds(455, 300, 100, 30);
         mainPanel.add(passwordLabel);
         passwordField = new JTextField();
-        passwordField.setCaretColor(Color.WHITE);
         passwordField.setBounds(235, 300, 200, 30);
         mainPanel.add(passwordField);
 
