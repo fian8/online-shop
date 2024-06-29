@@ -1,9 +1,11 @@
+package Data;
+
 import Data.*;
 
 import java.util.ArrayList;
 
 public class Validation {
-    Validation() {
+    public Validation() {
 
     }
     public boolean nameValidation(String name) {

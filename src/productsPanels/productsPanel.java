@@ -1,6 +1,9 @@
+package productsPanels;
+
+import base.button;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 import static Data.Product.products;
 
@@ -30,7 +33,7 @@ public class productsPanel {
         titleLabel.setFont(titleFont);
         navBar.add(titleLabel);
 
-        // profile button
+        // profile base.button
         profileButton = new button("پنل کاربری", primaryColor, navBar);
 
         // search field
@@ -38,7 +41,7 @@ public class productsPanel {
         searchField.setBounds(615, 15, 300, 30);
         navBar.add(searchField);
 
-        // search button
+        // search base.button
         searchButton = new button("جست‌و‌جو", primaryColor, navBar);
         searchButton.getButton().setBounds(920, 15, 100, 30);
 

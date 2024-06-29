@@ -1,12 +1,16 @@
+package profilePanels;
+
+import base.button;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class costumerProfilePanel extends profilePanel {
-    JPanel cashPanel;
-    JLabel cashLabel1, cashLabel2;
-    button cashIncreaseButton;
+public class customerProfilePanel extends profilePanel {
+    public JPanel cashPanel;
+    public JLabel cashLabel1, cashLabel2;
+    public button cashIncreaseButton;
 
-    public costumerProfilePanel(JFrame frame) {
+    public customerProfilePanel(JFrame frame) {
 
         super(frame);
 
@@ -17,13 +21,13 @@ public class costumerProfilePanel extends profilePanel {
         titleLabel.setText("پنل کاربری کاربر عادی");
         titleLabel.setBounds(480, 40, 120, 30);
 
-        // edit profile button (edit)
+        // edit profile base.button (edit)
         editProfileButton.getButton().setBounds(620, 450, 100, 30);
 
-        // products panel button (edit)
+        // products panel base.button (edit)
         productsPanelButton.getButton().setBounds(490, 450, 100, 30);
 
-        // exit button (edit)
+        // exit base.button (edit)
         exitButton.getButton().setBounds(360, 450, 100, 30);
 
         // cash panel

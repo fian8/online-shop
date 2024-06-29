@@ -1,7 +1,12 @@
+package productDetailsPanels;
+
+import base.button;
+import base.themeTwoPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class productDetailsPanel extends secondaryPanel {
+public class productDetailsPanel extends themeTwoPanel {
     JLabel nameLabel, priceLabel, imageLabel;
     JTextField nameField, priceField;
     button chooseImage;
@@ -12,7 +17,7 @@ public class productDetailsPanel extends secondaryPanel {
         // list cards panel
         mainPanel.setLayout(null);
 
-        // back button
+        // back base.button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
 

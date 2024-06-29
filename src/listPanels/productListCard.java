@@ -1,3 +1,5 @@
+package listPanels;
+
 import Data.Product;
 
 import javax.swing.*;

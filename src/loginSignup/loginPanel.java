@@ -1,7 +1,10 @@
+package loginSignup;
+
 import javax.swing.*;
 import java.awt.*;
+import base.*;
 
-public class loginPanel extends secondaryPanel {
+public class loginPanel extends themeTwoPanel {
     public JLabel userNameLabel, passwordLabel, userTypeLabel;
     public JTextField userNameField, passwordField;
     public button loginButton, signupButton;

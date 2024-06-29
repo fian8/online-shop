@@ -1,3 +1,5 @@
+package base;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +15,6 @@ public class button {
         theButton.setFocusable(false);
     }
     public void goTo(JPanel currentPanel, JPanel goalPanel, JFrame frame) {
-//        frame.remove(currentPanel);
-//        frame.removeAll();
         frame.getContentPane(). removeAll();
         frame.add(goalPanel);
         frame.revalidate();

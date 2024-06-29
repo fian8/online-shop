@@ -1,12 +1,14 @@
+package base;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class secondaryPanel {
-    JLabel titleLabel;
+public class themeTwoPanel {
+    public JLabel titleLabel;
     public JPanel allPanel, mainPanel;
     public button backButton;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
-    public secondaryPanel(JFrame frame) {
+    public themeTwoPanel(JFrame frame) {
 
         // all panels
         allPanel = new JPanel();

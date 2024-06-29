@@ -1,7 +1,12 @@
+package profilePanels;
+
+import base.button;
+import base.themeTwoPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class cashIncreasePanel extends secondaryPanel{
+public class cashIncreasePanel extends themeTwoPanel {
 
     public JLabel increaseTheCashLabel;
     public JTextField increaseTheCashField;
@@ -17,7 +22,7 @@ public class cashIncreasePanel extends secondaryPanel{
         titleLabel.setText("افزایش موجودی");
         titleLabel.setBounds(485, 40, 200, 30);
 
-        // back button
+        // back base.button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
 
@@ -31,7 +36,7 @@ public class cashIncreasePanel extends secondaryPanel{
         increaseTheCashField.setBounds(255, 150, 200, 30);
         mainPanel.add(increaseTheCashField);
 
-        // increase the cash button
+        // increase the cash base.button
         increaseTheCashButton = new button("افزودن موجودی", Color.white, mainPanel);
         increaseTheCashButton.getButton().setBounds(300, 200, 150, 30);
 

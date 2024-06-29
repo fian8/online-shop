@@ -1,14 +1,14 @@
-import Data.Customer;
-import Data.Product;
+package listPanels;
+
 import Data.User;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class costumersListCard {
+public class customersListCard {
     JLabel nameLabel;
-    JPanel cardPanel;
-    public costumersListCard(User user) {
+    public JPanel cardPanel;
+    public customersListCard(User user) {
 
         nameLabel = new JLabel(user.getNameLastName());
 //        nameLabel.setBounds();

@@ -1,7 +1,12 @@
+package profilePanels;
+
+import base.button;
+import base.themeTwoPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class editProfilePanel extends secondaryPanel{
+public class editProfilePanel extends themeTwoPanel {
     public JLabel nameLabel, phoneNumLabel, userNameLabel, passwordLabel;
     public JTextField nameField, phoneNumField, userNameField, passwordField;
     public button editTheProfileButton;
@@ -16,7 +21,7 @@ public class editProfilePanel extends secondaryPanel{
         titleLabel.setText("ویرایش پروفایل");
         titleLabel.setBounds(450, 40, 180, 30);
 
-        // back button
+        // back base.button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
 
@@ -52,7 +57,7 @@ public class editProfilePanel extends secondaryPanel{
         passwordField.setBounds(225, 270, 200, 30);
         mainPanel.add(passwordField);
 
-        // edit product button
+        // edit product base.button
         editTheProfileButton = new button("ویرایش پروفایل", Color.white, mainPanel);
         editTheProfileButton.getButton().setBounds(355, 390, 150, 30);
 

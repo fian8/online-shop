@@ -1,9 +1,14 @@
+package listPanels;
+
+import base.button;
+import base.themeTwoPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
 import static Data.Product.products;
 
-public class stockPanel extends secondaryPanel {
+public class stockPanel extends themeTwoPanel {
     public stockPanel(JFrame frame) {
 
         super(frame);
@@ -15,7 +20,7 @@ public class stockPanel extends secondaryPanel {
         titleLabel.setText("موجودی انبار");
         titleLabel.setBounds(465, 40, 150, 30);
 
-        // back button
+        // back base.button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
 

@@ -1,3 +1,5 @@
+package profilePanels;
+
 import javax.swing.*;
 
 public class sellerProfilePanel extends profilePanel {

@@ -1,3 +1,7 @@
+package profilePanels;
+
+import base.button;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -57,15 +61,15 @@ public class profilePanel {
         userTypeLabel2.setBounds(225, 200, 200, 30);
         mainPanel.add(userTypeLabel2);
 
-        // edit profile button
+        // edit profile base.button
         editProfileButton = new button("ویرایش اطلاعات", Color.white, allPanel);
         editProfileButton.getButton().setBounds(620, 400, 100, 30);
 
-        // products panel button
+        // products panel base.button
         productsPanelButton = new button("صفحه اصلی", Color.white, allPanel);
         productsPanelButton.getButton().setBounds(490, 400, 100, 30);
 
-        // exit button
+        // exit base.button
         exitButton = new button("خروج", Color.white, allPanel);
         exitButton.getButton().setBounds(360, 400, 100, 30);
 

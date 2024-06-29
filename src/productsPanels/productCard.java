@@ -1,3 +1,5 @@
+package productsPanels;
+
 import Data.Product;
 
 import javax.swing.*;

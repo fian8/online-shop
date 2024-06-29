@@ -1,10 +1,15 @@
+package listPanels;
+
+import base.button;
+import base.themeTwoPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 import static Data.Product.products;
 
-public class cartPanel extends secondaryPanel {
+public class cartPanel extends themeTwoPanel {
     public button finializeButton;
     public int total;
     public ArrayList<productListCard> productListCards = new ArrayList<>();
@@ -19,7 +24,7 @@ public class cartPanel extends secondaryPanel {
         titleLabel.setText("سبد خرید");
         titleLabel.setBounds(485, 40, 120, 30);
 
-        // back button
+        // back base.button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
 
@@ -35,7 +40,7 @@ public class cartPanel extends secondaryPanel {
             mainPanel.add(productListCard.cardPanel);
         }
 
-        // finalize button
+        // finalize base.button
         finializeButton  = new button("نهایی کن", Color.white, allPanel);
         finializeButton.getButton().setBounds(490, 630, 100, 30);
 

@@ -1,8 +1,13 @@
+package listPanels;
+
+import base.button;
+import base.themeTwoPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class costumersListPanel extends secondaryPanel {
-    public costumersListPanel(JFrame frame) {
+public class customersListPanel extends themeTwoPanel {
+    public customersListPanel(JFrame frame) {
 
         super(frame);
 
@@ -13,7 +18,7 @@ public class costumersListPanel extends secondaryPanel {
         titleLabel.setText("لیست کاربران");
         titleLabel.setBounds(465, 40, 150, 30);
 
-        // back button
+        // back base.button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(150, 40, 100, 30);
 
