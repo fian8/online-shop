@@ -17,11 +17,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static Data.Product.products;
+
 public class Main extends JFrame implements ActionListener {
 
     // --OBJECTS--:
     public static JFrame frame;
     private User user = null;
+    private Product product;
     public Validation validator = new Validation();
     public loginSignup.loginPanel loginPanel;
     public loginSignup.signupPanel signupPanel;
@@ -89,17 +92,18 @@ public class Main extends JFrame implements ActionListener {
 
         // ----- products panel -----
         productsPanel = new productsPanel(frame);
-        productsPanel.searchButton.getButton().addActionListener(this);
-        productsPanel.sortByMostExpensive.getButton().addActionListener(this);
-        productsPanel.sortByCheapest.getButton().addActionListener(this);
-        productsPanel.sortByMostPopular.getButton().addActionListener(this);
-        productsPanel.nextPage.addActionListener(this);
-        productsPanel.previousPage.addActionListener(this);
+
 
         // ----- costumer products panel -----
         customerProductsPanel = new customerProductsPanel(frame);
         customerProductsPanel.profileButton.getButton().addActionListener(this);
         customerProductsPanel.cartButton.getButton().addActionListener(this);
+        customerProductsPanel.searchButton.getButton().addActionListener(this);
+        customerProductsPanel.sortByMostExpensive.getButton().addActionListener(this);
+        customerProductsPanel.sortByCheapest.getButton().addActionListener(this);
+        customerProductsPanel.sortByMostPopular.getButton().addActionListener(this);
+        customerProductsPanel.nextPage.addActionListener(this);
+        customerProductsPanel.previousPage.addActionListener(this);
 
         // ----- cart panel -----
         cartPanel = new cartPanel(frame);
@@ -112,6 +116,12 @@ public class Main extends JFrame implements ActionListener {
         sellerProductsPanel.addProductButton.getButton().addActionListener(this);
         sellerProductsPanel.stockButton.getButton().addActionListener(this);
         sellerProductsPanel.costumersListButton.getButton().addActionListener(this);
+        sellerProductsPanel.searchButton.getButton().addActionListener(this);
+        sellerProductsPanel.sortByMostExpensive.getButton().addActionListener(this);
+        sellerProductsPanel.sortByCheapest.getButton().addActionListener(this);
+        sellerProductsPanel.sortByMostPopular.getButton().addActionListener(this);
+        sellerProductsPanel.nextPage.addActionListener(this);
+        sellerProductsPanel.previousPage.addActionListener(this);
 
         // ----- add product panel -----
         addProductPanel = new addProductPanel(frame);
@@ -243,6 +253,8 @@ public class Main extends JFrame implements ActionListener {
             clearFields();
         } else if (e.getSource() == customerProfilePanel.editProfileButton.getButton()) {
             customerProfilePanel.editProfileButton.goTo(customerProfilePanel.allPanel, editProfilePanel.allPanel, frame);
+        } else if (e.getSource() == customerProfilePanel.productsPanelButton.getButton()) {
+            customerProfilePanel.productsPanelButton.goTo(customerProfilePanel.allPanel, customerProductsPanel.allPanels, frame);
         }
 
         // ----- cash increase panel -----
@@ -336,49 +348,46 @@ public class Main extends JFrame implements ActionListener {
             else
                  editProfilePanel.backButton.goTo(editProfilePanel.allPanel, sellerProfilePanel.allPanel, frame);
         }
-        
-        // ----- products panel -----
-        else if (e.getSource() == productsPanel.searchButton.getButton()) {
-            String key = productsPanel.searchField.getText();
+
+        // ----- costumer products panel -----
+         else if (e.getSource() == customerProductsPanel.profileButton.getButton()) {
+            customerProductsPanel.profileButton.goTo(customerProductsPanel.allPanels, customerProfilePanel.allPanel, frame);
+        } else if (e.getSource() == customerProductsPanel.cartButton.getButton()) {
+            customerProductsPanel.cartButton.goTo(customerProductsPanel.allPanels, cartPanel.allPanel, frame);
+        } else if (e.getSource() == customerProductsPanel.searchButton.getButton()) {
+            String key = customerProductsPanel.searchField.getText();
             ArrayList<Product> source = Product.getProducts();
             ArrayList<Product> result = new ArrayList<>();
             for (Product product : source)
                 if (product.getName().contains(key))
                     result.add(product);
-            productsPanel.page = 1;
-            productsPanel.addProductsCardPanel(result, frame);
-        } else if (e.getSource() == productsPanel.sortByMostExpensive) {
+            customerProductsPanel.page = 1;
+            customerProductsPanel.addProductsCardPanel(result, frame);
+        } else if (e.getSource() == customerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
-            productsPanel.page = 1;
-            productsPanel.addProductsCardPanel(expensive, frame);
-        } else if (e.getSource() == productsPanel.sortByCheapest) {
+            customerProductsPanel.page = 1;
+            customerProductsPanel.addProductsCardPanel(expensive, frame);
+        } else if (e.getSource() == customerProductsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
-            productsPanel.page = 1;
-            productsPanel.addProductsCardPanel(cheap, frame);
-        } else if (e.getSource() == productsPanel.sortByMostPopular) {
+            customerProductsPanel.page = 1;
+            customerProductsPanel.addProductsCardPanel(cheap, frame);
+        } else if (e.getSource() == customerProductsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
-            productsPanel.addProductsCardPanel(popular, frame);
-        } else if (e.getSource() == productsPanel.previousPage) {
-            System.out.printf("here -");
-            productsPanel.page = productsPanel.page - 1;
-            productsPanel.addProductsCardPanel(productsPanel.last, frame);
-        } else if (e.getSource() == productsPanel.nextPage) {
-            System.out.print("here +");
-            productsPanel.page = productsPanel.page + 1;
-            productsPanel.addProductsCardPanel(productsPanel.last, frame);
+            customerProductsPanel.addProductsCardPanel(popular, frame);
+        } else if (e.getSource() == customerProductsPanel.previousPage) {
+            customerProductsPanel.page -= 1;
+            customerProductsPanel.currentPage.setText(String.valueOf(customerProductsPanel.page));
+            customerProductsPanel.addProductsCardPanel(customerProductsPanel.last, frame);
+        } else if (e.getSource() == customerProductsPanel.nextPage) {
+            customerProductsPanel.page += 1;
+            customerProductsPanel.currentPage.setText(String.valueOf(customerProductsPanel.page));
+            customerProductsPanel.addProductsCardPanel(customerProductsPanel.last, frame);
         }
         // todo (KIANA):
         //  1. handle errors when page > product
-
-        // ----- costumer products panel -----
-         else if (e.getSource() == customerProductsPanel.profileButton.getButton()) {
-            customerProductsPanel.profileButton.goTo(customerProductsPanel.allPanels, customerProfilePanel.allPanel, frame);
-        } else if (e.getSource() == customerProductsPanel.cartButton) {
-            customerProductsPanel.cartButton.goTo(customerProductsPanel.allPanels, cartPanel.allPanel, frame);
-        }
 
         // ----- cart panel -----
          else if (e.getSource() == cartPanel.finializeButton.getButton()) {
@@ -413,6 +422,37 @@ public class Main extends JFrame implements ActionListener {
             sellerProductsPanel.stockButton.goTo(sellerProductsPanel.allPanels, stockPanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.costumersListButton.getButton()) {
             sellerProductsPanel.costumersListButton.goTo(sellerProductsPanel.allPanels, customersListPanel.allPanel, frame);
+        } else if (e.getSource() == sellerProductsPanel.searchButton.getButton()) {
+            String key = sellerProductsPanel.searchField.getText();
+            ArrayList<Product> source = Product.getProducts();
+            ArrayList<Product> result = new ArrayList<>();
+            for (Product product : source)
+                if (product.getName().contains(key))
+                    result.add(product);
+            sellerProductsPanel.page = 1;
+            sellerProductsPanel.addProductsCardPanel(result, frame);
+        } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive) {
+            ArrayList<Product> expensive = Product.getProducts();
+            Collections.sort(expensive, new MostExpensiveComparator());
+            sellerProductsPanel.page = 1;
+            sellerProductsPanel.addProductsCardPanel(expensive, frame);
+        } else if (e.getSource() == sellerProductsPanel.sortByCheapest) {
+            ArrayList<Product> cheap = Product.getProducts();
+            Collections.sort(cheap, new CheapestComparator());
+            sellerProductsPanel.page = 1;
+            sellerProductsPanel.addProductsCardPanel(cheap, frame);
+        } else if (e.getSource() == sellerProductsPanel.sortByMostPopular) {
+            ArrayList<Product> popular = Product.getProducts();
+            Collections.sort(popular, new MostPopularComparator());
+            sellerProductsPanel.addProductsCardPanel(popular, frame);
+        } else if (e.getSource() == sellerProductsPanel.previousPage) {
+            sellerProductsPanel.page -= 1;
+            sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last, frame);
+        } else if (e.getSource() == sellerProductsPanel.nextPage) {
+            sellerProductsPanel.page += 1;
+            sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last, frame);
         }
         
         // ----- costumers list panel -----
@@ -431,13 +471,47 @@ public class Main extends JFrame implements ActionListener {
         }
 
         // ----- add product panel -----
+
         else if (e.getSource() == addProductPanel.chooseImage.getButton()) {
-            addProductPanel.product.chooseFileImage();
-            addProductPanel.product.addImage();
+            // create product
+            Validation validator = new Validation();
+            String name = addProductPanel.nameField.getText();
+            String price = addProductPanel.priceField.getText();
+            String stock = addProductPanel.stockField.getText();
+            int priceInt = 0, stockInt = 0;
+
+            int i;
+            for (i = 0; i < price.length(); i++) {
+                if (price.charAt(i) < '0' || price.charAt(i) > '9') {
+                    JOptionPane.showMessageDialog(null, "مبلغ وارد شده معتبر نیست!");
+                    break;
+                } else {
+                    priceInt += price.charAt(i);
+                }
+            }
+            int j;
+            for (j = 0; j < stock.length(); j++) {
+                if (stock.charAt(j) < '0' || stock.charAt(j) > '9') {
+                    JOptionPane.showMessageDialog(null, "عدد وارد شده معتبر نیست!");
+                    break;
+                } else {
+                    stockInt += stock.charAt(j);
+                }
+            }
+            if (i == price.length() && j == stock.length() && validator.nameValidation(name)) {
+                product = new Product(name, priceInt, stockInt);
+            }
+            if (product == null){
+                JOptionPane.showMessageDialog(null, "ابتدا فیلد های دیگر را پر کنید!");
+            } else {
+                product.chooseFileImage();
+                product.addImage();
+            }
         }
         else if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
-            Product.addProduct(addProductPanel.product);
+            Product.addProduct(product);
             JOptionPane.showMessageDialog(null, "محصول با موفقیت افزوده شد!");
+            System.out.println(Product.getProducts());
             addProductPanel.addTheProductButton.goTo(addProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
             clearFields();
         } else if (e.getSource() == addProductPanel.backButton.getButton()) {

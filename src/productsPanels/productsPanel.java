@@ -80,11 +80,13 @@ public class productsPanel {
         productsCardsPanel.setBounds(0, 100, 1080, 620);
 
         productsCardsPanel.setBackground(Color.gray);
-         // ----- page label -----
 
+         // page label
         previousPage = new JButton("⇨");
         currentPage = new JLabel("1");
         nextPage = new JButton("⇦");
+        nextPage.setFocusable(false);
+        currentPage.setFocusable(false);
         previousPage.setBounds(580, 630, 40, 40);
         currentPage.setBounds(520, 630, 40, 40);
         nextPage.setBounds(460, 630, 40, 40);
