@@ -1,6 +1,7 @@
 package productDetailsPanels;
 
 import Data.Product;
+import Data.Validation;
 import base.button;
 
 import javax.swing.*;
@@ -25,6 +26,7 @@ public class addProductPanel extends productDetailsPanel {
         addTheProductButton.getButton().setBounds(300, 390, 150, 30);
 
         // create product
+        Validation validator = new Validation();
         String name = nameField.getText();
         String price = priceField.getText();
         String stock = stockField.getText();
@@ -48,7 +50,7 @@ public class addProductPanel extends productDetailsPanel {
                 stockInt += stock.charAt(j);
             }
         }
-        if (i == price.length() && j == stock.length()) {
+        if (i == price.length() && j == stock.length() && validator.nameValidation(name)) {
             product = new Product(name, priceInt, stockInt);
         }
 
