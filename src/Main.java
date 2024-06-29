@@ -10,6 +10,7 @@ import java.util.Collections;
 
 public class Main implements ActionListener {
     User user = null;
+    int sellsAmount;
     Validation validator = new Validation();
     public static JFrame frame;
 
@@ -371,10 +372,23 @@ public class Main implements ActionListener {
 
         // ----- cart panel -----
         else if (e.getSource() == cartPanel.finializeButton.getButton()) {
-            // todo (KIANA):
-            //  1. show products in costumer's cart
-            //  2. finalize
-            //  3. success message JOptionPane.showMessageDialog(null, "سفارش با موفقیت نهایی شد!");
+            boolean inStock = true;
+            for (productListCard productListCard : cartPanel.productListCards) {
+                if (productListCard.getProduct().getStock() < Integer.parseInt(String.valueOf(productListCard.numLabel))) {
+                    inStock = false;
+                }
+            }
+            if (user.getWallet() > cartPanel.total && inStock) {
+                user.setWallet(user.getWallet() - cartPanel.total);
+                sellsAmount += cartPanel.total;
+                sellerProductsPanel.salesAmountNumLabel.setText(String.valueOf(sellsAmount));
+                for (productListCard productListCard : cartPanel.productListCards) {
+                    productListCard.getProduct().setStock(productListCard.getProduct().getStock() - Integer.parseInt(String.valueOf(productListCard.numLabel)));
+                }
+                costumersListPanel.mainPanel.add(new costumersListCard(user).cardPanel);
+                JOptionPane.showMessageDialog(null, "خرید با موفقیت نهایی شد!");
+                cartPanel.mainPanel.removeAll();
+            }
         } else if (e.getSource() == cartPanel.backButton.getButton()) {
             cartPanel.backButton.goTo(cartPanel.allPanel, costumerProductsPanel.allPanels, frame);
         }
