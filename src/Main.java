@@ -77,6 +77,8 @@ public class Main implements ActionListener {
         productsPanel.sortByMostExpensive.getButton().addActionListener(this);
         productsPanel.sortByCheapest.getButton().addActionListener(this);
         productsPanel.sortByMostPopular.getButton().addActionListener(this);
+        productsPanel.nextPage.addActionListener(this);
+        productsPanel.previousPage.addActionListener(this);
 
         // ----- costumer products panel -----
         costumerProductsPanel = new costumerProductsPanel(frame);
@@ -334,22 +336,31 @@ public class Main implements ActionListener {
             for (int i = 0; i < source.size(); i++)
                 if (source.get(i).getName().contains(key))
                     result.add(source.get(i));
-            // todo: add results products to main page
+            productsPanel.page = 1;
+            productsPanel.addProductsCardPanel(result, frame);
         } else if (e.getSource() == productsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
-            // todo(Fatemeh): add array list to main page
+            productsPanel.page = 1;
+            productsPanel.addProductsCardPanel(expensive, frame);
         } else if (e.getSource() == productsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
-            // todo(Fatemeh): add array list to main page
+            productsPanel.page = 1;
+            productsPanel.addProductsCardPanel(cheap, frame);
         } else if (e.getSource() == productsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
-            // todo(Fatemeh): add array list to main page
+            productsPanel.addProductsCardPanel(popular, frame);
+        } else if (e.getSource() == productsPanel.previousPage) {
+            productsPanel.page--;
+            productsPanel.addProductsCardPanel(productsPanel.last, frame);
+        } else if (e.getSource() == productsPanel.nextPage) {
+            productsPanel.page++;
+            productsPanel.addProductsCardPanel(productsPanel.last, frame);
         }
         // todo (KIANA):
-        //  1. show products
+        //  1. handle errors when page > product
 
         // ----- costumer products panel -----
         else if (e.getSource() == costumerProductsPanel.profileButton.getButton()) {
@@ -409,7 +420,6 @@ public class Main implements ActionListener {
         } else if (e.getSource() == editProductPanel.backButton.getButton()) {
             editProductPanel.backButton.goTo(editProductPanel.allPanel, sellerProductsPanel.allPanels, frame);
         }
-
 
     }
 

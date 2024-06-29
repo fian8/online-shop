@@ -4,13 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class productCard {
-    private JLabel nameLabel, priceLabel, imageLabel;
+    public JLabel nameLabel, priceLabel, imageLabel;
     public JPanel cardPanel;
     public productCard(Product product) {
 
         nameLabel = new JLabel(product.getName());
+//        nameLabel.setBounds();
         priceLabel = new JLabel(String.valueOf(product.getPrice()));
-        imageLabel = new JLabel();
+//        priceLabel.setBounds();
+        imageLabel = new JLabel(product.imageIcon);
+//        imageLabel.setBounds();
 
         cardPanel.add(imageLabel);
         cardPanel.add(nameLabel);

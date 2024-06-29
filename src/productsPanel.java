@@ -1,13 +1,21 @@
+import Data.*;
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
+import static Data.Product.products;
 
 public class productsPanel {
-    public JLabel titleLabel, sortLabel;
+    public JLabel titleLabel, sortLabel, currentPage;
     public JPanel allPanels, navBar, sortBar, productsCardsPanel;
     public JTextField searchField;
     public button profileButton, searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
+    public JButton  previousPage, nextPage;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
+    ArrayList<Product> last = products;
+    int page = 1;
     public productsPanel(JFrame frame) {
 
         // all panels
@@ -37,9 +45,6 @@ public class productsPanel {
 
         // search button
         searchButton = new button("جست‌و‌جو", primaryColor, navBar);
-        // todo:
-        //  1. add action listener
-        //  2. search class in action listener
         searchButton.getButton().setBounds(920, 15, 100, 30);
 
         // ----- sort Bar panel -----
@@ -55,39 +60,56 @@ public class productsPanel {
 
         // sort by most expensive
         sortByMostExpensive = new button("گران‌ترین", primaryColor, sortBar);
-        // todo:
-        //  1. add action listener
-        //  2. sort class in action listener
         sortByMostExpensive.getButton().setBounds(800, 5, 100, 30);
 
         // sort by cheapest
         sortByCheapest = new button("ارزان‌ترین", primaryColor, sortBar);
-        // todo:
-        //  1. add action listener
-        //  2. sort class in action listener
         sortByCheapest.getButton().setBounds(695, 5, 100, 30);
 
         // sort by most popular
         sortByMostPopular = new button("پرطرفدار‌ترین", primaryColor, sortBar);
-        // todo:
-        //  1. add action listener
-        //  2. sort class in action listener
         sortByMostPopular.getButton().setBounds(590, 5, 100, 30);
 
         // ----- products Cards panel -----
+
         productsCardsPanel = new JPanel();
-        productsCardsPanel.setLayout(new GridLayout(2, 3));
+        productsCardsPanel.setLayout(new GridLayout(2, 3, 10, 10));
         productsCardsPanel.setBounds(0, 100, 1080, 620);
-        productsCardsPanel.setBackground(Color.blue);
-        // todo:
-        //  1. connect to database & create product cards
-        //  2. add "pages" feature
 
+        productsCardsPanel.setBackground(Color.gray);
+         // ----- page label -----
 
+        previousPage = new JButton("⇨");
+        currentPage = new JLabel("1");
+        nextPage = new JButton("⇦");
+        previousPage.setBounds(580, 630, 30, 30);
+        currentPage.setBounds(520, 630, 40, 40);
+        nextPage.setBounds(470, 630, 30, 30);
+        previousPage.setBackground(Color.decode("#FF841F"));
+        currentPage.setBackground(Color.decode("#FF841F"));
+        nextPage.setBackground(Color.decode("#FF841F"));
+        allPanels.add(previousPage);
+        allPanels.add(currentPage);
+        allPanels.add(nextPage);
+        for (int i = 0; i < Math.min(6, last.size()); i++)
+            productsCardsPanel.add(new productCard(last.get(i)).cardPanel);
         allPanels.add(navBar);
         allPanels.add(sortBar);
         allPanels.add(productsCardsPanel);
+        frame.add(allPanels);
 
+    }
+    void addProductsCardPanel(ArrayList<Product> AL, JFrame frame) {
+        last = AL;
+        frame.remove(allPanels);
+        allPanels.remove(productsCardsPanel);
+        allPanels.remove(currentPage);
+        currentPage.setText(Integer.toString(page));
+        productsCardsPanel.removeAll();
+        for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++)
+            productsCardsPanel.add(new productCard(AL.get(i)).cardPanel);
+        allPanels.add(productsCardsPanel);
+        allPanels.add(currentPage);
         frame.add(allPanels);
 
     }
