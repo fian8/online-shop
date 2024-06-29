@@ -103,6 +103,4 @@ public class Product extends Component {
         pictureLabel.setIcon(imageIcon);
         pictureLabel.setLayout(new BorderLayout());
     }
-    //todo
-    //1. Add image field(graphic)
 }

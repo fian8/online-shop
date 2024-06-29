@@ -1,19 +1,26 @@
 package productsPanels;
 
 import base.button;
+import products
 
+
+import Data.*;
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 
 import static Data.Product.products;
 
 public class productsPanel {
-    public JLabel titleLabel, sortLabel;
+    public JLabel titleLabel, sortLabel, currentPage;
     public JPanel allPanels, navBar, sortBar, productsCardsPanel;
     public JTextField searchField;
     public button profileButton, searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
+    public JButton  previousPage, nextPage;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 30);
     public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
+    public ArrayList<Product> last = products;
+    public int page = 1;
     public productsPanel(JFrame frame) {
 
         // all panels
@@ -69,24 +76,45 @@ public class productsPanel {
         sortByMostPopular.getButton().setBounds(590, 5, 100, 30);
 
         // ----- products Cards panel -----
+
         productsCardsPanel = new JPanel();
-        productsCardsPanel.setLayout(new GridLayout(2, 3));
+        productsCardsPanel.setLayout(new GridLayout(2, 3, 10, 10));
         productsCardsPanel.setBounds(0, 100, 1080, 620);
+
         productsCardsPanel.setBackground(Color.gray);
+         // ----- page label -----
 
-        for (Data.Product product : products) {
-            productsCardsPanel.add(new productCard(product).cardPanel);
-        }
-
-        // todo:
-        //  1. create product cards
-        //  2. add "pages" feature
-
-
+        previousPage = new JButton("⇨");
+        currentPage = new JLabel("1");
+        nextPage = new JButton("⇦");
+        previousPage.setBounds(580, 630, 30, 30);
+        currentPage.setBounds(520, 630, 40, 40);
+        nextPage.setBounds(470, 630, 30, 30);
+        previousPage.setBackground(Color.decode("#FF841F"));
+        currentPage.setBackground(Color.decode("#FF841F"));
+        nextPage.setBackground(Color.decode("#FF841F"));
+        allPanels.add(previousPage);
+        allPanels.add(currentPage);
+        allPanels.add(nextPage);
+        for (int i = 0; i < Math.min(6, last.size()); i++)
+            productsCardsPanel.add(new productCard(last.get(i)).cardPanel);
         allPanels.add(navBar);
         allPanels.add(sortBar);
         allPanels.add(productsCardsPanel);
+        frame.add(allPanels);
 
+    }
+    public void addProductsCardPanel(ArrayList<Product> AL, JFrame frame) {
+        last = AL;
+        frame.remove(allPanels);
+        allPanels.remove(productsCardsPanel);
+        allPanels.remove(currentPage);
+        currentPage.setText(Integer.toString(page));
+        productsCardsPanel.removeAll();
+        for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++)
+            productsCardsPanel.add(new productCard(AL.get(i)).cardPanel);
+        allPanels.add(productsCardsPanel);
+        allPanels.add(currentPage);
         frame.add(allPanels);
 
     }
