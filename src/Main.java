@@ -427,37 +427,21 @@ public class Main extends JFrame implements ActionListener {
         }
         // ----- cart panel -----
          else if (e.getSource() == cartPanel.finializeButton.getButton()) {
-            boolean inStock = true;
-            for (listPanels.productListCard productListCard : cartPanel.productListCards) {
-                if (productListCard.getProduct().getStock() < Integer.parseInt(String.valueOf(productListCard.numLabel))) {
-                    inStock = false;
-                }
-            }
-            if (user.getWallet() > cartPanel.total && inStock) {
-                user.setWallet(user.getWallet() - cartPanel.total);
-                int sellsAmount = cartPanel.total;
-                sellerProductsPanel.salesAmountNumLabel.setText(String.valueOf(sellsAmount));
-                for (productListCard productListCard : cartPanel.productListCards) {
-                    productListCard.getProduct().setStock(productListCard.getProduct().getStock() - Integer.parseInt(String.valueOf(productListCard.numLabel)));
-                }
-                customersListPanel.mainPanel.add(new customersListCard(user).cardPanel);
-                JOptionPane.showMessageDialog(null, "خرید با موفقیت نهایی شد!");
-                cartPanel.mainPanel.removeAll();
-            }
-        }
+             JOptionPane.showMessageDialog(null, "خرید با موفقیت نهایی شد!");
+         }
          else if (e.getSource() == cartPanel.backButton.getButton()) {
-            cartPanel.backButton.goTo(customerProductsPanel.allPanels, frame);
-        }
+             cartPanel.backButton.goTo(customerProductsPanel.allPanels, frame);
+         }
 
         // ----- seller products panel -----
          else if (e.getSource() == sellerProductsPanel.profileButton.getButton()) {
-            sellerProductsPanel.profileButton.goTo(sellerProfilePanel.allPanel, frame);
+             sellerProductsPanel.profileButton.goTo(sellerProfilePanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.addProductButton.getButton()) {
-            sellerProductsPanel.addProductButton.goTo(addProductPanel.allPanel, frame);
+             sellerProductsPanel.addProductButton.goTo(addProductPanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.stockButton.getButton()) {
-            sellerProductsPanel.stockButton.goTo(stockPanel.allPanel, frame);
+             sellerProductsPanel.stockButton.goTo(stockPanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.costumersListButton.getButton()) {
-            sellerProductsPanel.costumersListButton.goTo(customersListPanel.allPanel, frame);
+             sellerProductsPanel.costumersListButton.goTo(customersListPanel.allPanel, frame);
         } else if (e.getSource() == sellerProductsPanel.searchButton.getButton()) {
             String key = sellerProductsPanel.searchField.getText();
             ArrayList<Product> source = Product.getProducts();

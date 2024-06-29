@@ -18,20 +18,11 @@ public class stockPanel extends themeTwoPanel {
 
         // text label (edit)
         titleLabel.setText("موجودی انبار");
-        titleLabel.setBounds(465, 40, 150, 30);
+        titleLabel.setBounds(395, 70, 290, 60);
 
-        // back base.button
+        // back button
         backButton = new button("برگشت", Color.white, allPanel);
-        backButton.getButton().setBounds(150, 40, 100, 30);
-
-        // ----- products list cards panel (main panel) -----
-        mainPanel.setLayout(new GridLayout(10, 1));
-        mainPanel.setBounds(0, 100, 1080, 620);
-        mainPanel.setBackground(Color.gray);
-
-        for (Data.Product product : products) {
-            mainPanel.add(new productListCard(product).cardPanel);
-        }
+        backButton.getButton().setBounds(200, 80, 100, 30);
 
     }
 }
