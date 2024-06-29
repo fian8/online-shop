@@ -81,7 +81,7 @@ public class productsPanel {
 
         productsCardsPanel = new JPanel();
         productsCardsPanel.setLayout(new GridLayout(2, 3, 20, 20));
-        productsCardsPanel.setBounds(20, 190, 1040, 510);
+        productsCardsPanel.setBounds(20, 190, 1020, 400);
 
          // page label
         previousPage = new JButton("⇨");
@@ -115,8 +115,10 @@ public class productsPanel {
         productsCardsPanel.removeAll();
         currentPage.setText(String.valueOf(page));
         currentPage.setBounds(540, 630, 40, 40);
-        for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++)
-            productsCardsPanel.add(new productCard(AL.get(i)).cardPanel);
+        for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++) {
+            productCard productCard = new productCard(AL.get(i));
+            productsCardsPanel.add(productCard.cardPanel);
+        }
         productsCardsPanel.repaint();
         productsCardsPanel.revalidate();
         allPanels.add(currentPage);
