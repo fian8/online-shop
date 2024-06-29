@@ -1,5 +1,7 @@
 package listPanels;
 
+import Data.Product;
+import Data.User;
 import base.button;
 import base.themeTwoPanel;
 
@@ -17,7 +19,7 @@ public class cartPanel extends themeTwoPanel {
         super(frame);
 
         // main panel (edit)
-        mainPanel.setLayout(new GridLayout(5, 1));
+        mainPanel.setLayout(new GridLayout(10, 1));
 
         // text label (edit)
         titleLabel.setText("سبد خرید");
@@ -32,5 +34,11 @@ public class cartPanel extends themeTwoPanel {
         finializeButton.getButton().setBounds(490, 530, 100, 30);
         allPanel.add(mainPanel);
 
+    }
+    public void showCard(User user) {
+        for (Product product: user.getCart()) {
+            productListCard productList = new productListCard(product);
+            mainPanel.add(productList.cardPanel);
+        }
     }
 }

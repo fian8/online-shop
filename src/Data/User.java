@@ -11,6 +11,7 @@ public class User {
     private int id;
     private int type;
     private static ArrayList<User> users = new ArrayList<>();
+    private ArrayList<Product> cart = new ArrayList<>();
     public User (String nameLastName, String userName, Integer hashPass, String phoneNumber) {
         this.nameLastName = nameLastName;
         this.userName = userName;
@@ -88,5 +89,12 @@ public class User {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public ArrayList<Product> getCart() {
+        return cart;
+    }
+    public void buy(Product product) {
+        cart.add(product);
     }
 }

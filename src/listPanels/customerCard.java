@@ -5,10 +5,10 @@ import Data.User;
 import javax.swing.*;
 import java.awt.*;
 
-public class customersListCard {
+public class customerCard {
     JLabel nameLabel;
-    public JPanel cardPanel;
-    public customersListCard(User user) {
+    public JPanel cardPanel = new JPanel();
+    public customerCard(User user) {
 
         nameLabel = new JLabel(user.getNameLastName());
 //        nameLabel.setBounds();
