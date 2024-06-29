@@ -21,7 +21,5 @@ public class productCard {
         cardPanel.add(imageLabel);
         cardPanel.add(nameLabel);
         cardPanel.add(priceLabel);
-
-
     }
 }
