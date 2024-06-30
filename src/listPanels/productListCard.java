@@ -6,30 +6,19 @@ import javax.swing.*;
 import java.awt.*;
 
 public class productListCard {
-    public Product product;
-    public JLabel nameLabel, priceLabel, imageLabel, stockLabel;
-    public JPanel cardPanel;
+    public JLabel nameLabel, priceLabel;
+    public JPanel cardPanel = new JPanel();
+
     public productListCard(Product product) {
 
-        this.product = product;
-        this.nameLabel = new JLabel(product.getName());
-//        nameLabel.setBounds();
-        this.priceLabel = new JLabel(String.valueOf(product.getPrice()));
-//        priceLabel.setBounds();
-        this.imageLabel = new JLabel(product.imageIcon);
-//        imageLabel.setBounds();
-        this.stockLabel = new JLabel(String.valueOf(product.getStock()));
-//        numLabel.setBounds();
+        cardPanel.setLayout(new GridLayout(1, 3, 300, 0));
+        cardPanel.setBackground(Color.lightGray);
 
-        cardPanel.add(imageLabel);
+        nameLabel = new JLabel(product.getName(), SwingConstants.CENTER);
+        priceLabel = new JLabel(String.valueOf(product.getPrice()), SwingConstants.CENTER);
+
         cardPanel.add(nameLabel);
         cardPanel.add(priceLabel);
-        cardPanel.add(stockLabel);
 
-        cardPanel.setPreferredSize(new Dimension(780, 100));
-
-    }
-    public Product getProduct() {
-        return this.product;
     }
 }
