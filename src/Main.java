@@ -464,17 +464,17 @@ ArrayList<Product> cheap = Product.getProducts();
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(result);
             clearFields();
-        } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive) {
+        } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive.getButton()) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(expensive);
-        } else if (e.getSource() == sellerProductsPanel.sortByCheapest) {
+        } else if (e.getSource() == sellerProductsPanel.sortByCheapest.getButton()) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(cheap);
-        } else if (e.getSource() == sellerProductsPanel.sortByMostPopular) {
+        } else if (e.getSource() == sellerProductsPanel.sortByMostPopular.getButton()) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             sellerProductsPanel.addProductsCardPanel(popular);
