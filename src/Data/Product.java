@@ -62,7 +62,7 @@ public class Product extends Component {
         }
     }
     public void addImage() {
-        imageIcon = new ImageIcon(new ImageIcon(String.valueOf(file)).getImage().getScaledInstance(800, 600, Image.SCALE_DEFAULT));
+        imageIcon = new ImageIcon(new ImageIcon(String.valueOf(file)).getImage().getScaledInstance(135, 150, Image.SCALE_DEFAULT));
         imageLabel.setIcon(imageIcon);
         imageLabel.setLayout(new BorderLayout());
     }

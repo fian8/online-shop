@@ -1,5 +1,7 @@
 package base;
 
+import productsPanels.productCard;
+
 import javax.swing.*;
 import java.awt.*;
 

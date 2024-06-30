@@ -12,7 +12,7 @@ import static Data.Product.products;
 public class productsPanel {
 
     public JLabel titleLabel, sortLabel, currentPage;
-    public JPanel allPanels, navBar, sortBar, productsCardsPanel, pageNumBox;
+    public JPanel allPanels, navBar, sortBar, productsCardsPanel;
     public JTextField searchField;
     public button profileButton, searchButton, sortByMostExpensive, sortByCheapest, sortByMostPopular;
     public JButton previousPage, nextPage;
@@ -81,7 +81,7 @@ public class productsPanel {
 
         productsCardsPanel = new JPanel();
         productsCardsPanel.setLayout(new GridLayout(2, 3, 20, 20));
-        productsCardsPanel.setBounds(20, 190, 1020, 400);
+        productsCardsPanel.setBounds(30, 190, 1020, 400);
 
          // page label
         previousPage = new JButton("⇨");
