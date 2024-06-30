@@ -166,12 +166,12 @@ public class Main extends JFrame implements ActionListener {
         Main main = new Main();
     }
     public void clearFields(){
-        loginPanel.userNameField.setText("");
-        loginPanel.passwordField.setText("");
-        signupPanel.nameField.setText("");
-        signupPanel.passwordField.setText("");
-        signupPanel.phoneNumField.setText("");
-        signupPanel.userNameField.setText("");
+        loginPanel.setUserNameField("");
+        loginPanel.setPasswordField("");
+        signupPanel.setNameField("");
+        signupPanel.setPasswordField("");
+        signupPanel.setPhoneNumField("");
+        signupPanel.setUserNameField("");
         signupPanel.userTypeButtonGroup.clearSelection();
         editProfilePanel.nameField.setText("");
         editProfilePanel.passwordField.setText("");
@@ -192,10 +192,10 @@ public class Main extends JFrame implements ActionListener {
 
         // ----- login & signup panels -----
         if (e.getSource() == signupPanel.signupButton.getButton()){
-            String nameLastName = signupPanel.nameField.getText();
-            String phoneNumber = signupPanel.phoneNumField.getText();
-            String userName = signupPanel.userNameField.getText();
-            String password = signupPanel.passwordField.getText();
+            String nameLastName = signupPanel.getNameField().getText();
+            String phoneNumber = signupPanel.getPhoneNumField().getText();
+            String userName = signupPanel.getUserNameField().getText();
+            String password = signupPanel.getPasswordField().getText();
             int hash = validator.Hash(password);
             if (validator.nameValidation(nameLastName)) {
                 if (!validator.exist(userName)) {
@@ -237,8 +237,8 @@ public class Main extends JFrame implements ActionListener {
             loginPanel.signupButton.goTo(signupPanel.allPanel, frame);
             clearFields();
         } else if (e.getSource() == loginPanel.loginButton.getButton()) {
-            String userName = loginPanel.userNameField.getText();
-            int password = validator.Hash(loginPanel.passwordField.getText());
+            String userName = loginPanel.getUserNameField().getText();
+            int password = validator.Hash(loginPanel.getPasswordField().getText());
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
                     user = validator.getUser(userName);

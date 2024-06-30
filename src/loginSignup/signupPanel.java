@@ -7,7 +7,7 @@ import base.*;
 public class signupPanel extends themeTwoPanel {
 
     public JLabel nameLabel, phoneNumLabel, userNameLabel, passwordLabel, userTypeLabel;
-    public JTextField nameField, phoneNumField, userNameField, passwordField;
+    private JTextField nameField, phoneNumField, userNameField, passwordField;
     public JRadioButton costumerRadioButton, sellerRadioButton;
     public ButtonGroup userTypeButtonGroup;
     public button loginButton, signupButton;
@@ -80,5 +80,29 @@ public class signupPanel extends themeTwoPanel {
         signupButton = new button("ثبت نام کاربر جدید", Color.white, mainPanel);
         signupButton.getButton().setBounds(380, 390, 150, 30);
 
+    }
+    public void setNameField(String text) {
+        nameLabel.setText(text);
+    }
+    public void setPhoneNumField(String text) {
+        phoneNumField.setText(text);
+    }
+    public void setUserNameField(String text) {
+        userNameField.setText(text);
+    }
+    public void setPasswordField(String text) {
+        passwordField.setText(text);
+    }
+    public JTextField getNameField() {
+        return nameField;
+    }
+    public JTextField getPhoneNumField() {
+        return phoneNumField;
+    }
+    public JTextField getUserNameField() {
+        return userNameField;
+    }
+    public JTextField getPasswordField() {
+        return passwordField;
     }
 }
