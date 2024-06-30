@@ -6,8 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class productListCard {
-    public JLabel nameLabel, priceLabel;
-    public JPanel cardPanel = new JPanel();
+    private JLabel nameLabel;
+    private JLabel priceLabel;
+    private JPanel cardPanel = new JPanel();
 
     public productListCard(Product product) {
 
@@ -19,6 +20,17 @@ public class productListCard {
 
         cardPanel.add(nameLabel);
         cardPanel.add(priceLabel);
-
     }
+    JLabel getNameLabel() {
+        return nameLabel;
+    }
+    JLabel getPriceLabel() {
+        return priceLabel;
+    }
+    JPanel getCardPanel() {
+        return cardPanel;
+    }
+     void addToCardPanel(JLabel label) {
+        cardPanel.add(label);
+     }
 }

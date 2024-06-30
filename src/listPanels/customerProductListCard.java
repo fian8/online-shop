@@ -11,6 +11,6 @@ public class customerProductListCard extends productListCard {
         super(product);
 
         numLabel = new JLabel(String.valueOf(product.getStock()), SwingConstants.CENTER);
-        cardPanel.add(numLabel);
+        super.addToCardPanel(numLabel);
     }
 }

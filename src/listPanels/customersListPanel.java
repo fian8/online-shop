@@ -1,6 +1,5 @@
 package listPanels;
 
-import Data.Customer;
 import base.button;
 import base.themeTwoPanel;
 
@@ -22,8 +21,6 @@ public class customersListPanel extends themeTwoPanel {
         // back base.button
         backButton = new button("برگشت", Color.white, allPanel);
         backButton.getButton().setBounds(200, 80, 100, 30);
-        for (Customer customer: Customer.getCustomers())
-            mainPanel.add(new customerCard(customer).cardPanel);
 
     }
 }

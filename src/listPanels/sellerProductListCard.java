@@ -11,7 +11,7 @@ public class sellerProductListCard extends productListCard {
         super(product);
 
         stockLabel = new JLabel(String.valueOf(product.getStock()), SwingConstants.CENTER);
-        cardPanel.add(stockLabel);
+        super.addToCardPanel(stockLabel);
 
     }
 }

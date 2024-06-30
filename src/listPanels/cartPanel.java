@@ -39,22 +39,11 @@ public class cartPanel extends themeTwoPanel {
         total = 0;
         for (Product product: user.getCart()) {
             total += product.getPrice();
-            if (user.getType() == 1) {
-                sellerProductListCard productList = new sellerProductListCard(product);
-                mainPanel.add(productList.cardPanel);
-            }
-            else {
-                customerProductListCard productList = new customerProductListCard(product);
-                mainPanel.add(productList.cardPanel);
-            }
+            productListCard productList = new productListCard(product);
+            mainPanel.add(productList.getCardPanel());
         }
     }
-
     public int getTotal() {
         return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
     }
 }

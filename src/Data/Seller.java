@@ -20,7 +20,4 @@ public class Seller extends User{
             super.setWallet(super.getWallet() - amount);
         }
     }
-    //todo
-    //  1. handle edit
-    //  2. Show the appropriate message
 }
