@@ -14,12 +14,11 @@ import profilePanels.cashIncreasePanel;
 import profilePanels.customerProfilePanel;
 import profilePanels.editProfilePanel;
 import profilePanels.sellerProfilePanel;
-import productsPanels.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -387,8 +386,6 @@ public class Main extends JFrame implements ActionListener {
                     result.add(product);
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(result);
-            for (costumerProductCard product: customerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
             clearFields();
         } else if (e.getSource() == customerProductsPanel.sortByMostExpensive) {
             System.out.println("exp");
@@ -396,23 +393,17 @@ public class Main extends JFrame implements ActionListener {
             Collections.sort(expensive, new MostExpensiveComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(expensive);
-            for (costumerProductCard product: customerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == customerProductsPanel.sortByCheapest) {
             System.out.println("chp");
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(cheap);
-            for (costumerProductCard product: customerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == customerProductsPanel.sortByMostPopular) {
             System.out.println("pop");
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             customerProductsPanel.addProductsCardPanel(popular);
-            for (costumerProductCard product: customerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == customerProductsPanel.previousPage) {
             if (customerProductsPanel.page - 1 <= 0) {
                 //todo(Fatemeh): error
@@ -420,8 +411,6 @@ public class Main extends JFrame implements ActionListener {
             }
             customerProductsPanel.page -= 1;
             customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
-            for (costumerProductCard product: customerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == customerProductsPanel.nextPage) {
             if (customerProductsPanel.page + 1 > Product.products.size()/6 + (Product.products.size()%6>0?1: 0)) {
                  //todo(Fatemeh): error
@@ -429,8 +418,20 @@ public class Main extends JFrame implements ActionListener {
             }
             customerProductsPanel.page += 1;
             customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
-            for (costumerProductCard product: customerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
+        } else if (e.getSource() == sellerProductsPanel.previousPage) {
+            if (sellerProductsPanel.page - 1 <= 0) {
+                //todo(Fatemeh): error
+                return;
+            }
+            sellerProductsPanel.page -= 1;
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
+        } else if (e.getSource() == sellerProductsPanel.nextPage) {
+            if (sellerProductsPanel.page + 1 > Product.products.size()/6 + (Product.products.size()%6>0?1: 0)) {
+                //todo(Fatemeh): error
+                return;
+            }
+            sellerProductsPanel.page += 1;
+            sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
         }
         // ----- cart panel -----
          else if (e.getSource() == cartPanel.finializeButton.getButton()) {
@@ -458,47 +459,29 @@ public class Main extends JFrame implements ActionListener {
                     result.add(product);
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(result);
-            for (sellerProductCard product: sellerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
             clearFields();
         } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(expensive);
-            for (sellerProductCard product: sellerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == sellerProductsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(cheap);
-            for (sellerProductCard product: sellerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == sellerProductsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             sellerProductsPanel.addProductsCardPanel(popular);
-            for (sellerProductCard product: sellerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == sellerProductsPanel.previousPage) {
-            if (sellerProductsPanel.page - 1 <= 0) {
-                //todo(Fatemeh): error
-                return;
-            }
             sellerProductsPanel.page -= 1;
+            sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
             sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
-            for (sellerProductCard product: sellerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         } else if (e.getSource() == sellerProductsPanel.nextPage) {
-            if (sellerProductsPanel.page + 1 > Product.products.size()/6 + (Product.products.size()%6>0?1: 0)) {
-                //todo(Fatemeh): error
-                return;
-            }
             sellerProductsPanel.page += 1;
+            sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
             sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
-            for (sellerProductCard product: sellerProductsPanel.getCards())
-                product.mouseLPanel.addMouseListener((MouseListener) this);
         }
         
         // ----- costumers list panel -----
