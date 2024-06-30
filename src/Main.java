@@ -219,7 +219,7 @@ public class Main extends JFrame implements ActionListener {
                                 JOptionPane.showMessageDialog(null, "رمز معتبر نیست!");
                             }
                         } else {
-                            JOptionPane.showMessageDialog(null, "شماره تلفن معتبر نیست معتبر نیست!");
+                            JOptionPane.showMessageDialog(null, "شماره تلفن معتبر نیست!");
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "نام کاربری معتبر نیست!");
