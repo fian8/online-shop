@@ -44,4 +44,5 @@ public class loginPanel extends themeTwoPanel {
         signupButton.getButton().setBounds(380, 300, 150, 30);
 
     }
+
 }

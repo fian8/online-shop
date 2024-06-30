@@ -400,7 +400,7 @@ public class Main extends JFrame implements ActionListener {
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(expensive);
         } else if (e.getSource() == customerProductsPanel.sortByCheapest.getButton()) {
-            ArrayList<Product> cheap = Product.getProducts();
+ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(cheap);
@@ -464,17 +464,17 @@ public class Main extends JFrame implements ActionListener {
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(result);
             clearFields();
-        } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive.getButton()) {
+        } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(expensive);
-        } else if (e.getSource() == sellerProductsPanel.sortByCheapest.getButton()) {
+        } else if (e.getSource() == sellerProductsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(cheap);
-        } else if (e.getSource() == sellerProductsPanel.sortByMostPopular.getButton()) {
+        } else if (e.getSource() == sellerProductsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             sellerProductsPanel.addProductsCardPanel(popular);
@@ -487,7 +487,7 @@ public class Main extends JFrame implements ActionListener {
             sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
             sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
         }
-        
+
         // ----- costumers list panel -----
          else if (e.getSource() == customersListPanel.backButton.getButton()) {
             customersListPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);
