@@ -31,8 +31,4 @@ public class Customer extends User{
     public ArrayList<Product> getCard() {
         return card;
     }
-    //todo
-    //  1. handle errors (graphic)
-    //  2. handle edit
-    //  3. Show the appropriate message
 }

@@ -6,7 +6,7 @@ import base.themeTwoPanel;
 import javax.swing.*;
 import java.awt.*;
 
-import static Data.Product.products;
+import static Data.Product.*;
 
 public class stockPanel extends themeTwoPanel {
     public stockPanel(JFrame frame) {

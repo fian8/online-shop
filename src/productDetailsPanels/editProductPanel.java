@@ -6,7 +6,7 @@ import base.button;
 import javax.swing.*;
 import java.awt.*;
 
-import static Data.Product.products;
+import static Data.Product.*;
 
 public class editProductPanel extends productDetailsPanel {
     public button editTheProductButton;

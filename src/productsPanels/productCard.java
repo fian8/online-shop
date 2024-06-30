@@ -28,7 +28,7 @@ public class productCard{
         cardPanel.setLayout(new GridLayout(1, 2, 10, 10));
         cardPanel.setBackground(Color.lightGray);
 
-        imageLabel = new JLabel(product.imageIcon);
+        imageLabel = new JLabel(product.getImageIcon());
         textCardPanel.setLayout(new GridLayout(4, 1, 0, 5));
 
         nameLabel1 = new JLabel("نام محصول:", SwingConstants.CENTER);

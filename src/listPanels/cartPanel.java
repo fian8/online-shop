@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static Data.Product.products;
+import static Data.Product.*;
 
 public class cartPanel extends themeTwoPanel {
     public button finializeButton;

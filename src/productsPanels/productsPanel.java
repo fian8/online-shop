@@ -7,7 +7,7 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 
-import static Data.Product.products;
+import static Data.Product.*;
 
 public class productsPanel {
 
@@ -18,7 +18,7 @@ public class productsPanel {
     public JButton previousPage, nextPage;
     public Font titleFont = new Font("Geeza Pro",  Font.PLAIN, 80);
     public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.decode("#C0E0E4");
-    public ArrayList<Product> last = products;
+    public ArrayList<Product> last = Product.getProducts();
     public int page = 1;
     public productsPanel(JFrame frame) {
 

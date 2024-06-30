@@ -8,12 +8,12 @@ import java.util.ArrayList;
 public class Product extends Component {
     private String name;
     private int price, stock, rate;
-    public JLabel imageLabel = new JLabel();
-    public ImageIcon imageIcon;
-    public String filePath = "/home/...";
-    public File file;
-    public JFileChooser fileChooser = new JFileChooser(filePath);
-    public static ArrayList<Product> products = new ArrayList<>();
+    private JLabel imageLabel = new JLabel();
+    private ImageIcon imageIcon;
+    private String filePath = "/home/...";
+    private File file;
+    private JFileChooser fileChooser = new JFileChooser(filePath);
+    private static ArrayList<Product> products = new ArrayList<>();
 
     public Product(String name, int price, int stock) {
         this.name = name;
@@ -68,5 +68,11 @@ public class Product extends Component {
     }
     public void addToProducts() {
         products.add(this);
+    }
+    public JLabel getImageLabel() {
+        return imageLabel;
+    }
+    public ImageIcon getImageIcon() {
+        return imageIcon;
     }
 }

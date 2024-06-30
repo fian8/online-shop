@@ -412,7 +412,7 @@ public class Main extends JFrame implements ActionListener {
             customerProductsPanel.page -= 1;
             customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
         } else if (e.getSource() == customerProductsPanel.nextPage) {
-            if (customerProductsPanel.page + 1 > Product.products.size()/6 + (Product.products.size()%6>0?1: 0)) {
+            if (customerProductsPanel.page + 1 > Product.getProducts().size()/6 + (Product.getProducts().size()%6>0?1: 0)) {
                  //todo(Fatemeh): error
                  return;
             }
@@ -426,7 +426,7 @@ public class Main extends JFrame implements ActionListener {
             sellerProductsPanel.page -= 1;
             sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
         } else if (e.getSource() == sellerProductsPanel.nextPage) {
-            if (sellerProductsPanel.page + 1 > Product.products.size()/6 + (Product.products.size()%6>0?1: 0)) {
+            if (sellerProductsPanel.page + 1 > Product.getProducts().size()/6 + (Product.getProducts().size()%6>0?1: 0)) {
                 //todo(Fatemeh): error
                 return;
             }
@@ -549,9 +549,9 @@ public class Main extends JFrame implements ActionListener {
                 product.addImage();
             }
         } else if (e.getSource() == addProductPanel.addTheProductButton.getButton()) {
-        if (product != null && product.imageLabel.getIcon() != null) {
+        if (product != null && product.getImageLabel().getIcon() != null) {
             Product.addProduct(product);
-            if (Product.products.contains(product)) {
+            if (Product.getProducts().contains(product)) {
                 sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
                 customerProductsPanel.addProductsCardPanel(customerProductsPanel.last);
                 JOptionPane.showMessageDialog(null, "محصول با موفقیت افزوده شد!");
