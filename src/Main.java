@@ -19,11 +19,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Main extends JFrame implements ActionListener {
+public class Main extends JFrame implements ActionListener, MouseListener {
 
     // --OBJECTS--:
     public static JFrame frame;
@@ -44,6 +45,9 @@ public class Main extends JFrame implements ActionListener {
     public listPanels.stockPanel stockPanel;
     public listPanels.customersListPanel customersListPanel;
     public productDetailsPanels.editProductPanel editProductPanel;
+    public productCard productCard;
+    public costumerProductCard costumerProductCard;
+    public sellerProductCard sellerProductCard;
     public Product[] p = new Product[10];
 
 
@@ -590,6 +594,45 @@ public class Main extends JFrame implements ActionListener {
         }
          else if (e.getSource() == editProductPanel.backButton.getButton()) {
             editProductPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);
+        }
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+        productCard.cardPanel.add(productCard.mouseLPanel);
+        sellerProductCard.removeProductButton.addMouseListener(this);
+        sellerProductCard.editProductButton.addMouseListener(this);
+        costumerProductCard.addToCartButton.addMouseListener(this);
+        costumerProductCard.rateButton.addMouseListener(this);
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+        if (e.getSource() != productCard.cardPanel) {
+            productCard.cardPanel.remove(productCard.mouseLPanel);
+            sellerProductCard.removeProductButton.removeMouseListener(this);
+            sellerProductCard.editProductButton.removeMouseListener(this);
+            costumerProductCard.addToCartButton.removeMouseListener(this);
+            costumerProductCard.rateButton.removeMouseListener(this);
         }
 
     }
