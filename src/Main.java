@@ -166,12 +166,12 @@ public class Main extends JFrame implements ActionListener {
         Main main = new Main();
     }
     public void clearFields(){
-        loginPanel.setUserNameField("");
-        loginPanel.setPasswordField("");
-        signupPanel.setNameField("");
-        signupPanel.setPasswordField("");
-        signupPanel.setPhoneNumField("");
-        signupPanel.setUserNameField("");
+        loginPanel.userNameField.setText("");
+        loginPanel.passwordField.setText("");
+        signupPanel.nameField.setText("");
+        signupPanel.passwordField.setText("");
+        signupPanel.phoneNumField.setText("");
+        signupPanel.userNameField.setText("");
         signupPanel.userTypeButtonGroup.clearSelection();
         editProfilePanel.nameField.setText("");
         editProfilePanel.passwordField.setText("");
@@ -192,10 +192,10 @@ public class Main extends JFrame implements ActionListener {
 
         // ----- login & signup panels -----
         if (e.getSource() == signupPanel.signupButton.getButton()){
-            String nameLastName = signupPanel.getNameField().getText();
-            String phoneNumber = signupPanel.getPhoneNumField().getText();
-            String userName = signupPanel.getUserNameField().getText();
-            String password = signupPanel.getPasswordField().getText();
+            String nameLastName = signupPanel.nameField.getText();
+            String phoneNumber = signupPanel.phoneNumField.getText();
+            String userName = signupPanel.userNameField.getText();
+            String password = signupPanel.passwordField.getText();
             int hash = validator.Hash(password);
             if (validator.nameValidation(nameLastName)) {
                 if (!validator.exist(userName)) {
@@ -237,8 +237,8 @@ public class Main extends JFrame implements ActionListener {
             loginPanel.signupButton.goTo(signupPanel.allPanel, frame);
             clearFields();
         } else if (e.getSource() == loginPanel.loginButton.getButton()) {
-            String userName = loginPanel.getUserNameField().getText();
-            int password = validator.Hash(loginPanel.getPasswordField().getText());
+            String userName = loginPanel.userNameField.getText();
+            int password = validator.Hash(loginPanel.passwordField.getText());
             if (validator.exist(userName)) {
                 if (password == validator.getUser(userName).getHashPass()) {
                     user = validator.getUser(userName);
@@ -387,19 +387,19 @@ public class Main extends JFrame implements ActionListener {
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(result);
             clearFields();
-        } else if (e.getSource() == customerProductsPanel.sortByMostExpensive.getButton()) {
+        } else if (e.getSource() == customerProductsPanel.sortByMostExpensive) {
             System.out.println("exp");
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(expensive);
-        } else if (e.getSource() == customerProductsPanel.sortByCheapest.getButton()) {
+        } else if (e.getSource() == customerProductsPanel.sortByCheapest) {
             System.out.println("chp");
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(cheap);
-        } else if (e.getSource() == customerProductsPanel.sortByMostPopular.getButton()) {
+        } else if (e.getSource() == customerProductsPanel.sortByMostPopular) {
             System.out.println("pop");
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
@@ -460,17 +460,17 @@ public class Main extends JFrame implements ActionListener {
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(result);
             clearFields();
-        } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive.getButton()) {
+        } else if (e.getSource() == sellerProductsPanel.sortByMostExpensive) {
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(expensive);
-        } else if (e.getSource() == sellerProductsPanel.sortByCheapest.getButton()) {
+        } else if (e.getSource() == sellerProductsPanel.sortByCheapest) {
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             sellerProductsPanel.page = 1;
             sellerProductsPanel.addProductsCardPanel(cheap);
-        } else if (e.getSource() == sellerProductsPanel.sortByMostPopular.getButton()) {
+        } else if (e.getSource() == sellerProductsPanel.sortByMostPopular) {
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             sellerProductsPanel.addProductsCardPanel(popular);
@@ -483,7 +483,7 @@ public class Main extends JFrame implements ActionListener {
             sellerProductsPanel.currentPage.setText(String.valueOf(sellerProductsPanel.page));
             sellerProductsPanel.addProductsCardPanel(sellerProductsPanel.last);
         }
-        
+
         // ----- costumers list panel -----
          else if (e.getSource() == customersListPanel.backButton.getButton()) {
             customersListPanel.backButton.goTo(sellerProductsPanel.allPanels, frame);

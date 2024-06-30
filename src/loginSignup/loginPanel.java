@@ -6,7 +6,7 @@ import base.*;
 
 public class loginPanel extends themeTwoPanel {
     public JLabel userNameLabel, passwordLabel;
-    private JTextField userNameField, passwordField;
+    public JTextField userNameField, passwordField;
     public button loginButton, signupButton;
     public loginPanel(JFrame frame) {
 
@@ -44,16 +44,5 @@ public class loginPanel extends themeTwoPanel {
         signupButton.getButton().setBounds(380, 300, 150, 30);
 
     }
-    public void setUserNameField(String text) {
-        userNameField.setText(text);
-    }
-    public void setPasswordField(String text) {
-        passwordField.setText(text);
-    }
-    public JTextField getUserNameField() {
-        return userNameField;
-    }
-    public JTextField getPasswordField() {
-        return passwordField;
-    }
+
 }
