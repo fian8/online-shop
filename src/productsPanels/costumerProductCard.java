@@ -14,9 +14,6 @@ public class costumerProductCard extends productCard implements MouseListener {
 
         super(product);
 
-        mouseLPanel.setLayout(new GridLayout(2, 1, 0, 10));
-        mouseLPanel.add(addToCartButton);
-        mouseLPanel.add(rateButton);
     }
 
     @Override
