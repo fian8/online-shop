@@ -39,8 +39,14 @@ public class cartPanel extends themeTwoPanel {
         total = 0;
         for (Product product: user.getCart()) {
             total += product.getPrice();
-            productListCard productList = new productListCard(product);
-            mainPanel.add(productList.cardPanel);
+            if (user.getType() == 1) {
+                sellerProductListCard productList = new sellerProductListCard(product);
+                mainPanel.add(productList.cardPanel);
+            }
+            else {
+                customerProductListCard productList = new customerProductListCard(product);
+                mainPanel.add(productList.cardPanel);
+            }
         }
     }
 

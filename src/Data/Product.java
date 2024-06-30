@@ -20,7 +20,6 @@ public class Product extends Component {
         this.price = price;
         this.stock = stock;
         rate = 0;
-        products.add(this);
     }
     public String getName() {
         return name;
@@ -65,5 +64,9 @@ public class Product extends Component {
         imageIcon = new ImageIcon(new ImageIcon(String.valueOf(file)).getImage().getScaledInstance(135, 150, Image.SCALE_DEFAULT));
         imageLabel.setIcon(imageIcon);
         imageLabel.setLayout(new BorderLayout());
+
+    }
+    public void addToProducts() {
+        products.add(this);
     }
 }
