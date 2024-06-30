@@ -63,7 +63,7 @@ public class Main extends JFrame implements ActionListener {
         //todo: remove this and product arraylist
         for (int i = 0; i < 10; i++) {
             p[i] = new Product("BED" + i, i * 10000, i);
-
+            p[i].addToProducts();
         }
 
         // --INITIALIZING--:
