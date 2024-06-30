@@ -271,9 +271,14 @@ public class Main extends JFrame implements ActionListener {
         else if (e.getSource() == customerProfilePanel.exitButton.getButton()) {
             customerProfilePanel.exitButton.goTo(loginPanel.allPanel, frame);
         } else if (e.getSource() == customerProfilePanel.editProfileButton.getButton()) {
+            editProfilePanel.nameField.setText(user.getNameLastName());
+            editProfilePanel.phoneNumField.setText(user.getPhoneNumber());
+            editProfilePanel.userNameField.setText(user.getUserName());
             customerProfilePanel.editProfileButton.goTo(editProfilePanel.allPanel, frame);
         } else if (e.getSource() == customerProfilePanel.productsPanelButton.getButton()) {
             customerProfilePanel.productsPanelButton.goTo(customerProductsPanel.allPanels, frame);
+            customerProductsPanel.nextPage.getAction();
+            customerProductsPanel.previousPage.getAction();
         } else if (e.getSource() == customerProfilePanel.cashIncreaseButton.getButton()) {
             customerProfilePanel.cashIncreaseButton.goTo(cashIncreasePanel.allPanel, frame);
         }
@@ -311,6 +316,8 @@ public class Main extends JFrame implements ActionListener {
             sellerProfilePanel.editProfileButton.goTo(editProfilePanel.allPanel, frame);
         } else if (e.getSource() == sellerProfilePanel.productsPanelButton.getButton()) {
             sellerProfilePanel.productsPanelButton.goTo(sellerProductsPanel.allPanels, frame);
+            sellerProductsPanel.nextPage.getAction();
+            sellerProductsPanel.previousPage.getAction();
         }
 
         // ----- edit profile panel -----
@@ -388,19 +395,16 @@ public class Main extends JFrame implements ActionListener {
             customerProductsPanel.addProductsCardPanel(result);
             clearFields();
         } else if (e.getSource() == customerProductsPanel.sortByMostExpensive.getButton()) {
-            System.out.println("exp");
             ArrayList<Product> expensive = Product.getProducts();
             Collections.sort(expensive, new MostExpensiveComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(expensive);
         } else if (e.getSource() == customerProductsPanel.sortByCheapest.getButton()) {
-            System.out.println("chp");
             ArrayList<Product> cheap = Product.getProducts();
             Collections.sort(cheap, new CheapestComparator());
             customerProductsPanel.page = 1;
             customerProductsPanel.addProductsCardPanel(cheap);
         } else if (e.getSource() == customerProductsPanel.sortByMostPopular.getButton()) {
-            System.out.println("pop");
             ArrayList<Product> popular = Product.getProducts();
             Collections.sort(popular, new MostPopularComparator());
             customerProductsPanel.addProductsCardPanel(popular);

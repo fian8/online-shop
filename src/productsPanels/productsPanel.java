@@ -26,7 +26,7 @@ public class productsPanel {
         allPanels = new JPanel();
         allPanels.setBounds(0, 0, 1080, 720);
         allPanels.setLayout(null);
-        allPanels.setBackground(Color.gray);
+        allPanels.setBackground(Color.white);
 
         // ----- "navigation bar" panel -----
         navBar = new JPanel();
@@ -78,17 +78,17 @@ public class productsPanel {
 
 
         // ----- "products Cards" panel -----
-
         productsCardsPanel = new JPanel();
         productsCardsPanel.setLayout(new GridLayout(2, 3, 20, 20));
-        productsCardsPanel.setBounds(30, 190, 1020, 400);
+        productsCardsPanel.setBounds(30, 200, 1020, 400);
+        productsCardsPanel.setBackground(Color.white);
 
          // page label
         previousPage = new JButton("⇨");
         currentPage = new JLabel("1");
         nextPage = new JButton("⇦");
         nextPage.setFocusable(false);
-        currentPage.setFocusable(false);
+        previousPage.setFocusable(false);
         previousPage.setBounds(580, 630, 50, 50);
         currentPage.setBounds(540, 630, 40, 40);
         nextPage.setBounds(460, 630, 50, 50);

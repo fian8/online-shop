@@ -26,10 +26,12 @@ public class productCard{
     public productCard(Product product) {
 
         cardPanel.setLayout(new GridLayout(1, 2, 10, 10));
-        cardPanel.setBackground(Color.lightGray);
+        cardPanel.setBackground(secondaryColor);
 
         imageLabel = new JLabel(product.getImageIcon());
+        imageLabel.setBackground(secondaryColor);
         textCardPanel.setLayout(new GridLayout(4, 1, 0, 5));
+        textCardPanel.setBackground(secondaryColor);
 
         nameLabel1 = new JLabel("نام محصول:", SwingConstants.CENTER);
         nameLabel2 = new JLabel(product.getName(), SwingConstants.CENTER);
@@ -44,6 +46,7 @@ public class productCard{
         cardPanel.add(imageLabel);
         cardPanel.add(textCardPanel);
 
+        mouseLPanel.setBackground(secondaryColor);
 
     }
 }
