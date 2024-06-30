@@ -44,5 +44,6 @@ public class productCard{
         cardPanel.add(imageLabel);
         cardPanel.add(textCardPanel);
 
+
     }
 }
