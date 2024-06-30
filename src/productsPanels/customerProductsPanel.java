@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class customerProductsPanel extends productsPanel{
     public button cartButton;
     public Color primaryColor = Color.decode("#FF841F"), secondaryColor = Color.gray;
+    private ArrayList<costumerProductCard> pageProducts = new ArrayList<>();
+
     public customerProductsPanel(JFrame frame) {
 
         super(frame);
@@ -26,6 +28,7 @@ public class customerProductsPanel extends productsPanel{
     }
     public void addProductsCardPanel(ArrayList<Product> AL) {
         last = AL;
+        pageProducts.clear();
         allPanels.remove(productsCardsPanel);
         allPanels.remove(currentPage);
         allPanels.repaint();
@@ -36,6 +39,7 @@ public class customerProductsPanel extends productsPanel{
         for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++) {
             costumerProductCard productCard = new costumerProductCard(AL.get(i));
             productsCardsPanel.add(productCard.cardPanel);
+            pageProducts.add(productCard);
         }
         productsCardsPanel.repaint();
         productsCardsPanel.revalidate();
@@ -43,5 +47,8 @@ public class customerProductsPanel extends productsPanel{
         allPanels.add(productsCardsPanel);
         allPanels.revalidate();
         allPanels.repaint();
+    }
+    public ArrayList<costumerProductCard> getCards() {
+        return pageProducts;
     }
 }

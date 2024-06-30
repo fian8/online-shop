@@ -14,6 +14,7 @@ public class sellerProductsPanel extends productsPanel {
     public button costumersListButton;
     JLabel salesAmountTextLabel;
     public JLabel salesAmountNumLabel;
+    private ArrayList<sellerProductCard> pageProducts = new ArrayList<>();
     public sellerProductsPanel(JFrame frame) {
 
         super(frame);
@@ -58,6 +59,7 @@ public class sellerProductsPanel extends productsPanel {
     }
     public void addProductsCardPanel(ArrayList<Product> AL) {
         last = AL;
+        pageProducts.clear();
         allPanels.remove(productsCardsPanel);
         allPanels.remove(currentPage);
         allPanels.repaint();
@@ -68,6 +70,7 @@ public class sellerProductsPanel extends productsPanel {
         for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++) {
             sellerProductCard productCard = new sellerProductCard(AL.get(i));
             productsCardsPanel.add(productCard.cardPanel);
+            pageProducts.add(productCard);
         }
         productsCardsPanel.repaint();
         productsCardsPanel.revalidate();
@@ -75,5 +78,8 @@ public class sellerProductsPanel extends productsPanel {
         allPanels.add(productsCardsPanel);
         allPanels.revalidate();
         allPanels.repaint();
+    }
+    public ArrayList<sellerProductCard> getCards() {
+        return pageProducts;
     }
 }
