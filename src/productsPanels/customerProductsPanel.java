@@ -1,9 +1,11 @@
 package productsPanels;
 
+import Data.Product;
 import base.button;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class customerProductsPanel extends productsPanel{
     public button cartButton;
@@ -21,5 +23,25 @@ public class customerProductsPanel extends productsPanel{
         cartButton = new button("سبد خرید", primaryColor, navBar);
         cartButton.getButton().setBounds(440, 45, 100, 30);
 
+    }
+    public void addProductsCardPanel(ArrayList<Product> AL) {
+        last = AL;
+        allPanels.remove(productsCardsPanel);
+        allPanels.remove(currentPage);
+        allPanels.repaint();
+        allPanels.revalidate();
+        productsCardsPanel.removeAll();
+        currentPage.setText(String.valueOf(page));
+        currentPage.setBounds(540, 630, 40, 40);
+        for (int i = (page - 1) * 6; i < Math.min(page * 6, AL.size()); i++) {
+            costumerProductCard productCard = new costumerProductCard(AL.get(i));
+            productsCardsPanel.add(productCard.cardPanel);
+        }
+        productsCardsPanel.repaint();
+        productsCardsPanel.revalidate();
+        allPanels.add(currentPage);
+        allPanels.add(productsCardsPanel);
+        allPanels.revalidate();
+        allPanels.repaint();
     }
 }
